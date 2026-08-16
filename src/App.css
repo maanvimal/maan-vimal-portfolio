@@ -131,9 +131,16 @@
 
 .world--about .world__environment {
   background:
-    radial-gradient(ellipse 42% 58% at 76% 43%, #8b5a2430, transparent 64%),
-    radial-gradient(ellipse 58% 50% at 60% 100%, #c8923e12, transparent 72%),
-    linear-gradient(112deg, #090807 18%, #090807e8 53%, #120d09bf 100%);
+    /* Layer 1: Warm cinematic studio spotlight directly behind Phoenix portrait */
+    radial-gradient(ellipse 52% 62% at 76% 36%, rgba(214, 168, 79, 0.16), rgba(168, 120, 50, 0.05) 44%, transparent 68%),
+    /* Layer 2: Upper-right atmospheric gold illumination */
+    radial-gradient(ellipse 65% 45% at 92% 10%, rgba(229, 193, 106, 0.09), transparent 55%),
+    /* Layer 3: Mid-page golden ambient pool */
+    radial-gradient(ellipse 55% 40% at 20% 50%, rgba(214, 168, 79, 0.05), transparent 60%),
+    /* Layer 4: Lower-page gold warmth pool */
+    radial-gradient(ellipse 60% 50% at 80% 82%, rgba(214, 168, 79, 0.06), rgba(168, 120, 50, 0.02) 42%, transparent 65%),
+    /* Deep black base with subtle warm metallic depth */
+    linear-gradient(140deg, #080808 0%, #080808 55%, #0c0b09 100%);
 }
 
 .world--about::before {
@@ -142,7 +149,7 @@
   z-index: 0;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(90deg, #090807 0%, transparent 62%);
+  background: linear-gradient(90deg, #080808 0%, #080808e6 30%, transparent 68%);
 }
 
 .world--about::after {
@@ -151,79 +158,16 @@
   z-index: 0;
   inset: 0;
   pointer-events: none;
-  opacity: 0.16;
-  background-image: repeating-radial-gradient(
-    circle at 0 0,
-    #ffffff12 0,
-    #ffffff12 1px,
-    transparent 1px,
-    transparent 4px
-  );
-  mix-blend-mode: soft-light;
-}
-
-.world--about .world__content {
-  align-self: center;
-  max-width: 32rem;
-}
-
-.about-content__label {
-  margin: 0 0 1.25rem;
-  color: var(--theme-accent);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.about-content h1 {
-  max-width: none;
-  font-size: clamp(3rem, 4.8vw, 4.9rem);
-  line-height: 1;
-  letter-spacing: -0.045em;
-}
-
-.about-content__roles {
-  max-width: 29rem;
-  margin: 1.1rem 0 0;
-  color: var(--theme-accent);
-  font-size: clamp(1rem, 1.4vw, 1.2rem);
-  font-weight: 600;
-  line-height: 1.45;
-}
-
-.about-content__intro {
-  max-width: 34rem;
-  margin: 1.7rem 0 0;
-  color: var(--theme-text);
-  font-size: clamp(1rem, 1.25vw, 1.15rem);
-  line-height: 1.65;
-}
-
-.about-content__disciplines {
-  max-width: 31rem;
-  margin: 1.2rem 0 0;
-  color: var(--theme-text-muted);
-  font-size: 0.82rem;
-  line-height: 1.5;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.about-content__invitation {
-  max-width: 28rem;
-  margin: 2rem 0 0;
-  padding-left: 1rem;
-  border-left: 1px solid var(--theme-accent);
-  color: var(--theme-text-muted);
-  font-size: 0.95rem;
-  line-height: 1.55;
+  opacity: 0.09;
+  background-image: radial-gradient(circle at 1px 1px, #d6a84f 1px, transparent 0);
+  background-size: 32px 32px;
 }
 
 .world--about {
   display: block;
   padding: 0;
   overflow: visible;
+  background: #080808;
 }
 
 .about-world {
@@ -232,327 +176,3489 @@
   min-width: 0;
 }
 
+/* ==========================================================================
+   Hero Section — Architectural & Editorial
+   ========================================================================== */
+
 .about-hero {
   position: relative;
   display: grid;
   align-items: center;
   min-height: calc(100svh - 4.5rem);
-  padding: clamp(2rem, 5vw, 5rem) clamp(1.5rem, 7vw, 8rem);
+  padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 8vw, 9rem);
   overflow: hidden;
-}
-
-.about-hero__content {
-  position: relative;
-  z-index: 2;
-  width: min(100%, 32rem);
-  text-align: left;
 }
 
 .about-hero .phoenix-portrait {
   z-index: 1;
 }
 
-.about-world__sections {
+.about-hero__content {
   position: relative;
   z-index: 2;
-  padding: 0 clamp(1.5rem, 7vw, 8rem) 8rem;
+  width: min(100%, 38rem);
+  text-align: left;
 }
 
-.about-world__sections > section {
-  width: min(100%, 76rem);
-  margin: 0 auto;
-  padding: clamp(5rem, 11vw, 9rem) 0;
-  border-top: 1px solid color-mix(in srgb, var(--theme-text-muted) 22%, transparent);
+.about-hero__header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.6rem;
 }
 
-.about-section__number {
-  margin: 0 0 1.5rem;
-  color: var(--theme-accent);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.about-world__sections h2 {
-  max-width: 14ch;
-  margin: 0;
-  color: var(--theme-text);
-  font-size: clamp(2.2rem, 4vw, 4.5rem);
-  line-height: 1.03;
-  letter-spacing: -0.04em;
-}
-
-.about-world__sections h3 {
-  margin: 0;
-  color: var(--theme-text);
-  font-size: 1.05rem;
-}
-
-.about-section__split {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.9fr);
-  gap: clamp(2rem, 9vw, 9rem);
-  align-items: end;
-}
-
-.about-section__split > p {
-  margin: 0;
-  color: var(--theme-text-muted);
-  font-size: 1.1rem;
-  line-height: 1.7;
-}
-
-.about-capabilities > h2,
-.about-process > h2,
-.about-toolkit > h2,
-.about-work > h2,
-.about-experience > h2 {
-  margin-bottom: clamp(2.5rem, 6vw, 5rem);
-}
-
-.about-capability-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid color-mix(in srgb, var(--theme-text-muted) 24%, transparent);
-}
-
-.about-capability {
-  min-height: 14rem;
-  padding: 1.5rem;
-  border-right: 1px solid color-mix(in srgb, var(--theme-text-muted) 20%, transparent);
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text-muted) 20%, transparent);
-  background: linear-gradient(140deg, color-mix(in srgb, var(--theme-surface) 58%, transparent), transparent 80%);
-}
-
-.about-capability:nth-child(4n) {
-  border-right: 0;
-}
-
-.about-capability > span {
-  display: block;
-  margin-bottom: 3.5rem;
-  color: var(--theme-accent);
+.about-hero__label {
+  color: #e5c16a;
   font-size: 0.76rem;
-  letter-spacing: 0.1em;
-}
-
-.about-capability p,
-.about-work__project > p,
-.about-experience p,
-.about-contact > p {
-  color: var(--theme-text-muted);
-  line-height: 1.6;
-}
-
-.about-capability p {
-  margin: 0.7rem 0 0;
-  font-size: 0.9rem;
-}
-
-.about-process__steps {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid color-mix(in srgb, var(--theme-text-muted) 24%, transparent);
-}
-
-.about-process__steps li {
-  position: relative;
-  min-height: 17rem;
-  padding: 1.5rem 1.25rem 1.5rem 0;
-  border-right: 1px solid color-mix(in srgb, var(--theme-text-muted) 20%, transparent);
-}
-
-.about-process__steps li:not(:first-child) {
-  padding-left: 1.25rem;
-}
-
-.about-process__steps li:last-child {
-  border-right: 0;
-}
-
-.about-process__steps li > span {
-  display: block;
-  margin-bottom: 4rem;
-  color: var(--theme-accent);
-  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(214, 168, 79, 0.3);
 }
 
-.about-process__steps h3 {
-  font-size: 1.15rem;
+.about-hero__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #e5c16a;
+  box-shadow: 0 0 10px #e5c16a, 0 0 20px rgba(214, 168, 79, 0.45);
 }
 
-.about-process__steps p {
-  margin: 0.75rem 0 0;
+.about-hero__chapter {
   color: var(--theme-text-muted);
-  font-size: 0.88rem;
-  line-height: 1.55;
-}
-
-.about-toolkit__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  background: color-mix(in srgb, var(--theme-text-muted) 20%, transparent);
-}
-
-.about-toolkit__grid article {
-  min-height: 10rem;
-  padding: 1.75rem;
-  background: var(--theme-surface);
-}
-
-.about-toolkit__grid p {
-  margin: 1rem 0 0;
-  color: var(--theme-text-muted);
-  line-height: 1.6;
-}
-
-.about-work__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
-}
-
-.about-work__project {
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text-muted) 28%, transparent);
-}
-
-.about-work__media {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 4 / 3;
-  margin-bottom: 1.25rem;
-  color: var(--theme-text-muted);
-  background:
-    linear-gradient(135deg, transparent 49%, color-mix(in srgb, var(--theme-accent) 24%, transparent) 50%, transparent 51%),
-    var(--theme-surface);
-  border: 1px solid color-mix(in srgb, var(--theme-text-muted) 20%, transparent);
-}
-
-.about-work__media span {
   font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-.about-work__project > p:first-of-type {
+.about-hero__title {
   margin: 0;
-  color: var(--theme-accent);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.about-work__project h3 {
-  margin-top: 0.85rem;
-  font-size: 1.35rem;
-}
-
-.about-work__project > p:nth-of-type(2) {
-  margin: 0.8rem 0 0;
-}
-
-.about-work__destination {
-  display: inline-block;
-  margin-top: 1.6rem;
   color: var(--theme-text);
-  font-size: 0.8rem;
+  font-size: clamp(3.4rem, 6.4vw, 5.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
   font-weight: 700;
+}
+
+.about-hero__roles {
+  margin: 1.4rem 0 0;
+  color: #e5c16a;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 20px rgba(214, 168, 79, 0.25);
+}
+
+.about-hero__intro {
+  margin: 1.6rem 0 0;
+  color: var(--theme-text);
+  font-size: clamp(1.02rem, 1.25vw, 1.18rem);
+  line-height: 1.65;
+  max-width: 35rem;
+}
+
+.about-hero__meta {
+  margin-top: 2.2rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(214, 168, 79, 0.24);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.about-hero__disciplines {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.about-experience__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  background: color-mix(in srgb, var(--theme-text-muted) 20%, transparent);
-}
-
-.about-experience__grid article {
-  min-height: 13rem;
-  padding: 1.75rem;
-  background: var(--theme-background);
-}
-
-.about-experience__grid p {
-  margin: 1rem 0 0;
-}
-
-.about-contact {
-  padding-bottom: 0 !important;
-}
-
-.about-contact > h2 {
-  margin-bottom: 1.5rem;
-}
-
-.about-contact > p {
-  max-width: 32rem;
+.about-hero__invitation {
   margin: 0;
-  font-size: 1.05rem;
+  color: var(--theme-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--theme-accent);
 }
 
-.about-contact__actions {
+/* ==========================================================================
+   Section Foundation & Universal Architectural Elements
+   ========================================================================== */
+
+.about-world__sections {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(2rem, 8vw, 9rem) 10rem;
+}
+
+.about-section {
+  width: min(100%, 78rem);
+  margin: 0 auto;
+  padding: clamp(5.5rem, 11vw, 9rem) 0;
+}
+
+.about-section__header {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.2rem;
+}
+
+.about-section__number {
+  color: #e5c16a;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 12px rgba(214, 168, 79, 0.35);
+}
+
+.about-section__title {
+  color: var(--theme-text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.about-section__rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(229, 193, 106, 0.6) 0%, rgba(214, 168, 79, 0.28) 40%, rgba(214, 168, 79, 0.06) 80%, transparent 100%);
+  box-shadow: 0 0 8px rgba(214, 168, 79, 0.18);
+}
+
+.about-section__heading {
+  margin: 0 0 clamp(3rem, 6vw, 4.5rem);
+  color: var(--theme-text);
+  font-size: clamp(2rem, 3.8vw, 3.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  max-width: 24ch;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   01 — Profile (Editorial Asymmetric Statement)
+   ========================================================================== */
+
+.about-profile__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.95fr);
+  gap: clamp(2.5rem, 8vw, 8rem);
+  align-items: start;
+}
+
+.about-profile__headline {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: clamp(2.4rem, 4.2vw, 4.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.about-profile__narrative {
+  padding-left: clamp(0rem, 2.5vw, 2.5rem);
+  border-left: 1px solid rgba(214, 168, 79, 0.28);
+}
+
+.about-profile__narrative p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
+/* ==========================================================================
+   02 — What I Do (Editorial Capability Rows, No Boxed Cards)
+   ========================================================================== */
+
+.about-capabilities__layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 4.5rem;
+}
+
+.about-capability-item {
+  padding: 2.2rem 0;
+  border-bottom: 1px solid rgba(214, 168, 79, 0.2);
+  transition: border-bottom-color 0.3s ease, background 0.3s ease;
+}
+
+.about-capability-item:hover {
+  border-bottom-color: rgba(229, 193, 106, 0.65);
+  background: linear-gradient(90deg, rgba(214, 168, 79, 0.04) 0%, transparent 80%);
+}
+
+.about-capability-item__lead {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-capability-item__index {
+  color: #e5c16a;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.about-capability-item h3 {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.about-capability-item p {
+  margin: 0;
+  padding-left: 2.45rem;
+  color: var(--theme-text-muted);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   03 — How I Work (Architectural Sequence & Progression Rail)
+   ========================================================================== */
+
+.about-process__container {
+  position: relative;
   margin-top: 2rem;
 }
 
-.about-contact__actions button {
-  padding: 0.8rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text-muted) 42%, transparent);
+.about-process__rail {
+  position: absolute;
+  top: 1.35rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(229, 193, 106, 0.75) 0%, rgba(214, 168, 79, 0.38) 75%, rgba(214, 168, 79, 0.1) 100%);
+  box-shadow: 0 0 10px rgba(214, 168, 79, 0.25);
+  z-index: 0;
+}
+
+.about-process__sequence {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.about-process__step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about-process__badge {
+  width: 2.7rem;
+  height: 2.7rem;
+  border: 1px solid var(--theme-accent);
+  background: #080808;
+  display: grid;
+  place-items: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 18px rgba(214, 168, 79, 0.22), inset 0 0 12px rgba(214, 168, 79, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.about-process__badge:hover {
+  transform: translateY(-2px);
+  border-color: #e5c16a;
+  box-shadow: 0 0 28px rgba(229, 193, 106, 0.45), inset 0 0 16px rgba(214, 168, 79, 0.15);
+}
+
+.about-process__num {
+  color: #e5c16a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.about-process__details h3 {
+  margin: 0 0 0.8rem;
+  color: var(--theme-text);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.about-process__details p {
+  margin: 0;
   color: var(--theme-text-muted);
-  background: transparent;
-  font: inherit;
-  cursor: not-allowed;
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
-.world--coding .world__environment {
-  background: radial-gradient(circle at 72% 45%, #39ff7229, transparent 44%);
+/* ==========================================================================
+   04 — Toolkit (Editorial Taxonomy Wall)
+   ========================================================================== */
+
+.about-toolkit__matrix {
+  border-top: 1px solid rgba(214, 168, 79, 0.24);
 }
 
-.world--mythos .world__environment {
-  background: radial-gradient(circle at 70% 40%, #a96b352e, transparent 47%);
+.about-toolkit__row {
+  display: grid;
+  grid-template-columns: minmax(14rem, 20rem) 1fr;
+  padding: 2.2rem 0;
+  border-bottom: 1px solid rgba(214, 168, 79, 0.18);
+  align-items: baseline;
+  gap: 2rem;
+  transition: background 0.3s ease;
 }
 
-.world--majestic .world__environment {
-  background: radial-gradient(circle at 72% 44%, #d6b56d26, transparent 48%);
+.about-toolkit__row:hover {
+  background: linear-gradient(90deg, rgba(214, 168, 79, 0.04) 0%, transparent 60%);
 }
 
-.world__label {
-  margin: 0 0 0.75rem;
-  font-size: 0.8rem;
+.about-toolkit__category {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.about-toolkit__row-num {
+  color: #e5c16a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.about-toolkit__category h3 {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.about-toolkit__items p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   05 — Selected Work (Editorial Project Previews & Subtle Portal Frames)
+   ========================================================================== */
+
+.about-work__exhibition {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.2rem;
+}
+
+.about-work__portal-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.about-work__portal-card:hover {
+  transform: translateY(-3px);
+}
+
+.about-work__frame {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: #0d0d0f;
+  border: 1px solid rgba(214, 168, 79, 0.22);
+  margin-bottom: 1.6rem;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-work__reticle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--theme-accent);
+  pointer-events: none;
+}
+
+.about-work__reticle--tl {
+  top: 6px;
+  left: 6px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.about-work__reticle--br {
+  bottom: 6px;
+  right: 6px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+.about-work__portal-card[data-portal-world="mythos"]:hover .about-work__frame {
+  border-color: rgba(169, 107, 53, 0.55);
+  box-shadow: 0 0 24px rgba(169, 107, 53, 0.1);
+}
+
+.about-work__portal-card[data-portal-world="majestic"]:hover .about-work__frame {
+  border-color: rgba(214, 181, 109, 0.55);
+  box-shadow: 0 0 24px rgba(214, 181, 109, 0.1);
+}
+
+.about-work__portal-card[data-portal-world="coding"]:hover .about-work__frame {
+  border-color: rgba(57, 255, 114, 0.45);
+  box-shadow: 0 0 24px rgba(57, 255, 114, 0.08);
+}
+
+.about-work__media-label {
+  color: var(--theme-text-muted);
+  font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   opacity: 0.75;
 }
 
-.world h1 {
+.about-work__category {
   margin: 0;
-  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: #e5c16a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.world__identity {
-  margin: 1rem 0 0;
+.about-work__name {
+  margin: 0.6rem 0 0;
+  color: var(--theme-text);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.about-work__description {
+  margin: 0.8rem 0 0;
+  color: var(--theme-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.about-work__destination {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.6rem;
+  color: var(--theme-text);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-work__arrow {
+  color: #e5c16a;
+  transition: transform 0.2s ease;
+}
+
+.about-work__portal-card:hover .about-work__arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   06 — Education / Experience (Editorial Timeline Registry)
+   ========================================================================== */
+
+.about-experience__timeline {
+  border-top: 1px solid rgba(214, 168, 79, 0.24);
+}
+
+.about-experience__entry {
+  display: grid;
+  grid-template-columns: minmax(16rem, 22rem) 1fr;
+  padding: 2.4rem 0;
+  border-bottom: 1px solid rgba(214, 168, 79, 0.18);
+  align-items: baseline;
+  gap: 2rem;
+}
+
+.about-experience__lead {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.about-experience__index {
+  color: #e5c16a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.about-experience__lead h3 {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.about-experience__body p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   07 — Resume / Contact (Executive Conclusion)
+   ========================================================================== */
+
+.about-contact__signoff {
+  padding: 2rem 0 0;
+  max-width: 48rem;
+}
+
+.about-contact__signature {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: clamp(3.2rem, 5.5vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.about-contact__note {
+  margin: 1.5rem 0 0;
+  color: var(--theme-text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.about-contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.about-contact__button {
+  padding: 0.9rem 1.4rem;
+  border: 1px solid rgba(214, 168, 79, 0.45);
+  color: var(--theme-text-muted);
+  background: transparent;
+  font: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: not-allowed;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-contact__button:hover {
+  border-color: #e5c16a;
+  box-shadow: 0 0 14px rgba(214, 168, 79, 0.2);
+}
+
+/* ==========================================================================
+   CODING WORLD — Technical, Digital & Systems Design System
+   ========================================================================== */
+
+.world--coding {
+  display: block;
+  padding: 0;
+  overflow: visible;
+  background: #050706;
+}
+
+.world--coding .world__environment {
+  background:
+    /* Layer 1: Electric green matrix glow directly behind Coder portrait */
+    radial-gradient(ellipse 50% 60% at 75% 36%, rgba(57, 255, 114, 0.14), rgba(12, 18, 14, 0.05) 45%, transparent 68%),
+    /* Layer 2: Upper-right terminal digital glow */
+    radial-gradient(ellipse 65% 45% at 92% 10%, rgba(57, 255, 114, 0.08), transparent 55%),
+    /* Layer 3: Mid-page technical data pool */
+    radial-gradient(ellipse 55% 40% at 18% 50%, rgba(57, 255, 114, 0.04), transparent 60%),
+    /* Layer 4: Lower-page digital architecture pool */
+    radial-gradient(ellipse 60% 50% at 82% 80%, rgba(57, 255, 114, 0.05), transparent 65%),
+    /* Deep black slate base */
+    linear-gradient(140deg, #050706 0%, #050706 55%, #080c09 100%);
+}
+
+.world--coding::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, #050706 0%, #050706e6 30%, transparent 68%);
+}
+
+.world--coding::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image:
+    linear-gradient(to right, rgba(57, 255, 114, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(57, 255, 114, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.coding-world {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+/* ==========================================================================
+   01 — Coding Hero
+   ========================================================================== */
+
+.coding-hero {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: calc(100svh - 4.5rem);
+  padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 8vw, 9rem);
+  overflow: hidden;
+}
+
+.coding-hero .phoenix-portrait {
+  z-index: 1;
+}
+
+.coding-hero__content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 38rem);
+  text-align: left;
+}
+
+.coding-hero__terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.6rem;
+}
+
+.coding-hero__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--theme-accent);
+  box-shadow: 0 0 10px var(--theme-accent), 0 0 20px rgba(57, 255, 114, 0.5);
+  animation: pulse-green 2s infinite ease-in-out;
+}
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.coding-hero__sys-id {
+  color: var(--theme-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.coding-hero__status-label {
+  padding: 0.15rem 0.45rem;
+  background: rgba(57, 255, 114, 0.1);
+  border: 1px solid rgba(57, 255, 114, 0.3);
+  color: var(--theme-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+}
+
+.coding-hero__title {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: clamp(3.4rem, 6.4vw, 5.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  font-weight: 700;
+}
+
+.coding-hero__roles {
+  margin: 1.4rem 0 0;
+  color: var(--theme-accent);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 20px rgba(57, 255, 114, 0.25);
+}
+
+.coding-hero__intro {
+  margin: 1.6rem 0 0;
+  color: var(--theme-text);
+  font-size: clamp(1.02rem, 1.25vw, 1.18rem);
+  line-height: 1.65;
+  max-width: 35rem;
+}
+
+.coding-hero__meta {
+  margin-top: 2.2rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(57, 255, 114, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.coding-hero__disciplines {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+}
+
+.coding-hero__invitation {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--theme-accent);
+}
+
+/* ==========================================================================
+   Section Universal Standards for Coding World
+   ========================================================================== */
+
+.coding-world__sections {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(2rem, 8vw, 9rem) 10rem;
+}
+
+.coding-section {
+  width: min(100%, 78rem);
+  margin: 0 auto;
+  padding: clamp(5.5rem, 11vw, 9rem) 0;
+}
+
+.coding-section__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.2rem;
+}
+
+.coding-section__index {
+  color: var(--theme-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-shadow: 0 0 10px rgba(57, 255, 114, 0.35);
+}
+
+.coding-section__tag {
+  color: var(--theme-text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.coding-section__rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(57, 255, 114, 0.5) 0%, rgba(57, 255, 114, 0.2) 40%, rgba(57, 255, 114, 0.04) 80%, transparent 100%);
+  box-shadow: 0 0 8px rgba(57, 255, 114, 0.15);
+}
+
+.coding-section__heading {
+  margin: 0 0 clamp(3rem, 6vw, 4.5rem);
+  color: var(--theme-text);
+  font-size: clamp(2rem, 3.8vw, 3.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  max-width: 26ch;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   02 — Technical Profile
+   ========================================================================== */
+
+.coding-profile__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.95fr);
+  gap: clamp(2.5rem, 8vw, 8rem);
+  align-items: start;
+}
+
+.coding-profile__headline {
+  margin: 0 0 1.6rem;
+  color: var(--theme-text);
+  font-size: clamp(2.4rem, 4.2vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.coding-profile__para {
+  margin: 0 0 1.4rem;
+  color: var(--theme-text-muted);
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+.coding-profile__para:last-child {
+  margin-bottom: 0;
+}
+
+.coding-profile__principles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.coding-profile__principles-label {
+  color: var(--theme-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.coding-profile__principles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.coding-principle-card {
+  padding: 1.5rem;
+  background: rgba(12, 18, 14, 0.6);
+  border: 1px solid rgba(57, 255, 114, 0.18);
+  border-left: 2px solid var(--theme-accent);
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.coding-principle-card:hover {
+  border-color: rgba(57, 255, 114, 0.45);
+  background: rgba(12, 18, 14, 0.9);
+}
+
+.coding-principle-card__header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.coding-principle-card__code {
+  color: var(--theme-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.coding-principle-card h3 {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.coding-principle-card p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   03 — What I Build (Capabilities Matrix)
+   ========================================================================== */
+
+.coding-capabilities__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(57, 255, 114, 0.16);
+  border: 1px solid rgba(57, 255, 114, 0.16);
+}
+
+.coding-capability-node {
+  padding: 2rem 1.6rem;
+  background: #050706;
+  transition: background 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.coding-capability-node:hover {
+  background: rgba(12, 18, 14, 0.85);
+}
+
+.coding-capability-node__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.5rem;
+}
+
+.coding-capability-node__code {
+  color: var(--theme-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.coding-capability-node__category {
+  color: var(--theme-text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.coding-capability-node h3 {
+  margin: 0 0 0.8rem;
+  color: var(--theme-text);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.coding-capability-node p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* ==========================================================================
+   04 — Engineering Approach (Process Pipeline)
+   ========================================================================== */
+
+.coding-process__container {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.coding-process__track {
+  position: absolute;
+  top: 1.35rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(57, 255, 114, 0.65) 0%, rgba(57, 255, 114, 0.3) 75%, rgba(57, 255, 114, 0.08) 100%);
+  box-shadow: 0 0 10px rgba(57, 255, 114, 0.2);
+  z-index: 0;
+}
+
+.coding-process__sequence {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.coding-process__step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.coding-process__node-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.8rem;
+}
+
+.coding-process__step-num {
+  width: 2.7rem;
+  height: 2.7rem;
+  border: 1px solid var(--theme-accent);
+  background: #050706;
+  display: grid;
+  place-items: center;
+  color: var(--theme-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: 0 0 16px rgba(57, 255, 114, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.coding-process__step:hover .coding-process__step-num {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(57, 255, 114, 0.35);
+}
+
+.coding-process__phase {
+  color: var(--theme-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.coding-process__summary {
+  margin: 0 0 1rem;
+  color: var(--theme-text-muted);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.coding-process__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.coding-process__tag {
+  padding: 0.2rem 0.45rem;
+  background: rgba(57, 255, 114, 0.08);
+  border: 1px solid rgba(57, 255, 114, 0.2);
+  color: var(--theme-text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.68rem;
+}
+
+/* ==========================================================================
+   05 — Tech Stack
+   ========================================================================== */
+
+.coding-stack__categories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.coding-stack__category-card {
+  padding: 2rem;
+  background: rgba(12, 18, 14, 0.5);
+  border: 1px solid rgba(57, 255, 114, 0.18);
+}
+
+.coding-stack__category-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(57, 255, 114, 0.16);
+  margin-bottom: 1.2rem;
+}
+
+.coding-stack__category-head h3 {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.coding-stack__tag-badge {
+  padding: 0.2rem 0.5rem;
+  background: rgba(57, 255, 114, 0.1);
+  border: 1px solid rgba(57, 255, 114, 0.3);
+  color: var(--theme-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.coding-stack__tool-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.coding-stack__tool-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.coding-stack__tool-name {
+  color: var(--theme-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.coding-stack__tool-detail {
+  color: var(--theme-text-muted);
+  font-size: 0.82rem;
+  text-align: right;
+}
+
+/* ==========================================================================
+   06 — Selected Projects
+   ========================================================================== */
+
+.coding-projects__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.coding-project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+  gap: 2.5rem;
+  padding: 2.5rem;
+  background: rgba(12, 18, 14, 0.6);
+  border: 1px solid rgba(57, 255, 114, 0.22);
+}
+
+.coding-project-card__frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #030504;
+  border: 1px solid rgba(57, 255, 114, 0.2);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.coding-project-card__reticle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--theme-accent);
+  pointer-events: none;
+}
+
+.coding-project-card__reticle--tl {
+  top: 6px;
+  left: 6px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.coding-project-card__reticle--br {
+  bottom: 6px;
+  right: 6px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+.coding-project-card__screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.coding-project-card__status-indicator {
+  color: var(--theme-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.coding-project-card__media-note {
+  color: var(--theme-text-muted);
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.coding-project-card__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.coding-project-card__header-line {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.coding-project-card__badge {
+  padding: 0.15rem 0.5rem;
+  background: rgba(57, 255, 114, 0.12);
+  border: 1px solid rgba(57, 255, 114, 0.35);
+  color: var(--theme-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.coding-project-card__type {
+  color: var(--theme-text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+}
+
+.coding-project-card__name {
+  margin: 0 0 1rem;
+  color: var(--theme-text);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.coding-project-card__desc {
+  margin: 0 0 1.5rem;
+  color: var(--theme-text-muted);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.coding-project-card__highlights {
+  margin-bottom: 1.5rem;
+}
+
+.coding-project-card__highlights-label {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--theme-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.coding-project-card__highlights ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.coding-project-card__highlights li {
+  margin-bottom: 0.35rem;
+}
+
+.coding-project-card__stack-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.coding-stack-pill {
+  padding: 0.3rem 0.65rem;
+  background: rgba(57, 255, 114, 0.08);
+  border: 1px solid rgba(57, 255, 114, 0.22);
+  color: var(--theme-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   07 — AI × Development
+   ========================================================================== */
+
+.coding-ai-dev__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.coding-ai-pillar {
+  padding: 2.2rem;
+  background: rgba(12, 18, 14, 0.6);
+  border: 1px solid rgba(57, 255, 114, 0.18);
+  transition: border-color 0.25s ease;
+}
+
+.coding-ai-pillar:hover {
+  border-color: rgba(57, 255, 114, 0.45);
+}
+
+.coding-ai-pillar__header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.coding-ai-pillar__num {
+  color: var(--theme-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.coding-ai-pillar h3 {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.coding-ai-pillar p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   08 — Project Architecture (Systems Flow)
+   ========================================================================== */
+
+.coding-architecture__pipeline {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.coding-architecture__flow-track {
+  position: absolute;
+  top: 1.35rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(57, 255, 114, 0.65) 0%, rgba(57, 255, 114, 0.3) 75%, rgba(57, 255, 114, 0.08) 100%);
+  box-shadow: 0 0 10px rgba(57, 255, 114, 0.2);
+  z-index: 0;
+}
+
+.coding-architecture__stages {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.coding-architecture__node {
+  display: flex;
+  flex-direction: column;
+}
+
+.coding-architecture__node-head {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.coding-architecture__node-num {
+  width: 2.7rem;
+  height: 2.7rem;
+  border: 1px solid var(--theme-accent);
+  background: #050706;
+  display: grid;
+  place-items: center;
+  color: var(--theme-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: 0 0 16px rgba(57, 255, 114, 0.18);
+}
+
+.coding-architecture__node-icon {
+  color: var(--theme-text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.coding-architecture__node h3 {
+  margin: 0 0 0.65rem;
+  color: var(--theme-text);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.coding-architecture__node p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   09 — GitHub / Contact (System Exit)
+   ========================================================================== */
+
+.coding-contact__body {
+  padding: 2rem 0 0;
+  max-width: 48rem;
+}
+
+.coding-contact__name {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: clamp(3.2rem, 5.5vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.coding-contact__subtitle {
+  margin: 1.5rem 0 0;
+  color: var(--theme-text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.coding-contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.coding-contact__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.4rem;
+  border: 1px solid rgba(57, 255, 114, 0.4);
+  color: var(--theme-text-muted);
+  background: transparent;
+  font: inherit;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: not-allowed;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.coding-contact__button:hover {
+  border-color: var(--theme-accent);
+  box-shadow: 0 0 14px rgba(57, 255, 114, 0.25);
+}
+
+.coding-contact__button-prefix {
   color: var(--theme-accent);
   font-weight: 700;
 }
 
-.world__content > p:last-child {
-  margin: 1rem 0 0;
-  font-size: 1.1rem;
+.coding-world__colophon {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(57, 255, 114, 0.16);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   color: var(--theme-text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+/* ==========================================================================
+   MYTHOS WORLD — Ancient, Atmospheric, Bronze & Ember Storytelling System
+   ========================================================================== */
+
+.world--mythos {
+  display: block;
+  padding: 0;
+  overflow: visible;
+  background: #090807;
+}
+
+.world--mythos .world__environment {
+  background:
+    /* Layer 1: Warm aged bronze & glowing ember aura directly behind Storyteller portrait */
+    radial-gradient(ellipse 52% 62% at 75% 36%, rgba(169, 107, 53, 0.16), rgba(200, 100, 34, 0.08) 42%, rgba(169, 107, 53, 0.02) 68%, transparent 74%),
+    /* Layer 2: Upper-right atmospheric bronze haze */
+    radial-gradient(ellipse 65% 45% at 92% 10%, rgba(169, 107, 53, 0.09), transparent 55%),
+    /* Layer 3: Mid-page ancient chamber pool */
+    radial-gradient(ellipse 55% 40% at 18% 50%, rgba(169, 107, 53, 0.05), transparent 60%),
+    /* Layer 4: Lower-page ember depth pool */
+    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(200, 100, 34, 0.06), rgba(169, 107, 53, 0.02) 42%, transparent 65%),
+    /* Deep ancient stone/slate base */
+    linear-gradient(140deg, #090807 0%, #090807 55%, #0e0c0a 100%);
+}
+
+.world--mythos::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, #090807 0%, #090807e6 30%, transparent 68%);
+}
+
+.world--mythos::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: radial-gradient(circle at 1px 1px, #a96b35 1px, transparent 0);
+  background-size: 36px 36px;
+}
+
+.mythos-world {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+/* ==========================================================================
+   01 — Mythos Hero
+   ========================================================================== */
+
+.mythos-hero {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: calc(100svh - 4.5rem);
+  padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 8vw, 9rem);
+  overflow: hidden;
+}
+
+.mythos-hero .phoenix-portrait {
+  z-index: 1;
+}
+
+.mythos-hero__content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 40rem);
+  text-align: left;
+}
+
+.mythos-hero__header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.6rem;
+}
+
+.mythos-hero__ember-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d97724;
+  box-shadow: 0 0 12px #d97724, 0 0 24px rgba(217, 119, 36, 0.6);
+  animation: pulse-ember 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-ember {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.85); }
+}
+
+.mythos-hero__realm-id {
+  color: var(--theme-accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(169, 107, 53, 0.4);
+}
+
+.mythos-hero__eyebrow {
+  color: var(--theme-text-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.mythos-hero__title {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: clamp(3.2rem, 6vw, 5.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  text-shadow: 0 0 30px rgba(169, 107, 53, 0.25);
+}
+
+.mythos-hero__subtitle {
+  margin: 1.4rem 0 0;
+  color: #d97724;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 20px rgba(217, 119, 36, 0.25);
+}
+
+.mythos-hero__intro {
+  margin: 1.6rem 0 0;
+  color: var(--theme-text);
+  font-size: clamp(1.02rem, 1.25vw, 1.18rem);
+  line-height: 1.65;
+  max-width: 36rem;
+}
+
+.mythos-hero__meta {
+  margin-top: 2.2rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(169, 107, 53, 0.22);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.mythos-hero__disciplines {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mythos-hero__invitation {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--theme-accent);
+}
+
+/* ==========================================================================
+   Universal Section Architecture for Mythos World
+   ========================================================================== */
+
+.mythos-world__sections {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(2rem, 8vw, 9rem) 10rem;
+}
+
+.mythos-section {
+  width: min(100%, 78rem);
+  margin: 0 auto;
+  padding: clamp(5.5rem, 11vw, 9rem) 0;
+}
+
+.mythos-section__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.2rem;
+}
+
+.mythos-section__index {
+  color: #d97724;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 12px rgba(217, 119, 36, 0.35);
+}
+
+.mythos-section__tag {
+  color: var(--theme-text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.mythos-section__rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(217, 119, 36, 0.6) 0%, rgba(169, 107, 53, 0.28) 40%, rgba(169, 107, 53, 0.06) 80%, transparent 100%);
+  box-shadow: 0 0 8px rgba(169, 107, 53, 0.18);
+}
+
+.mythos-section__heading {
+  margin: 0 0 clamp(3rem, 6vw, 4.5rem);
+  color: var(--theme-text);
+  font-size: clamp(2rem, 3.8vw, 3.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  max-width: 26ch;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   01 — The Project
+   ========================================================================== */
+
+.mythos-project__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.95fr);
+  gap: clamp(2.5rem, 8vw, 8rem);
+  align-items: start;
+}
+
+.mythos-project__headline {
+  margin: 0 0 1.6rem;
+  color: var(--theme-text);
+  font-size: clamp(2.4rem, 4.2vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.mythos-project__para {
+  margin: 0 0 1.4rem;
+  color: var(--theme-text-muted);
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+.mythos-project__para:last-child {
+  margin-bottom: 0;
+}
+
+.mythos-project__pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.mythos-project__pillars-label {
+  color: #d97724;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.mythos-project__pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mythos-pillar-card {
+  padding: 1.5rem;
+  background: rgba(23, 18, 14, 0.65);
+  border: 1px solid rgba(169, 107, 53, 0.2);
+  border-left: 2px solid var(--theme-accent);
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.mythos-pillar-card:hover {
+  border-color: rgba(217, 119, 36, 0.5);
+  background: rgba(23, 18, 14, 0.9);
+}
+
+.mythos-pillar-card__head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.mythos-pillar-card__code {
+  color: #d97724;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.mythos-pillar-card h3 {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.mythos-pillar-card p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   02 — The Story Engine
+   ========================================================================== */
+
+.mythos-story-engine__container {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.mythos-story-engine__track {
+  position: absolute;
+  top: 1.35rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(217, 119, 36, 0.75) 0%, rgba(169, 107, 53, 0.38) 75%, rgba(169, 107, 53, 0.08) 100%);
+  box-shadow: 0 0 10px rgba(169, 107, 53, 0.22);
+  z-index: 0;
+}
+
+.mythos-story-engine__stages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.mythos-story-card {
+  padding: 2.2rem;
+  background: rgba(23, 18, 14, 0.75);
+  border: 1px solid rgba(169, 107, 53, 0.22);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.mythos-story-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(217, 119, 36, 0.55);
+}
+
+.mythos-story-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.mythos-story-card__step {
+  width: 2.7rem;
+  height: 2.7rem;
+  border: 1px solid var(--theme-accent);
+  background: #090807;
+  display: grid;
+  place-items: center;
+  color: #d97724;
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: 0 0 16px rgba(169, 107, 53, 0.2);
+}
+
+.mythos-story-card__role {
+  padding: 0.2rem 0.5rem;
+  background: rgba(169, 107, 53, 0.12);
+  border: 1px solid rgba(169, 107, 53, 0.3);
+  color: var(--theme-text-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mythos-story-card__name {
+  margin: 0 0 0.8rem;
+  color: var(--theme-text);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.mythos-story-card__desc {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  flex: 1;
+}
+
+/* ==========================================================================
+   03 — Cinematic Production
+   ========================================================================== */
+
+.mythos-production__tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.mythos-tool-node {
+  padding: 1.8rem;
+  background: rgba(23, 18, 14, 0.6);
+  border: 1px solid rgba(169, 107, 53, 0.2);
+  transition: border-color 0.25s ease;
+}
+
+.mythos-tool-node:hover {
+  border-color: rgba(217, 119, 36, 0.45);
+}
+
+.mythos-tool-node__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.mythos-tool-node__name {
+  color: var(--theme-text);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.mythos-tool-node__cat {
+  color: #d97724;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mythos-tool-node__detail {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.mythos-production__disciplines-block {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(169, 107, 53, 0.2);
+}
+
+.mythos-production__disciplines-label {
+  display: block;
+  color: #d97724;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+}
+
+.mythos-production__disciplines-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.mythos-discipline-item h3 {
+  margin: 0 0 0.65rem;
+  color: var(--theme-text);
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+.mythos-discipline-item p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   04 — Mythos Unveiled (Centerpiece Showcase)
+   ========================================================================== */
+
+.mythos-unveiled__showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.1fr);
+  gap: 3rem;
+  padding: 3rem;
+  background: rgba(23, 18, 14, 0.7);
+  border: 1px solid rgba(169, 107, 53, 0.25);
+  box-shadow: 0 0 30px rgba(169, 107, 53, 0.08);
+}
+
+.mythos-unveiled__frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #050403;
+  border: 1px solid rgba(169, 107, 53, 0.25);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.mythos-unveiled__reticle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--theme-accent);
+  pointer-events: none;
+}
+
+.mythos-unveiled__reticle--tl {
+  top: 6px;
+  left: 6px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.mythos-unveiled__reticle--br {
+  bottom: 6px;
+  right: 6px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+.mythos-unveiled__screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.mythos-unveiled__status-tag {
+  color: #d97724;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mythos-unveiled__media-note {
+  color: var(--theme-text-muted);
+  font-size: 0.82rem;
+  opacity: 0.8;
+}
+
+.mythos-unveiled__details {
+  display: flex;
+  flex-direction: column;
+}
+
+.mythos-unveiled__badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.mythos-unveiled__badge {
+  padding: 0.15rem 0.55rem;
+  background: rgba(169, 107, 53, 0.15);
+  border: 1px solid rgba(217, 119, 36, 0.4);
+  color: #d97724;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.mythos-unveiled__type {
+  color: var(--theme-text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.mythos-unveiled__name {
+  margin: 0 0 1rem;
+  color: var(--theme-text);
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.mythos-unveiled__summary {
+  margin: 0 0 1.5rem;
+  color: var(--theme-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.mythos-unveiled__features {
+  margin-top: auto;
+}
+
+.mythos-unveiled__features-label {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: #d97724;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mythos-unveiled__features ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.mythos-unveiled__features li {
+  margin-bottom: 0.35rem;
+}
+
+/* ==========================================================================
+   05 — Visual Language
+   ========================================================================== */
+
+.mythos-visual-language__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.mythos-visual-pillar {
+  padding: 2.2rem 1.8rem;
+  background: rgba(23, 18, 14, 0.6);
+  border: 1px solid rgba(169, 107, 53, 0.2);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.mythos-visual-pillar:hover {
+  border-color: rgba(217, 119, 36, 0.5);
+  transform: translateY(-2px);
+}
+
+.mythos-visual-pillar__header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.mythos-visual-pillar__num {
+  color: #d97724;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.mythos-visual-pillar h3 {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.mythos-visual-pillar p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   06 — Production Pipeline
+   ========================================================================== */
+
+.mythos-pipeline__container {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.mythos-pipeline__track {
+  position: absolute;
+  top: 1.35rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(217, 119, 36, 0.75) 0%, rgba(169, 107, 53, 0.35) 75%, rgba(169, 107, 53, 0.08) 100%);
+  box-shadow: 0 0 10px rgba(169, 107, 53, 0.2);
+  z-index: 0;
+}
+
+.mythos-pipeline__stages {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.mythos-pipeline__node {
+  display: flex;
+  flex-direction: column;
+}
+
+.mythos-pipeline__node-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mythos-pipeline__node-num {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--theme-accent);
+  background: #090807;
+  display: grid;
+  place-items: center;
+  color: #d97724;
+  font-size: 0.76rem;
+  font-weight: 700;
+  box-shadow: 0 0 14px rgba(169, 107, 53, 0.2);
+}
+
+.mythos-pipeline__node-phase {
+  color: var(--theme-text);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mythos-pipeline__node-detail {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   07 — Selected Episode / Work
+   ========================================================================== */
+
+.mythos-episode__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+}
+
+.mythos-episode-card {
+  padding: 2.2rem;
+  background: rgba(23, 18, 14, 0.65);
+  border: 1px solid rgba(169, 107, 53, 0.22);
+  display: flex;
+  flex-direction: column;
+}
+
+.mythos-episode-card__frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #050403;
+  border: 1px solid rgba(169, 107, 53, 0.2);
+  display: grid;
+  place-items: center;
+  margin-bottom: 1.6rem;
+  overflow: hidden;
+}
+
+.mythos-episode-card__reticle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--theme-accent);
+  pointer-events: none;
+}
+
+.mythos-episode-card__reticle--tl {
+  top: 6px;
+  left: 6px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.mythos-episode-card__reticle--br {
+  bottom: 6px;
+  right: 6px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+.mythos-episode-card__screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.mythos-episode-card__code {
+  color: #d97724;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.mythos-episode-card__note {
+  color: var(--theme-text-muted);
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.mythos-episode-card__status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.mythos-episode-card__status {
+  color: #d97724;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mythos-episode-card__aspect {
+  color: var(--theme-text-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.mythos-episode-card__title {
+  margin: 0 0 0.8rem;
+  color: var(--theme-text);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.mythos-episode-card__premise {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   08 — Media / Watch
+   ========================================================================== */
+
+.mythos-media__theater {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mythos-media__master-frame {
+  position: relative;
+  aspect-ratio: 21 / 9;
+  background: #050403;
+  border: 1px solid rgba(169, 107, 53, 0.3);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  box-shadow: 0 0 35px rgba(169, 107, 53, 0.1);
+}
+
+.mythos-media__reticle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: #d97724;
+  pointer-events: none;
+}
+
+.mythos-media__reticle--tl {
+  top: 8px;
+  left: 8px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.mythos-media__reticle--br {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+.mythos-media__screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 2rem;
+  text-align: center;
+  max-width: 32rem;
+}
+
+.mythos-media__tag {
+  color: #d97724;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.mythos-media__title {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.mythos-media__note {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.mythos-media__slots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.mythos-media-slot {
+  padding: 1.2rem;
+  background: rgba(23, 18, 14, 0.5);
+  border: 1px solid rgba(169, 107, 53, 0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mythos-media-slot__status {
+  color: #d97724;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.mythos-media-slot__label {
+  color: var(--theme-text-muted);
+  font-size: 0.82rem;
+}
+
+/* ==========================================================================
+   09 — Closing
+   ========================================================================== */
+
+.mythos-closing__body {
+  padding: 2rem 0 0;
+  max-width: 48rem;
+}
+
+.mythos-closing__statement {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: clamp(3.2rem, 5.5vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.mythos-closing__narrative {
+  margin: 1.5rem 0 0;
+  color: var(--theme-text-muted);
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
+.mythos-closing__author {
+  margin: 1rem 0 0;
+  color: #d97724;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.mythos-closing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.mythos-closing__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.4rem;
+  border: 1px solid rgba(169, 107, 53, 0.45);
+  color: var(--theme-text-muted);
+  background: transparent;
+  font: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: not-allowed;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mythos-closing__button:hover {
+  border-color: #d97724;
+  box-shadow: 0 0 14px rgba(217, 119, 36, 0.25);
+}
+
+.mythos-closing__button-symbol {
+  color: #d97724;
+  font-size: 0.75rem;
+}
+
+.mythos-world__colophon {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(169, 107, 53, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--theme-text-muted);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   MAJESTIC WORLD — Artist Studio & Pet Portrait Gallery System
+   ========================================================================== */
+
+.world--majestic {
+  display: block;
+  padding: 0;
+  overflow: visible;
+  background: #11100e;
+}
+
+.world--majestic .world__environment {
+  background:
+    /* Layer 1: Warm champagne & soft gold illumination directly behind Artist portrait */
+    radial-gradient(ellipse 52% 62% at 75% 36%, rgba(214, 181, 109, 0.18), rgba(232, 212, 158, 0.08) 44%, transparent 68%),
+    /* Layer 2: Upper-right luminous ivory/champagne gallery wash */
+    radial-gradient(ellipse 65% 45% at 92% 10%, rgba(245, 240, 231, 0.06), transparent 55%),
+    /* Layer 3: Mid-page painterly studio glow */
+    radial-gradient(ellipse 55% 40% at 20% 50%, rgba(214, 181, 109, 0.05), transparent 60%),
+    /* Layer 4: Lower-page warm gold depth pool */
+    radial-gradient(ellipse 60% 50% at 80% 82%, rgba(214, 181, 109, 0.06), rgba(180, 140, 70, 0.02) 42%, transparent 65%),
+    /* Deep warm charcoal studio base */
+    linear-gradient(140deg, #11100e 0%, #11100e 55%, #161411 100%);
+}
+
+.world--majestic::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, #11100e 0%, #11100ee6 30%, transparent 68%);
+}
+
+.world--majestic::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: radial-gradient(circle at 1px 1px, #d6b56d 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+.majestic-world {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+/* ==========================================================================
+   01 — Majestic Hero
+   ========================================================================== */
+
+.majestic-hero {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: calc(100svh - 4.5rem);
+  padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 8vw, 9rem);
+  overflow: hidden;
+}
+
+.majestic-hero .phoenix-portrait {
+  z-index: 1;
+}
+
+.majestic-hero__content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 40rem);
+  text-align: left;
+}
+
+.majestic-hero__header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.6rem;
+}
+
+.majestic-hero__champagne-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e8d49e;
+  box-shadow: 0 0 12px #e8d49e, 0 0 24px rgba(232, 212, 158, 0.55);
+  animation: pulse-champagne 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-champagne {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.85); }
+}
+
+.majestic-hero__realm-id {
+  color: #e8d49e;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(214, 181, 109, 0.35);
+}
+
+.majestic-hero__eyebrow {
+  color: var(--theme-text-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.majestic-hero__title {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: clamp(3.2rem, 6vw, 5.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  text-shadow: 0 0 30px rgba(214, 181, 109, 0.2);
+}
+
+.majestic-hero__subtitle {
+  margin: 1.4rem 0 0;
+  color: #e8d49e;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 20px rgba(214, 181, 109, 0.25);
+}
+
+.majestic-hero__intro {
+  margin: 1.6rem 0 0;
+  color: var(--theme-text);
+  font-size: clamp(1.02rem, 1.25vw, 1.18rem);
+  line-height: 1.65;
+  max-width: 36rem;
+}
+
+.majestic-hero__meta {
+  margin-top: 2.2rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(214, 181, 109, 0.24);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.majestic-hero__disciplines {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.majestic-hero__invitation {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--theme-accent);
+}
+
+/* ==========================================================================
+   Universal Section Architecture for Majestic World
+   ========================================================================== */
+
+.majestic-world__sections {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(2rem, 8vw, 9rem) 10rem;
+}
+
+.majestic-section {
+  width: min(100%, 78rem);
+  margin: 0 auto;
+  padding: clamp(5.5rem, 11vw, 9rem) 0;
+}
+
+.majestic-section__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.2rem;
+}
+
+.majestic-section__index {
+  color: #e8d49e;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 12px rgba(214, 181, 109, 0.35);
+}
+
+.majestic-section__tag {
+  color: var(--theme-text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.majestic-section__rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(232, 212, 158, 0.6) 0%, rgba(214, 181, 109, 0.28) 40%, rgba(214, 181, 109, 0.06) 80%, transparent 100%);
+  box-shadow: 0 0 8px rgba(214, 181, 109, 0.18);
+}
+
+.majestic-section__heading {
+  margin: 0 0 clamp(3rem, 6vw, 4.5rem);
+  color: var(--theme-text);
+  font-size: clamp(2rem, 3.8vw, 3.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  max-width: 26ch;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   01 — The Studio
+   ========================================================================== */
+
+.majestic-studio__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.95fr);
+  gap: clamp(2.5rem, 8vw, 8rem);
+  align-items: start;
+}
+
+.majestic-studio__headline {
+  margin: 0 0 1.6rem;
+  color: var(--theme-text);
+  font-size: clamp(2.4rem, 4.2vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.majestic-studio__para {
+  margin: 0 0 1.4rem;
+  color: var(--theme-text-muted);
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+.majestic-studio__para:last-child {
+  margin-bottom: 0;
+}
+
+.majestic-studio__pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.majestic-studio__pillars-label {
+  color: #e8d49e;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.majestic-studio__pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.majestic-pillar-card {
+  padding: 1.5rem;
+  background: rgba(29, 25, 21, 0.65);
+  border: 1px solid rgba(214, 181, 109, 0.2);
+  border-left: 2px solid var(--theme-accent);
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.majestic-pillar-card:hover {
+  border-color: rgba(232, 212, 158, 0.5);
+  background: rgba(29, 25, 21, 0.9);
+}
+
+.majestic-pillar-card__head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.majestic-pillar-card__code {
+  color: #e8d49e;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.majestic-pillar-card h3 {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.majestic-pillar-card p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   02 — The Philosophy
+   ========================================================================== */
+
+.majestic-philosophy__statement-card {
+  position: relative;
+  padding: clamp(3rem, 6vw, 5rem);
+  background: rgba(29, 25, 21, 0.75);
+  border: 1px solid rgba(214, 181, 109, 0.25);
+  box-shadow: 0 0 35px rgba(214, 181, 109, 0.08);
+  max-width: 58rem;
+  margin: 0 auto;
+}
+
+.majestic-philosophy__frame-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--theme-accent);
+  pointer-events: none;
+}
+
+.majestic-philosophy__frame-corner--tl {
+  top: 10px;
+  left: 10px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.majestic-philosophy__frame-corner--br {
+  bottom: 10px;
+  right: 10px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+.majestic-philosophy__quote {
+  margin: 0 0 1.8rem;
+  color: var(--theme-text);
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 20px rgba(214, 181, 109, 0.15);
+}
+
+.majestic-philosophy__commentary {
+  margin: 0 0 2rem;
+  color: var(--theme-text-muted);
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+.majestic-philosophy__author {
+  display: inline-block;
+  color: #e8d49e;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   03 — What I Create
+   ========================================================================== */
+
+.majestic-create__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.8rem;
+}
+
+.majestic-discipline-card {
+  padding: 2.2rem;
+  background: rgba(29, 25, 21, 0.65);
+  border: 1px solid rgba(214, 181, 109, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.majestic-discipline-card:hover {
+  border-color: rgba(232, 212, 158, 0.5);
+  transform: translateY(-2px);
+}
+
+.majestic-discipline-card__header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.majestic-discipline-card__code {
+  color: #e8d49e;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.majestic-discipline-card h3 {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.majestic-discipline-card p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  flex: 1;
+}
+
+/* ==========================================================================
+   04 — The Process
+   ========================================================================== */
+
+.majestic-process__container {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.majestic-process__track {
+  position: absolute;
+  top: 1.35rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(232, 212, 158, 0.75) 0%, rgba(214, 181, 109, 0.38) 75%, rgba(214, 181, 109, 0.08) 100%);
+  box-shadow: 0 0 10px rgba(214, 181, 109, 0.2);
+  z-index: 0;
+}
+
+.majestic-process__sequence {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.majestic-process__step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.majestic-process__node-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.8rem;
+}
+
+.majestic-process__step-num {
+  width: 2.7rem;
+  height: 2.7rem;
+  border: 1px solid var(--theme-accent);
+  background: #11100e;
+  display: grid;
+  place-items: center;
+  color: #e8d49e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: 0 0 16px rgba(214, 181, 109, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.majestic-process__step:hover .majestic-process__step-num {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(232, 212, 158, 0.35);
+}
+
+.majestic-process__phase {
+  color: var(--theme-text);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.majestic-process__detail {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   05 — Majestic Tails Studio (Centerpiece Showcase)
+   ========================================================================== */
+
+.majestic-tails__showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.1fr);
+  gap: 3rem;
+  padding: 3rem;
+  background: rgba(29, 25, 21, 0.7);
+  border: 1px solid rgba(214, 181, 109, 0.25);
+  box-shadow: 0 0 35px rgba(214, 181, 109, 0.08);
+}
+
+.majestic-tails__frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #080706;
+  border: 1px solid rgba(214, 181, 109, 0.25);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.majestic-tails__reticle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--theme-accent);
+  pointer-events: none;
+}
+
+.majestic-tails__reticle--tl {
+  top: 6px;
+  left: 6px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.majestic-tails__reticle--br {
+  bottom: 6px;
+  right: 6px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+.majestic-tails__screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.majestic-tails__status-tag {
+  color: #e8d49e;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.majestic-tails__media-note {
+  color: var(--theme-text-muted);
+  font-size: 0.82rem;
+  opacity: 0.8;
+}
+
+.majestic-tails__details {
+  display: flex;
+  flex-direction: column;
+}
+
+.majestic-tails__badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.majestic-tails__badge {
+  padding: 0.15rem 0.55rem;
+  background: rgba(214, 181, 109, 0.15);
+  border: 1px solid rgba(232, 212, 158, 0.4);
+  color: #e8d49e;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.majestic-tails__type {
+  color: var(--theme-text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.majestic-tails__name {
+  margin: 0 0 1rem;
+  color: var(--theme-text);
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.majestic-tails__summary {
+  margin: 0 0 1.5rem;
+  color: var(--theme-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.majestic-tails__focus-list {
+  margin-top: auto;
+}
+
+.majestic-tails__focus-label {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: #e8d49e;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.majestic-tails__focus-list ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.majestic-tails__focus-list li {
+  margin-bottom: 0.35rem;
+}
+
+/* ==========================================================================
+   06 — Portrait Collection (Gallery)
+   ========================================================================= */
+
+.majestic-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.2rem;
+}
+
+.majestic-gallery-card {
+  padding: 2rem;
+  background: rgba(29, 25, 21, 0.65);
+  border: 1px solid rgba(214, 181, 109, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.majestic-gallery-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(232, 212, 158, 0.5);
+}
+
+.majestic-gallery-card__frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #080706;
+  border: 1px solid rgba(214, 181, 109, 0.2);
+  display: grid;
+  place-items: center;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.majestic-gallery-card__reticle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--theme-accent);
+  pointer-events: none;
+}
+
+.majestic-gallery-card__reticle--tl {
+  top: 6px;
+  left: 6px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.majestic-gallery-card__reticle--br {
+  bottom: 6px;
+  right: 6px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+.majestic-gallery-card__screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.majestic-gallery-card__code {
+  color: #e8d49e;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.majestic-gallery-card__note {
+  color: var(--theme-text-muted);
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.majestic-gallery-card__style-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.majestic-gallery-card__style {
+  color: #e8d49e;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.majestic-gallery-card__aspect {
+  color: var(--theme-text-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.majestic-gallery-card__title {
+  margin: 0 0 0.8rem;
+  color: var(--theme-text);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.majestic-gallery-card__desc {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   07 — Visual Direction
+   ========================================================================== */
+
+.majestic-direction__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.majestic-direction-pillar {
+  padding: 2.2rem 1.8rem;
+  background: rgba(29, 25, 21, 0.6);
+  border: 1px solid rgba(214, 181, 109, 0.2);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.majestic-direction-pillar:hover {
+  border-color: rgba(232, 212, 158, 0.5);
+  transform: translateY(-2px);
+}
+
+.majestic-direction-pillar__header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.majestic-direction-pillar__num {
+  color: #e8d49e;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.majestic-direction-pillar h3 {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.majestic-direction-pillar p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   08 — Client / Commercial Work
+   ========================================================================== */
+
+.majestic-commercial__card {
+  padding: clamp(2.5rem, 5vw, 4rem);
+  background: rgba(29, 25, 21, 0.7);
+  border: 1px solid rgba(214, 181, 109, 0.22);
+}
+
+.majestic-commercial__header {
+  margin-bottom: 2.5rem;
+}
+
+.majestic-commercial__tag {
+  display: inline-block;
+  color: #e8d49e;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.majestic-commercial__title {
+  margin: 0 0 0.8rem;
+  color: var(--theme-text);
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  font-weight: 700;
+}
+
+.majestic-commercial__subtitle {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.majestic-commercial__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(214, 181, 109, 0.2);
+}
+
+.majestic-commercial-item h3 {
+  margin: 0 0 0.6rem;
+  color: var(--theme-text);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.majestic-commercial-item p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   09 — Closing
+   ========================================================================== */
+
+.majestic-closing__body {
+  padding: 2rem 0 0;
+  max-width: 48rem;
+}
+
+.majestic-closing__headline {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: clamp(3.2rem, 5.5vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.majestic-closing__narrative {
+  margin: 1.5rem 0 0;
+  color: var(--theme-text-muted);
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
+.majestic-closing__author {
+  margin: 1rem 0 0;
+  color: #e8d49e;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.majestic-closing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.majestic-closing__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.4rem;
+  border: 1px solid rgba(214, 181, 109, 0.45);
+  color: var(--theme-text-muted);
+  background: transparent;
+  font: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: not-allowed;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.majestic-closing__button:hover {
+  border-color: #e8d49e;
+  box-shadow: 0 0 14px rgba(214, 181, 109, 0.25);
+}
+
+.majestic-closing__button-dot {
+  color: #e8d49e;
+  font-size: 0.75rem;
+}
+
+.majestic-world__colophon {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(214, 181, 109, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--theme-text-muted);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 @media (max-width: 760px) {
@@ -576,60 +3682,314 @@
   .about-hero {
     align-items: end;
     min-height: calc(100svh - 4.5rem);
-    padding: 1.5rem;
+    padding: 2rem 1.5rem 3rem;
   }
 
   .about-hero__content {
-    width: min(100%, 29rem);
-    padding: 1rem;
-    background: color-mix(in srgb, var(--theme-background) 78%, transparent);
+    width: min(100%, 30rem);
+    padding: 1.25rem;
+    background: rgba(8, 8, 8, 0.88);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(214, 168, 79, 0.22);
+  }
+
+  .about-hero__title {
+    font-size: clamp(2.6rem, 11vw, 3.8rem);
   }
 
   .about-world__sections {
-    padding: 0 1.5rem 5rem;
+    padding: 0 1.5rem 6rem;
   }
 
-  .about-world__sections > section {
+  .about-section {
     padding: 4.5rem 0;
   }
 
-  .about-section__split,
-  .about-toolkit__grid,
-  .about-work__grid,
-  .about-experience__grid {
+  .about-section__heading {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-profile__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-profile__narrative {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid rgba(214, 168, 79, 0.24);
+    padding-top: 1.5rem;
+  }
+
+  .about-capabilities__layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .about-process__rail {
+    display: none;
+  }
+
+  .about-process__sequence {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+    border-left: 1px solid rgba(214, 168, 79, 0.35);
+    padding-left: 1.75rem;
+    margin-left: 1rem;
+  }
+
+  .about-process__badge {
+    margin-bottom: 0.85rem;
+    margin-left: -3.15rem;
+  }
+
+  .about-toolkit__row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 1.6rem 0;
+  }
+
+  .about-work__exhibition {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-experience__entry {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 1.8rem 0;
+  }
+
+  .about-contact__signature {
+    font-size: clamp(2.6rem, 10vw, 3.8rem);
+  }
+
+  .coding-hero {
+    align-items: end;
+    min-height: calc(100svh - 4.5rem);
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .coding-hero__content {
+    width: min(100%, 30rem);
+    padding: 1.25rem;
+    background: rgba(5, 7, 6, 0.9);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(57, 255, 114, 0.22);
+  }
+
+  .coding-hero__title {
+    font-size: clamp(2.6rem, 11vw, 3.8rem);
+  }
+
+  .coding-world__sections {
+    padding: 0 1.5rem 6rem;
+  }
+
+  .coding-section {
+    padding: 4.5rem 0;
+  }
+
+  .coding-section__heading {
+    margin-bottom: 2.5rem;
+  }
+
+  .coding-profile__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .coding-capabilities__grid {
     grid-template-columns: 1fr;
   }
 
-  .about-capability-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .coding-process__track,
+  .coding-architecture__flow-track {
+    display: none;
   }
 
-  .about-capability:nth-child(4n) {
-    border-right: 1px solid color-mix(in srgb, var(--theme-text-muted) 20%, transparent);
+  .coding-process__sequence,
+  .coding-architecture__stages {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+    border-left: 1px solid rgba(57, 255, 114, 0.35);
+    padding-left: 1.75rem;
+    margin-left: 1rem;
   }
 
-  .about-capability:nth-child(2n) {
-    border-right: 0;
+  .coding-process__node-header,
+  .coding-architecture__node-head {
+    margin-bottom: 0.75rem;
+    margin-left: -3.15rem;
   }
 
-  .about-process__steps {
+  .coding-stack__categories {
     grid-template-columns: 1fr;
   }
 
-  .about-process__steps li,
-  .about-process__steps li:not(:first-child) {
-    min-height: 0;
-    padding: 1.5rem 0;
-    border-right: 0;
-    border-bottom: 1px solid color-mix(in srgb, var(--theme-text-muted) 20%, transparent);
+  .coding-project-card {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
   }
 
-  .about-process__steps li > span {
-    margin-bottom: 1.5rem;
+  .coding-ai-dev__grid {
+    grid-template-columns: 1fr;
   }
 
-  .about-content h1 {
-    font-size: clamp(2.55rem, 11vw, 4rem);
+  .coding-architecture__pipeline {
+    margin-top: 1rem;
+  }
+
+  .coding-contact__name {
+    font-size: clamp(2.6rem, 10vw, 3.8rem);
+  }
+
+  .mythos-hero {
+    align-items: end;
+    min-height: calc(100svh - 4.5rem);
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .mythos-hero__content {
+    width: min(100%, 30rem);
+    padding: 1.25rem;
+    background: rgba(9, 8, 7, 0.9);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(169, 107, 53, 0.25);
+  }
+
+  .mythos-hero__title {
+    font-size: clamp(2.4rem, 10vw, 3.6rem);
+  }
+
+  .mythos-world__sections {
+    padding: 0 1.5rem 6rem;
+  }
+
+  .mythos-section {
+    padding: 4.5rem 0;
+  }
+
+  .mythos-section__heading {
+    margin-bottom: 2.5rem;
+  }
+
+  .mythos-project__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .mythos-story-engine__track,
+  .mythos-pipeline__track {
+    display: none;
+  }
+
+  .mythos-story-engine__stages,
+  .mythos-pipeline__stages {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    border-left: 1px solid rgba(169, 107, 53, 0.35);
+    padding-left: 1.75rem;
+    margin-left: 1rem;
+  }
+
+  .mythos-story-card__step,
+  .mythos-pipeline__node-head {
+    margin-bottom: 0.75rem;
+    margin-left: -3.15rem;
+  }
+
+  .mythos-production__tools-grid,
+  .mythos-production__disciplines-grid,
+  .mythos-visual-language__grid,
+  .mythos-episode__grid,
+  .mythos-media__slots-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mythos-unveiled__showcase {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .mythos-media__master-frame {
+    aspect-ratio: 16 / 9;
+  }
+
+  .mythos-closing__statement {
+    font-size: clamp(2.6rem, 10vw, 3.8rem);
+  }
+
+  .majestic-hero {
+    align-items: end;
+    min-height: calc(100svh - 4.5rem);
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .majestic-hero__content {
+    width: min(100%, 30rem);
+    padding: 1.25rem;
+    background: rgba(17, 16, 14, 0.9);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(214, 181, 109, 0.25);
+  }
+
+  .majestic-hero__title {
+    font-size: clamp(2.4rem, 10vw, 3.6rem);
+  }
+
+  .majestic-world__sections {
+    padding: 0 1.5rem 6rem;
+  }
+
+  .majestic-section {
+    padding: 4.5rem 0;
+  }
+
+  .majestic-section__heading {
+    margin-bottom: 2.5rem;
+  }
+
+  .majestic-studio__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .majestic-philosophy__statement-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .majestic-create__grid,
+  .majestic-gallery__grid,
+  .majestic-direction__grid,
+  .majestic-commercial__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .majestic-process__track {
+    display: none;
+  }
+
+  .majestic-process__sequence {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    border-left: 1px solid rgba(214, 181, 109, 0.35);
+    padding-left: 1.75rem;
+    margin-left: 1rem;
+  }
+
+  .majestic-process__node-head {
+    margin-bottom: 0.75rem;
+    margin-left: -3.15rem;
+  }
+
+  .majestic-tails__showcase {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .majestic-closing__headline {
+    font-size: clamp(2.6rem, 10vw, 3.8rem);
   }
 
   .phoenix-portrait {

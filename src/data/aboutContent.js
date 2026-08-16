@@ -62,18 +62,21 @@ export const toolkitCategories = [
 
 export const selectedWork = [
   {
+    id: 'mythos',
     name: 'Mythos Unveiled',
     category: 'Creative Production',
     description: 'A developing creative world for cinematic storytelling and generative visual work.',
     destination: 'Explore in Mythos',
   },
   {
+    id: 'majestic',
     name: 'Majestic Tails Studio',
     category: 'Creative Direction',
     description: 'A developing visual project centred on pet portrait work and creative direction.',
     destination: 'Explore in Majestic',
   },
   {
+    id: 'coding',
     name: 'Campus Share',
     category: 'Systems / Project',
     description: 'A developing project space for technical workflows and product thinking.',

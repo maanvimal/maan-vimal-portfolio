@@ -1,4 +1,7 @@
 import AboutWorldContent from './AboutWorldContent.jsx'
+import CodingWorldContent from './CodingWorldContent.jsx'
+import MajesticWorldContent from './MajesticWorldContent.jsx'
+import MythosWorldContent from './MythosWorldContent.jsx'
 import PhoenixPortrait from './PhoenixPortrait.jsx'
 import { getPortrait } from '../data/portraitConfig.js'
 
@@ -14,6 +17,12 @@ function World({ world, worldElementRef }) {
       <div className="world__environment" aria-hidden="true" />
       {world.id === 'about' ? (
         <AboutWorldContent portrait={portrait} />
+      ) : world.id === 'coding' ? (
+        <CodingWorldContent portrait={portrait} />
+      ) : world.id === 'mythos' ? (
+        <MythosWorldContent portrait={portrait} />
+      ) : world.id === 'majestic' ? (
+        <MajesticWorldContent portrait={portrait} />
       ) : (
         <>
           <PhoenixPortrait portrait={portrait} worldId={world.id} />
