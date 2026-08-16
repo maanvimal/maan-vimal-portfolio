@@ -1,4 +1,4 @@
-function WorldNavigation({ activeWorld, onWorldChange, worlds }) {
+function WorldNavigation({ activeWorld, disabled, onWorldChange, worlds }) {
   return (
     <nav className="world-navigation" aria-label="Portfolio worlds">
       {worlds.map((world) => (
@@ -7,6 +7,7 @@ function WorldNavigation({ activeWorld, onWorldChange, worlds }) {
           type="button"
           className={activeWorld === world.id ? 'is-active' : ''}
           aria-pressed={activeWorld === world.id}
+          disabled={disabled}
           onClick={() => onWorldChange(world.id)}
         >
           {world.name.toUpperCase()}

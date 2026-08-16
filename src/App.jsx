@@ -1,28 +1,53 @@
-import { useState } from 'react'
+import { useRef } from 'react'
 import './App.css'
 import World from './components/World.jsx'
 import WorldNavigation from './components/WorldNavigation.jsx'
+import WorldTransition from './components/WorldTransition.jsx'
 import { getWorld, worlds } from './data/worldThemes.js'
+import useWorldTransition from './hooks/useWorldTransition.js'
 
 function App() {
-  const [activeWorld, setActiveWorld] = useState('about')
-  const currentWorld = getWorld(activeWorld)
+  const worldElementRef = useRef(null)
+  const {
+    completeTransition,
+    currentWorld,
+    fromWorld,
+    isTransitioning,
+    startTransition,
+    swapToTargetWorld,
+    targetWorld,
+    transitionConfig,
+    transitionDirection,
+    transitionState,
+  } = useWorldTransition('about')
+  const currentWorldTheme = getWorld(currentWorld)
   const themeStyles = {
-    '--theme-background': currentWorld.colors.background,
-    '--theme-text': currentWorld.colors.text,
-    '--theme-text-muted': currentWorld.colors.textMuted,
-    '--theme-accent': currentWorld.colors.accent,
-    '--theme-surface': currentWorld.colors.surface,
+    '--theme-background': currentWorldTheme.colors.background,
+    '--theme-text': currentWorldTheme.colors.text,
+    '--theme-text-muted': currentWorldTheme.colors.textMuted,
+    '--theme-accent': currentWorldTheme.colors.accent,
+    '--theme-surface': currentWorldTheme.colors.surface,
   }
 
   return (
     <main className="world-engine" style={themeStyles}>
       <WorldNavigation
-        activeWorld={activeWorld}
-        onWorldChange={setActiveWorld}
+        activeWorld={currentWorld}
+        disabled={isTransitioning}
+        onWorldChange={startTransition}
         worlds={worlds}
       />
-      <World world={currentWorld} />
+      <World world={currentWorldTheme} worldElementRef={worldElementRef} />
+      <WorldTransition
+        fromWorld={fromWorld}
+        toWorld={targetWorld}
+        transitionState={transitionState}
+        transitionDirection={transitionDirection}
+        transitionConfig={transitionConfig}
+        worldElementRef={worldElementRef}
+        onSwapWorld={swapToTargetWorld}
+        onTransitionComplete={completeTransition}
+      />
     </main>
   )
 }
