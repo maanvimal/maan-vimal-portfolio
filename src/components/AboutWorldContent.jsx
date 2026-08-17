@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import PhoenixPortrait from './PhoenixPortrait.jsx'
+import AboutScene from './about/AboutScene.jsx'
 import {
   capabilities,
   experiencePlaceholders,
@@ -58,7 +59,15 @@ function AboutWorldContent({ portrait }) {
 
   return (
     <div ref={worldRef} className="about-world">
-      <section className="about-hero" aria-labelledby="about-title">
+      {/* Underlying 3D Neural Spatial Network Layer */}
+      <AboutScene />
+
+      {/* 00 — HERO */}
+      <section
+        className="about-hero"
+        data-about-section-id="hero"
+        aria-labelledby="about-title"
+      >
         <PhoenixPortrait portrait={portrait} worldId="about" />
         <div className="about-hero__content">
           <div className="about-hero__header" data-about-hero-item>
@@ -97,6 +106,7 @@ function AboutWorldContent({ portrait }) {
         <section
           className="about-section about-profile"
           data-about-section
+          data-about-section-id="profile"
           aria-labelledby="profile-title"
         >
           <header className="about-section__header">
@@ -124,6 +134,7 @@ function AboutWorldContent({ portrait }) {
         <section
           className="about-section about-capabilities"
           data-about-section
+          data-about-section-id="capabilities"
           aria-labelledby="capabilities-title"
         >
           <header className="about-section__header">
@@ -155,6 +166,7 @@ function AboutWorldContent({ portrait }) {
         <section
           className="about-section about-process"
           data-about-section
+          data-about-section-id="process"
           aria-labelledby="process-title"
         >
           <header className="about-section__header">
@@ -189,6 +201,7 @@ function AboutWorldContent({ portrait }) {
         <section
           className="about-section about-toolkit"
           data-about-section
+          data-about-section-id="toolkit"
           aria-labelledby="toolkit-title"
         >
           <header className="about-section__header">
@@ -222,6 +235,7 @@ function AboutWorldContent({ portrait }) {
         <section
           className="about-section about-work"
           data-about-section
+          data-about-section-id="work"
           aria-labelledby="work-title"
         >
           <header className="about-section__header">
@@ -263,6 +277,7 @@ function AboutWorldContent({ portrait }) {
         <section
           className="about-section about-experience"
           data-about-section
+          data-about-section-id="experience"
           aria-labelledby="experience-title"
         >
           <header className="about-section__header">
@@ -296,6 +311,7 @@ function AboutWorldContent({ portrait }) {
         <section
           className="about-section about-contact"
           data-about-section
+          data-about-section-id="contact"
           aria-labelledby="contact-title"
         >
           <header className="about-section__header">

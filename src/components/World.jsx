@@ -1,3 +1,4 @@
+import { useLayoutEffect } from 'react'
 import AboutWorldContent from './AboutWorldContent.jsx'
 import CodingWorldContent from './CodingWorldContent.jsx'
 import MajesticWorldContent from './MajesticWorldContent.jsx'
@@ -7,6 +8,10 @@ import { getPortrait } from '../data/portraitConfig.js'
 
 function World({ world, worldElementRef }) {
   const portrait = getPortrait(world.id)
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  }, [world.id])
 
   return (
     <section

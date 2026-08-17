@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import PhoenixPortrait from './PhoenixPortrait.jsx'
+import CodingScene from './coding/CodingScene.jsx'
 import {
   aiDevelopmentPillars,
   capabilities,
@@ -62,8 +63,15 @@ function CodingWorldContent({ portrait }) {
 
   return (
     <div ref={worldRef} className="coding-world">
+      {/* Underlying 3D Spatial Network Layer */}
+      <CodingScene />
+
       {/* 01 — CODING HERO */}
-      <section className="coding-hero" aria-labelledby="coding-title">
+      <section
+        className="coding-hero"
+        data-coding-section-id="hero"
+        aria-labelledby="coding-title"
+      >
         <PhoenixPortrait portrait={portrait} worldId="coding" />
         <div className="coding-hero__content">
           <div className="coding-hero__terminal-header" data-coding-hero-item>
@@ -100,6 +108,7 @@ function CodingWorldContent({ portrait }) {
         <section
           className="coding-section coding-profile"
           data-coding-section
+          data-coding-section-id="profile"
           aria-labelledby="tech-profile-title"
         >
           <header className="coding-section__header">
@@ -141,6 +150,7 @@ function CodingWorldContent({ portrait }) {
         <section
           className="coding-section coding-capabilities"
           data-coding-section
+          data-coding-section-id="capabilities"
           aria-labelledby="what-i-build-title"
         >
           <header className="coding-section__header">
@@ -171,6 +181,7 @@ function CodingWorldContent({ portrait }) {
         <section
           className="coding-section coding-process"
           data-coding-section
+          data-coding-section-id="process"
           aria-labelledby="engineering-approach-title"
         >
           <header className="coding-section__header">
@@ -210,6 +221,7 @@ function CodingWorldContent({ portrait }) {
         <section
           className="coding-section coding-stack"
           data-coding-section
+          data-coding-section-id="stack"
           aria-labelledby="tech-stack-title"
         >
           <header className="coding-section__header">
@@ -246,6 +258,7 @@ function CodingWorldContent({ portrait }) {
         <section
           className="coding-section coding-projects"
           data-coding-section
+          data-coding-section-id="projects"
           aria-labelledby="selected-projects-title"
         >
           <header className="coding-section__header">
@@ -308,6 +321,7 @@ function CodingWorldContent({ portrait }) {
         <section
           className="coding-section coding-ai-dev"
           data-coding-section
+          data-coding-section-id="ai-dev"
           aria-labelledby="ai-dev-title"
         >
           <header className="coding-section__header">
@@ -337,6 +351,7 @@ function CodingWorldContent({ portrait }) {
         <section
           className="coding-section coding-architecture"
           data-coding-section
+          data-coding-section-id="architecture"
           aria-labelledby="systems-arch-title"
         >
           <header className="coding-section__header">
@@ -370,6 +385,7 @@ function CodingWorldContent({ portrait }) {
         <section
           className="coding-section coding-contact"
           data-coding-section
+          data-coding-section-id="contact"
           aria-labelledby="coding-contact-title"
         >
           <header className="coding-section__header">
