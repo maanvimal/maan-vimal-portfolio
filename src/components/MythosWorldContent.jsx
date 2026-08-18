@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import PhoenixPortrait from './PhoenixPortrait.jsx'
+import LivingBookScene from './mythos/LivingBookScene.jsx'
 import {
   cinematicProduction,
   mediaWatchArchive,
@@ -64,6 +65,9 @@ function MythosWorldContent({ portrait }) {
 
   return (
     <div ref={worldRef} className="mythos-world">
+      {/* Central 3D Living Book Layer */}
+      <LivingBookScene />
+
       {/* 01 — MYTHOS HERO */}
       <section className="mythos-hero" aria-labelledby="mythos-title">
         <PhoenixPortrait portrait={portrait} worldId="mythos" />

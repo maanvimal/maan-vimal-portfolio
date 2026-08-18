@@ -1766,6 +1766,23 @@
   min-width: 0;
 }
 
+.mythos-scene-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100svh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.mythos-scene-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  pointer-events: none;
+}
+
 /* ==========================================================================
    01 — Mythos Hero
    ========================================================================== */
