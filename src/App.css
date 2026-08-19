@@ -2770,24 +2770,37 @@
    ========================================================================== */
 
 .world--majestic {
+  --majestic-black: #000000;
+  --majestic-charcoal: #020202;
+  --majestic-shadow-recess: #070605;
+  --majestic-champagne-deep: #9e8b65;
+  --majestic-champagne: #c4ae7a;
+  --majestic-champagne-warm: #d8c18a;
+  --majestic-champagne-light: #e8d5ad;
+  --majestic-ivory: #f5ebd4;
+  --majestic-gold-rich: #c19a52;
+  --majestic-gold-champagne: #d8b978;
+  --majestic-gold-hot: #f7e6b5;
+  --majestic-gold-specular: #fff7dd;
+
   display: block;
   padding: 0;
   overflow: visible;
-  background: #11100e;
+  background: var(--majestic-black);
 }
 
 .world--majestic .world__environment {
   background:
-    /* Layer 1: Warm champagne & soft gold illumination directly behind Artist portrait */
-    radial-gradient(ellipse 52% 62% at 75% 36%, rgba(214, 181, 109, 0.18), rgba(232, 212, 158, 0.08) 44%, transparent 68%),
-    /* Layer 2: Upper-right luminous ivory/champagne gallery wash */
-    radial-gradient(ellipse 65% 45% at 92% 10%, rgba(245, 240, 231, 0.06), transparent 55%),
-    /* Layer 3: Mid-page painterly studio glow */
-    radial-gradient(ellipse 55% 40% at 20% 50%, rgba(214, 181, 109, 0.05), transparent 60%),
-    /* Layer 4: Lower-page warm gold depth pool */
-    radial-gradient(ellipse 60% 50% at 80% 82%, rgba(214, 181, 109, 0.06), rgba(180, 140, 70, 0.02) 42%, transparent 65%),
-    /* Deep warm charcoal studio base */
-    linear-gradient(140deg, #11100e 0%, #11100e 55%, #161411 100%);
+    /* Layer 1: Central artist champagne atmosphere breathing behind the frame */
+    radial-gradient(ellipse 70% 60% at 50% 40%, rgba(216, 193, 138, 0.055), rgba(196, 174, 122, 0.018) 48%, transparent 72%),
+    /* Layer 2: Upper-right luminous ivory studio glow directly harmonizing with Artist portrait */
+    radial-gradient(ellipse 55% 45% at 80% 22%, rgba(245, 235, 212, 0.035), rgba(216, 193, 138, 0.015) 38%, transparent 58%),
+    /* Layer 3: Mid-page painterly champagne depth */
+    radial-gradient(ellipse 52% 42% at 20% 50%, rgba(196, 174, 122, 0.025), transparent 55%),
+    /* Layer 4: Lower-left warm antique umber pool */
+    radial-gradient(ellipse 62% 48% at 16% 82%, rgba(104, 84, 56, 0.04), transparent 62%),
+    /* Base pitch black void */
+    #000000;
 }
 
 .world--majestic::before {
@@ -2796,7 +2809,7 @@
   z-index: 0;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(90deg, #11100e 0%, #11100ee6 30%, transparent 68%);
+  background: radial-gradient(circle at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.92) 100%);
 }
 
 .world--majestic::after {
@@ -2805,15 +2818,32 @@
   z-index: 0;
   inset: 0;
   pointer-events: none;
-  opacity: 0.07;
-  background-image: radial-gradient(circle at 1px 1px, #d6b56d 1px, transparent 0);
-  background-size: 32px 32px;
+  opacity: 0.022;
+  background-image: radial-gradient(circle at 1px 1px, #c4ae7a 1px, transparent 0);
+  background-size: 28px 28px;
 }
 
 .majestic-world {
   position: relative;
   z-index: 1;
   min-width: 0;
+}
+
+.majestic-scene-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100svh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.majestic-scene-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  pointer-events: none;
 }
 
 /* ==========================================================================

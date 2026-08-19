@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import PhoenixPortrait from './PhoenixPortrait.jsx'
+import MajesticScene from './majestic/MajesticScene.jsx'
 import {
   artisticDisciplines,
   artisticProcessStages,
@@ -64,6 +65,9 @@ function MajesticWorldContent({ portrait }) {
 
   return (
     <div ref={worldRef} className="majestic-world">
+      {/* Step 5: Minimal Base R3F Canvas */}
+      <MajesticScene />
+
       {/* 01 — MAJESTIC HERO */}
       <section className="majestic-hero" aria-labelledby="majestic-title">
         <PhoenixPortrait portrait={portrait} worldId="majestic" />
