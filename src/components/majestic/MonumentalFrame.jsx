@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { FRAME_CONFIG, GOLD_SPECTRUM, MAJESTIC_THEME } from '../../data/majesticSceneConfig.js'
@@ -176,6 +176,54 @@ export function MonumentalFrame({ sceneStateRef }) {
   const slipFilletVertGeo = useMemo(() => {
     return new THREE.CylinderGeometry(innerSlipWidth * 0.5, innerSlipWidth * 0.5, innerHeight, 16)
   }, [innerSlipWidth, innerHeight])
+
+  // Safe GPU disposal of all materials and geometries on unmount
+  useEffect(() => {
+    return () => {
+      shadowBackplateMaterial.dispose()
+      outerAntiqueGoldMaterial.dispose()
+      raisedRichGoldMaterial.dispose()
+      sightBevelMaterial.dispose()
+      innerVelvetBackingMaterial.dispose()
+      innerSlipGoldMaterial.dispose()
+      interiorBlackMaterial.dispose()
+
+      backplateGeo.dispose()
+      outerBarHorizGeo.dispose()
+      outerBarVertGeo.dispose()
+      raisedBarHorizGeo.dispose()
+      raisedBarVertGeo.dispose()
+      bevelBarHorizGeo.dispose()
+      bevelBarVertGeo.dispose()
+      cornerMiterGeo.dispose()
+      cornerBevelGeo.dispose()
+      innerBackingGeo.dispose()
+      interiorPlaneGeo.dispose()
+      slipFilletHorizGeo.dispose()
+      slipFilletVertGeo.dispose()
+    }
+  }, [
+    shadowBackplateMaterial,
+    outerAntiqueGoldMaterial,
+    raisedRichGoldMaterial,
+    sightBevelMaterial,
+    innerVelvetBackingMaterial,
+    innerSlipGoldMaterial,
+    interiorBlackMaterial,
+    backplateGeo,
+    outerBarHorizGeo,
+    outerBarVertGeo,
+    raisedBarHorizGeo,
+    raisedBarVertGeo,
+    bevelBarHorizGeo,
+    bevelBarVertGeo,
+    cornerMiterGeo,
+    cornerBevelGeo,
+    innerBackingGeo,
+    interiorPlaneGeo,
+    slipFilletHorizGeo,
+    slipFilletVertGeo,
+  ])
 
   useFrame((_, delta) => {
     if (!sceneStateRef?.current || !frameGroupRef.current) return

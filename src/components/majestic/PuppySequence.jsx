@@ -40,14 +40,7 @@ export function PuppySequence({ sceneStateRef }) {
     })
   }, [])
 
-  // 2. Safe GPU texture disposal on unmount
-  useEffect(() => {
-    return () => {
-      textures.forEach((tex) => tex.dispose())
-    }
-  }, [textures])
-
-  // 3. Exact 3:4 portrait aspect ratio fitting inside the frame aperture
+  // 2. Exact 3:4 portrait aspect ratio fitting inside the frame aperture
   const aspectHeight = (FRAME_CONFIG.innerWidth * 1448) / 1086
   const artworkGeo = useMemo(() => {
     return new THREE.PlaneGeometry(FRAME_CONFIG.innerWidth, Math.min(aspectHeight, FRAME_CONFIG.innerHeight))
@@ -60,6 +53,15 @@ export function PuppySequence({ sceneStateRef }) {
       side: THREE.FrontSide,
     })
   }, [textures])
+
+  // 3. Safe GPU texture, geometry and material disposal on unmount
+  useEffect(() => {
+    return () => {
+      textures.forEach((tex) => tex.dispose())
+      artworkGeo.dispose()
+      artworkMat.dispose()
+    }
+  }, [textures, artworkGeo, artworkMat])
 
   // 4. Update displayed frame smoothly according to scroll progress (0..1 -> 0..11)
   useFrame(() => {
