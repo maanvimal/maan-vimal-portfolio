@@ -2,23 +2,29 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import PhoenixPortrait from './PhoenixPortrait.jsx'
 import AboutScene from './about/AboutScene.jsx'
-import {
-  capabilities,
-  experiencePlaceholders,
-  processSteps,
-  selectedWork,
-  toolkitCategories,
-} from '../data/aboutContent.js'
+import { aboutContent } from '../data/portfolioContent.js'
 
 function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
   const worldRef = useRef(null)
+
+  const {
+    capabilities,
+    contact,
+    experience,
+    hero,
+    process,
+    profile,
+    sections,
+    selectedWork,
+    toolkit,
+  } = aboutContent
 
   useEffect(() => {
     const root = worldRef.current
     if (!root) return
 
     const heroElements = root.querySelectorAll('[data-about-hero-item]')
-    const sections = root.querySelectorAll('[data-about-section]')
+    const sectionElements = root.querySelectorAll('[data-about-section]')
 
     const context = gsap.context(() => {
       // 1. Initial Hero Stagger Reveal
@@ -54,7 +60,7 @@ function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
       }
     )
 
-    sections.forEach((section) => observer.observe(section))
+    sectionElements.forEach((section) => observer.observe(section))
 
     return () => {
       observer.disconnect()
@@ -81,31 +87,29 @@ function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
         />
         <div className="about-hero__content">
           <div className="about-hero__header" data-about-hero-item>
-            <span className="about-hero__label">About</span>
+            <span className="about-hero__label">{hero.eyebrow}</span>
             <span className="about-hero__dot" aria-hidden="true" />
-            <span className="about-hero__chapter">00 / Intro</span>
+            <span className="about-hero__chapter">{hero.chapter}</span>
           </div>
 
           <h1 id="about-title" className="about-hero__title" data-about-hero-item>
-            Maan Vimal
+            {hero.title}
           </h1>
 
           <p className="about-hero__roles" data-about-hero-item>
-            Prompt Engineer · AI Workflow Designer · Generative AI Creator
+            {hero.roles}
           </p>
 
           <p className="about-hero__intro" data-about-hero-item>
-            I design AI-powered creative workflows, visual experiences, and
-            production systems that turn ideas into finished work.
+            {hero.intro}
           </p>
 
           <div className="about-hero__meta" data-about-hero-item>
             <p className="about-hero__disciplines">
-              AI workflows · image &amp; video generation · storytelling · creative
-              direction
+              {hero.disciplines}
             </p>
             <p className="about-hero__invitation">
-              Explore the work, systems, and creative projects behind the process.
+              {hero.invitation}
             </p>
           </div>
         </div>
@@ -120,22 +124,17 @@ function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           aria-labelledby="profile-title"
         >
           <header className="about-section__header">
-            <span className="about-section__number">01</span>
-            <span className="about-section__title">Profile</span>
+            <span className="about-section__number">{sections.profile.number}</span>
+            <span className="about-section__title">{sections.profile.title}</span>
             <span className="about-section__rule" aria-hidden="true" />
           </header>
 
           <div className="about-profile__grid">
             <h2 id="profile-title" className="about-profile__headline">
-              Creative thinking, built into systems.
+              {profile.headline}
             </h2>
             <div className="about-profile__narrative">
-              <p>
-                I work at the intersection of AI, creative production, and systems
-                design. My focus is not only on generating individual outputs, but
-                on building workflows that make ideas easier to develop, test, and
-                bring to completion.
-              </p>
+              <p>{profile.narrative}</p>
             </div>
           </div>
         </section>
@@ -148,13 +147,13 @@ function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           aria-labelledby="capabilities-title"
         >
           <header className="about-section__header">
-            <span className="about-section__number">02</span>
-            <span className="about-section__title">What I Do</span>
+            <span className="about-section__number">{sections.capabilities.number}</span>
+            <span className="about-section__title">{sections.capabilities.title}</span>
             <span className="about-section__rule" aria-hidden="true" />
           </header>
 
           <h2 id="capabilities-title" className="about-section__heading">
-            Capabilities with creative and technical range.
+            {sections.capabilities.heading}
           </h2>
 
           <div className="about-capabilities__layout">
@@ -180,19 +179,19 @@ function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           aria-labelledby="process-title"
         >
           <header className="about-section__header">
-            <span className="about-section__number">03</span>
-            <span className="about-section__title">How I Work</span>
+            <span className="about-section__number">{sections.process.number}</span>
+            <span className="about-section__title">{sections.process.title}</span>
             <span className="about-section__rule" aria-hidden="true" />
           </header>
 
           <h2 id="process-title" className="about-section__heading">
-            From an idea to a working production system.
+            {sections.process.heading}
           </h2>
 
           <div className="about-process__container">
             <div className="about-process__rail" aria-hidden="true" />
             <ol className="about-process__sequence">
-              {processSteps.map(([number, title, description]) => (
+              {process.map(([number, title, description]) => (
                 <li key={number} className="about-process__step">
                   <div className="about-process__badge">
                     <span className="about-process__num">{number}</span>
@@ -215,17 +214,17 @@ function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           aria-labelledby="toolkit-title"
         >
           <header className="about-section__header">
-            <span className="about-section__number">04</span>
-            <span className="about-section__title">Toolkit</span>
+            <span className="about-section__number">{sections.toolkit.number}</span>
+            <span className="about-section__title">{sections.toolkit.title}</span>
             <span className="about-section__rule" aria-hidden="true" />
           </header>
 
           <h2 id="toolkit-title" className="about-section__heading">
-            Tools in context, not a keyword list.
+            {sections.toolkit.heading}
           </h2>
 
           <div className="about-toolkit__matrix">
-            {toolkitCategories.map((category, index) => (
+            {toolkit.map((category, index) => (
               <article key={category.name} className="about-toolkit__row">
                 <div className="about-toolkit__category">
                   <span className="about-toolkit__row-num">
@@ -249,13 +248,13 @@ function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           aria-labelledby="work-title"
         >
           <header className="about-section__header">
-            <span className="about-section__number">05</span>
-            <span className="about-section__title">Selected Work</span>
+            <span className="about-section__number">{sections.work.number}</span>
+            <span className="about-section__title">{sections.work.title}</span>
             <span className="about-section__rule" aria-hidden="true" />
           </header>
 
           <h2 id="work-title" className="about-section__heading">
-            Projects that extend into their own worlds.
+            {sections.work.heading}
           </h2>
 
           <div className="about-work__exhibition">
@@ -268,7 +267,7 @@ function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
                 <div className="about-work__frame" aria-hidden="true">
                   <span className="about-work__reticle about-work__reticle--tl" />
                   <span className="about-work__reticle about-work__reticle--br" />
-                  <span className="about-work__media-label">Project media forthcoming</span>
+                  <span className="about-work__media-label">{sections.work.mediaPlaceholder}</span>
                 </div>
                 <div className="about-work__info">
                   <p className="about-work__category">{project.category}</p>
@@ -291,17 +290,17 @@ function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           aria-labelledby="experience-title"
         >
           <header className="about-section__header">
-            <span className="about-section__number">06</span>
-            <span className="about-section__title">Education / Experience</span>
+            <span className="about-section__number">{sections.experience.number}</span>
+            <span className="about-section__title">{sections.experience.title}</span>
             <span className="about-section__rule" aria-hidden="true" />
           </header>
 
           <h2 id="experience-title" className="about-section__heading">
-            Professional context, added with verified detail.
+            {sections.experience.heading}
           </h2>
 
           <div className="about-experience__timeline">
-            {experiencePlaceholders.map(([title, description], index) => (
+            {experience.map(([title, description], index) => (
               <article key={title} className="about-experience__entry">
                 <div className="about-experience__lead">
                   <span className="about-experience__index">
@@ -325,26 +324,29 @@ function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           aria-labelledby="contact-title"
         >
           <header className="about-section__header">
-            <span className="about-section__number">07</span>
-            <span className="about-section__title">Resume / Contact</span>
+            <span className="about-section__number">{sections.contact.number}</span>
+            <span className="about-section__title">{sections.contact.title}</span>
             <span className="about-section__rule" aria-hidden="true" />
           </header>
 
           <div className="about-contact__signoff">
             <h2 id="contact-title" className="about-contact__signature">
-              Maan Vimal
+              {contact.signature}
             </h2>
             <p className="about-contact__note">
-              Professional resume access and contact details can be added here once
-              verified links are available.
+              {contact.note}
             </p>
             <div className="about-contact__actions">
-              <button type="button" className="about-contact__button" disabled>
-                Resume link pending
-              </button>
-              <button type="button" className="about-contact__button" disabled>
-                Contact link pending
-              </button>
+              {contact.actions.map((action) => (
+                <button
+                  key={action.label}
+                  type="button"
+                  className="about-contact__button"
+                  disabled
+                >
+                  {action.label}
+                </button>
+              ))}
             </div>
           </div>
         </section>

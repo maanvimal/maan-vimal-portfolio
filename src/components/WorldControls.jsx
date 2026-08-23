@@ -1,3 +1,5 @@
+import { globalContent } from '../data/portfolioContent.js'
+
 function WorldControls({
   isMusicEnabled,
   isTransitionsEnabled,
@@ -5,12 +7,14 @@ function WorldControls({
   onToggleTransitions,
   onReplayThought,
 }) {
+  const { controls } = globalContent
+
   return (
-    <div className="world-controls" aria-label="Global preferences">
+    <div className="world-controls" aria-label={controls.ariaLabel}>
       <button
         type="button"
         className={`world-control-btn ${isMusicEnabled ? 'is-active' : 'is-muted'}`}
-        aria-label={isMusicEnabled ? 'Mute background music' : 'Enable background music'}
+        aria-label={isMusicEnabled ? controls.musicOnAria : controls.musicOffAria}
         aria-pressed={isMusicEnabled}
         onClick={onToggleMusic}
       >
@@ -53,7 +57,7 @@ function WorldControls({
       <button
         type="button"
         className={`world-control-btn ${isTransitionsEnabled ? 'is-active' : 'is-muted'}`}
-        aria-label={isTransitionsEnabled ? 'Disable transitions' : 'Enable transitions'}
+        aria-label={isTransitionsEnabled ? controls.transitionsOnAria : controls.transitionsOffAria}
         aria-pressed={isTransitionsEnabled}
         onClick={onToggleTransitions}
       >
@@ -96,7 +100,7 @@ function WorldControls({
       <button
         type="button"
         className="world-control-btn is-active"
-        aria-label="Replay Phoenix thought"
+        aria-label={controls.thoughtReplayAria}
         onClick={onReplayThought}
       >
         <svg
