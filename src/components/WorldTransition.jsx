@@ -255,8 +255,17 @@ function WorldTransition({
   // Ref for Majestic -> Mythos transition SFX
   const majesticToMythosAudioRef = useRef(null)
 
+  // Ref for Non-Majestic (About/Coding) -> Mythos transition SFX
+  const aboutToMythosAudioRef = useRef(null)
+
   // Ref for Universal -> Majestic Gallery Reveal SFX (About/Mythos/Coding -> Majestic)
   const majesticRevealAudioRef = useRef(null)
+
+  // Ref for Universal -> Coding transition SFX (About/Mythos/Majestic -> Coding)
+  const codingAudioRef = useRef(null)
+
+  // Ref for Universal -> About transition SFX (Coding/Mythos/Majestic -> About)
+  const aboutAudioRef = useRef(null)
 
   // Cleanup audio instances on component unmount
   useEffect(() => {
@@ -266,10 +275,25 @@ function WorldTransition({
         majesticToMythosAudioRef.current.src = ''
         majesticToMythosAudioRef.current = null
       }
+      if (aboutToMythosAudioRef.current) {
+        aboutToMythosAudioRef.current.pause()
+        aboutToMythosAudioRef.current.src = ''
+        aboutToMythosAudioRef.current = null
+      }
       if (majesticRevealAudioRef.current) {
         majesticRevealAudioRef.current.pause()
         majesticRevealAudioRef.current.src = ''
         majesticRevealAudioRef.current = null
+      }
+      if (codingAudioRef.current) {
+        codingAudioRef.current.pause()
+        codingAudioRef.current.src = ''
+        codingAudioRef.current = null
+      }
+      if (aboutAudioRef.current) {
+        aboutAudioRef.current.pause()
+        aboutAudioRef.current.src = ''
+        aboutAudioRef.current = null
       }
     }
   }, [])
@@ -376,7 +400,7 @@ function WorldTransition({
       // Audio playback trigger for Universal -> Majestic Gallery Reveal (About/Mythos/Coding -> Majestic)
       try {
         if (!majesticRevealAudioRef.current && typeof Audio !== 'undefined') {
-          majesticRevealAudioRef.current = new Audio('/audio/final/about-to-majestic-sfx.mp3')
+          majesticRevealAudioRef.current = new Audio('/audio/final/gallery-reveal-v2.mp3')
           majesticRevealAudioRef.current.preload = 'auto'
         }
         if (majesticRevealAudioRef.current) {
@@ -617,6 +641,27 @@ function WorldTransition({
           }
         }
 
+        // Audio playback trigger for About -> Mythos and Coding -> Mythos transitions
+        if ((fromWorld === 'about' || fromWorld === 'coding') && toWorld === 'mythos') {
+          try {
+            if (!aboutToMythosAudioRef.current && typeof Audio !== 'undefined') {
+              aboutToMythosAudioRef.current = new Audio('/audio/final/about-to-mythos-sfx.mp3')
+              aboutToMythosAudioRef.current.preload = 'auto'
+            }
+            if (aboutToMythosAudioRef.current) {
+              aboutToMythosAudioRef.current.currentTime = 0
+              const playPromise = aboutToMythosAudioRef.current.play()
+              if (playPromise !== undefined) {
+                playPromise.catch((err) => {
+                  console.warn('About/Coding -> Mythos audio playback prevented or aborted:', err)
+                })
+              }
+            }
+          } catch (audioErr) {
+            console.warn('About/Coding -> Mythos audio initialization error:', audioErr)
+          }
+        }
+
         gsap.set(overlay, { autoAlpha: 1, backgroundColor: '#000000' })
         gsap.set(disintegrationCopy, { autoAlpha: 1, x: 0, y: 0, scale: 1, filter: 'none' })
         gsap.set(worldElement, { autoAlpha: 0 })
@@ -732,6 +777,25 @@ function WorldTransition({
       clearCopies([...slices, ...ghosts])
       slices.forEach((slice) => addWorldCopy(slice, worldElement))
       ghosts.forEach((ghost) => addWorldCopy(ghost, worldElement))
+
+      // Audio playback trigger for Universal -> Coding transition (About/Mythos/Majestic -> Coding)
+      try {
+        if (!codingAudioRef.current && typeof Audio !== 'undefined') {
+          codingAudioRef.current = new Audio('/audio/final/coding-transition-v2.mp3')
+          codingAudioRef.current.preload = 'auto'
+        }
+        if (codingAudioRef.current) {
+          codingAudioRef.current.currentTime = 0
+          const playPromise = codingAudioRef.current.play()
+          if (playPromise !== undefined) {
+            playPromise.catch((err) => {
+              console.warn('Coding transition audio playback prevented or aborted:', err)
+            })
+          }
+        }
+      } catch (audioErr) {
+        console.warn('Coding transition audio initialization error:', audioErr)
+      }
 
       gsap.set(slices, { autoAlpha: 0, x: 0, y: 0 })
       gsap.set(ghosts, { autoAlpha: 0, x: 0, y: 0 })
@@ -968,6 +1032,25 @@ function WorldTransition({
 
       const pulseTracker = { progress: 0 }
 
+      // Audio playback trigger for Universal -> About transition (Coding/Mythos/Majestic -> About)
+      try {
+        if (!aboutAudioRef.current && typeof Audio !== 'undefined') {
+          aboutAudioRef.current = new Audio('/audio/final/about-to-about-sfx.mp3')
+          aboutAudioRef.current.preload = 'auto'
+        }
+        if (aboutAudioRef.current) {
+          aboutAudioRef.current.currentTime = 0
+          const playPromise = aboutAudioRef.current.play()
+          if (playPromise !== undefined) {
+            playPromise.catch((err) => {
+              console.warn('About transition audio playback prevented or aborted:', err)
+            })
+          }
+        }
+      } catch (audioErr) {
+        console.warn('About transition audio initialization error:', audioErr)
+      }
+
       timeline
         // PHASE 1 — SOURCE WORLD STABILITY (0.00s - 0.35s)
         .to({}, { duration: 0.35 })
@@ -1114,6 +1197,14 @@ function WorldTransition({
       if (majesticRevealAudioRef.current) {
         majesticRevealAudioRef.current.pause()
         majesticRevealAudioRef.current.currentTime = 0
+      }
+      if (codingAudioRef.current) {
+        codingAudioRef.current.pause()
+        codingAudioRef.current.currentTime = 0
+      }
+      if (aboutAudioRef.current) {
+        aboutAudioRef.current.pause()
+        aboutAudioRef.current.currentTime = 0
       }
     }
   }, [

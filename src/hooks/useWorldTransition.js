@@ -16,12 +16,17 @@ function useWorldTransition(initialWorld) {
   const isTransitioning = transitionState === 'running'
 
   const startTransition = useCallback(
-    (nextWorld) => {
+    (nextWorld, { skipAnimation = false } = {}) => {
       if (
         isTransitioningRef.current ||
         isTransitioning ||
         nextWorld === currentWorld
       ) {
+        return
+      }
+
+      if (skipAnimation) {
+        setCurrentWorld(nextWorld)
         return
       }
 
