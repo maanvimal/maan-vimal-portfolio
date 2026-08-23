@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import PhoenixPortrait from './PhoenixPortrait.jsx'
 import AboutScene from './about/AboutScene.jsx'
@@ -10,43 +10,48 @@ import {
   toolkitCategories,
 } from '../data/aboutContent.js'
 
-function AboutWorldContent({ portrait }) {
+function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
   const worldRef = useRef(null)
 
-  useLayoutEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return undefined
-    }
+  useEffect(() => {
+    const root = worldRef.current
+    if (!root) return
 
-    const worldElement = worldRef.current
-    const heroItems = worldElement.querySelectorAll('[data-about-hero-item]')
-    const sections = worldElement.querySelectorAll('[data-about-section]')
+    const heroElements = root.querySelectorAll('[data-about-hero-item]')
+    const sections = root.querySelectorAll('[data-about-section]')
+
     const context = gsap.context(() => {
-      gsap.from(heroItems, {
-        autoAlpha: 0,
-        y: 20,
-        duration: 0.8,
-        stagger: 0.12,
-        ease: 'power3.out',
-      })
-      gsap.set(sections, { autoAlpha: 0, y: 32 })
-    }, worldElement)
+      // 1. Initial Hero Stagger Reveal
+      gsap.fromTo(
+        heroElements,
+        {
+          autoAlpha: 0,
+          y: 28,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.9,
+          stagger: 0.12,
+          ease: 'power3.out',
+          delay: 0.2,
+        }
+      )
+    }, root)
 
+    // 2. IntersectionObserver for Scroll-triggered Section Enters
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            gsap.to(entry.target, {
-              autoAlpha: 1,
-              y: 0,
-              duration: 0.75,
-              ease: 'power3.out',
-            })
-            observer.unobserve(entry.target)
+            entry.target.classList.add('is-visible')
           }
         })
       },
-      { threshold: 0.12 },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px',
+      }
     )
 
     sections.forEach((section) => observer.observe(section))
@@ -68,7 +73,12 @@ function AboutWorldContent({ portrait }) {
         data-about-section-id="hero"
         aria-labelledby="about-title"
       >
-        <PhoenixPortrait portrait={portrait} worldId="about" />
+        <PhoenixPortrait
+          portrait={portrait}
+          worldId="about"
+          thoughtMessage={thoughtMessage}
+          thoughtTriggerKey={thoughtTriggerKey}
+        />
         <div className="about-hero__content">
           <div className="about-hero__header" data-about-hero-item>
             <span className="about-hero__label">About</span>

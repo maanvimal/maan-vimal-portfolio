@@ -15,7 +15,7 @@ import {
   visualLanguagePillars,
 } from '../data/mythosContent.js'
 
-function MythosWorldContent({ portrait }) {
+function MythosWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
   const worldRef = useRef(null)
 
   useLayoutEffect(() => {
@@ -70,7 +70,12 @@ function MythosWorldContent({ portrait }) {
 
       {/* 01 — MYTHOS HERO */}
       <section className="mythos-hero" aria-labelledby="mythos-title">
-        <PhoenixPortrait portrait={portrait} worldId="mythos" />
+        <PhoenixPortrait
+          portrait={portrait}
+          worldId="mythos"
+          thoughtMessage={thoughtMessage}
+          thoughtTriggerKey={thoughtTriggerKey}
+        />
         <div className="mythos-hero__content">
           <div className="mythos-hero__header" data-mythos-hero-item>
             <span className="mythos-hero__ember-dot" aria-hidden="true" />

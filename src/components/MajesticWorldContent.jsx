@@ -15,7 +15,7 @@ import {
   visualDirectionPillars,
 } from '../data/majesticContent.js'
 
-function MajesticWorldContent({ portrait }) {
+function MajesticWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
   const worldRef = useRef(null)
 
   useLayoutEffect(() => {
@@ -70,7 +70,12 @@ function MajesticWorldContent({ portrait }) {
 
       {/* 01 — MAJESTIC HERO */}
       <section className="majestic-hero" aria-labelledby="majestic-title">
-        <PhoenixPortrait portrait={portrait} worldId="majestic" />
+        <PhoenixPortrait
+          portrait={portrait}
+          worldId="majestic"
+          thoughtMessage={thoughtMessage}
+          thoughtTriggerKey={thoughtTriggerKey}
+        />
         <div className="majestic-hero__content">
           <div className="majestic-hero__header" data-majestic-hero-item>
             <span className="majestic-hero__champagne-dot" aria-hidden="true" />

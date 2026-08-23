@@ -3,6 +3,7 @@ function WorldControls({
   isTransitionsEnabled,
   onToggleMusic,
   onToggleTransitions,
+  onReplayThought,
 }) {
   return (
     <div className="world-controls" aria-label="Global preferences">
@@ -90,6 +91,30 @@ function WorldControls({
             <line x1="2" y1="2" x2="22" y2="22" stroke="currentColor" strokeWidth="2.2" />
           </svg>
         )}
+      </button>
+
+      <button
+        type="button"
+        className="world-control-btn is-active"
+        aria-label="Replay Phoenix thought"
+        onClick={onReplayThought}
+      >
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          <path d="M8 10h.01" />
+          <path d="M12 10h.01" />
+          <path d="M16 10h.01" />
+        </svg>
       </button>
     </div>
   )

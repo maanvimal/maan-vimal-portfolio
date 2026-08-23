@@ -6,7 +6,7 @@ import MythosWorldContent from './MythosWorldContent.jsx'
 import PhoenixPortrait from './PhoenixPortrait.jsx'
 import { getPortrait } from '../data/portraitConfig.js'
 
-function World({ world, worldElementRef }) {
+function World({ world, worldElementRef, thoughtMessage, thoughtTriggerKey }) {
   const portrait = getPortrait(world.id)
 
   useLayoutEffect(() => {
@@ -21,16 +21,37 @@ function World({ world, worldElementRef }) {
     >
       <div className="world__environment" aria-hidden="true" />
       {world.id === 'about' ? (
-        <AboutWorldContent portrait={portrait} />
+        <AboutWorldContent
+          portrait={portrait}
+          thoughtMessage={thoughtMessage}
+          thoughtTriggerKey={thoughtTriggerKey}
+        />
       ) : world.id === 'coding' ? (
-        <CodingWorldContent portrait={portrait} />
+        <CodingWorldContent
+          portrait={portrait}
+          thoughtMessage={thoughtMessage}
+          thoughtTriggerKey={thoughtTriggerKey}
+        />
       ) : world.id === 'mythos' ? (
-        <MythosWorldContent portrait={portrait} />
+        <MythosWorldContent
+          portrait={portrait}
+          thoughtMessage={thoughtMessage}
+          thoughtTriggerKey={thoughtTriggerKey}
+        />
       ) : world.id === 'majestic' ? (
-        <MajesticWorldContent portrait={portrait} />
+        <MajesticWorldContent
+          portrait={portrait}
+          thoughtMessage={thoughtMessage}
+          thoughtTriggerKey={thoughtTriggerKey}
+        />
       ) : (
         <>
-          <PhoenixPortrait portrait={portrait} worldId={world.id} />
+          <PhoenixPortrait
+            portrait={portrait}
+            worldId={world.id}
+            thoughtMessage={thoughtMessage}
+            thoughtTriggerKey={thoughtTriggerKey}
+          />
           <div className="world__content">
             <p className="world__label">Active world</p>
             <h1>{world.name}</h1>

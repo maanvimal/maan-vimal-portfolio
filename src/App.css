@@ -226,6 +226,128 @@
   object-fit: contain;
 }
 
+/* ==========================================================================
+   Thought / Speech Bubble System (Character Cognitive Annotation)
+   ========================================================================== */
+
+.thought-bubble {
+  position: absolute;
+  z-index: 10;
+  pointer-events: auto;
+  border-radius: 8px;
+  padding: 0.75rem 1.05rem;
+  background: var(--bubble-bg);
+  border: 1px solid var(--bubble-border);
+  box-shadow: var(--bubble-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  will-change: transform, opacity, filter;
+  transform-origin: bottom right;
+}
+
+.thought-bubble__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.thought-bubble__text {
+  margin: 0;
+  color: var(--bubble-text);
+  font-size: 0.82rem;
+  line-height: 1.42;
+  letter-spacing: 0.015em;
+  font-weight: 500;
+  text-align: left;
+}
+
+.thought-bubble__tail {
+  position: absolute;
+  bottom: -12px;
+  right: 18px;
+  width: 16px;
+  height: 14px;
+  pointer-events: none;
+}
+
+.thought-bubble__tail-svg {
+  display: block;
+}
+
+/* 1. ABOUT — Champagne-Gold Editorial Annotation */
+.thought-bubble--about {
+  --bubble-bg: rgba(10, 9, 7, 0.88);
+  --bubble-border: rgba(196, 174, 122, 0.75);
+  --bubble-text: #E8D9B5;
+  --bubble-shadow: 0 8px 28px rgba(0, 0, 0, 0.65), 0 0 16px rgba(196, 174, 122, 0.12);
+  top: calc(7% - 60px);
+  right: calc(42% - 120px);
+  max-width: min(340px, 46vw);
+}
+
+.thought-bubble--about .thought-bubble__text {
+  font-family: inherit;
+  font-weight: 500;
+  color: #E8D9B5;
+}
+
+/* 2. CODING — Green Terminal Annotation */
+.thought-bubble--coding {
+  --bubble-bg: rgba(3, 8, 5, 0.92);
+  --bubble-border: #39FF72;
+  --bubble-text: #39FF72;
+  --bubble-shadow: 0 8px 28px rgba(0, 0, 0, 0.75), 0 0 14px rgba(57, 255, 114, 0.18);
+  border-radius: 4px;
+  top: 9%;
+  right: 45%;
+  max-width: min(360px, 48vw);
+}
+
+.thought-bubble--coding .thought-bubble__text {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: #39FF72;
+}
+
+/* 3. MYTHOS — Ancient Warm Amber Fragment */
+.thought-bubble--mythos {
+  --bubble-bg: rgba(12, 8, 5, 0.90);
+  --bubble-border: rgba(196, 106, 50, 0.8);
+  --bubble-text: #E8C98A;
+  --bubble-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 16px rgba(196, 106, 50, 0.16);
+  border-radius: 6px;
+  top: 7%;
+  right: 43%;
+  max-width: min(340px, 46vw);
+}
+
+.thought-bubble--mythos .thought-bubble__text {
+  font-family: inherit;
+  font-weight: 500;
+  color: #E8C98A;
+  letter-spacing: 0.02em;
+}
+
+/* 4. MAJESTIC — Antique Gold Museum Card */
+.thought-bubble--majestic {
+  --bubble-bg: rgba(12, 10, 7, 0.90);
+  --bubble-border: rgba(196, 174, 122, 0.8);
+  --bubble-text: #E8D9B5;
+  --bubble-shadow: 0 8px 26px rgba(0, 0, 0, 0.65), 0 0 12px rgba(196, 174, 122, 0.15);
+  border-radius: 6px;
+  top: 5%;
+  right: 26%;
+  max-width: min(290px, 40vw);
+  padding: 0.65rem 0.95rem;
+}
+
+.thought-bubble--majestic .thought-bubble__text {
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #E8D9B5;
+}
+
 .world--about {
   --portrait-width: min(55vw, 48rem);
   --portrait-height: min(86svh, 56rem);
@@ -309,7 +431,7 @@
   position: relative;
   display: grid;
   align-items: center;
-  min-height: calc(100svh - 4.5rem);
+  min-height: 100svh;
   padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 8vw, 9rem);
   overflow: hidden;
 }
@@ -4201,9 +4323,29 @@
   .phoenix-portrait {
     --portrait-width: min(90vw, 31rem);
     --portrait-height: min(68svh, 38rem);
+    --portrait-bottom: 0;
     right: 50%;
     transform: translateX(50%);
     opacity: 0.6;
+  }
+
+  .thought-bubble {
+    top: 2% !important;
+    right: 50% !important;
+    transform: translateX(50%) !important;
+    max-width: min(300px, 86vw) !important;
+    padding: 0.55rem 0.85rem !important;
+    transform-origin: bottom center !important;
+  }
+
+  .thought-bubble .thought-bubble__text {
+    font-size: 0.74rem !important;
+  }
+
+  .thought-bubble .thought-bubble__tail {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
   }
 }
 

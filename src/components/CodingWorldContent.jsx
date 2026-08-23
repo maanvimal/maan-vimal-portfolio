@@ -13,7 +13,7 @@ import {
   techStackCategories,
 } from '../data/codingContent.js'
 
-function CodingWorldContent({ portrait }) {
+function CodingWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
   const worldRef = useRef(null)
 
   useLayoutEffect(() => {
@@ -72,7 +72,12 @@ function CodingWorldContent({ portrait }) {
         data-coding-section-id="hero"
         aria-labelledby="coding-title"
       >
-        <PhoenixPortrait portrait={portrait} worldId="coding" />
+        <PhoenixPortrait
+          portrait={portrait}
+          worldId="coding"
+          thoughtMessage={thoughtMessage}
+          thoughtTriggerKey={thoughtTriggerKey}
+        />
         <div className="coding-hero__content">
           <div className="coding-hero__terminal-header" data-coding-hero-item>
             <span className="coding-hero__status-dot" aria-hidden="true" />

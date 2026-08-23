@@ -1,4 +1,14 @@
-function PhoenixPortrait({ portrait, worldId }) {
+import ThoughtBubble from './ThoughtBubble.jsx'
+
+function PhoenixPortrait({
+  portrait,
+  worldId,
+  thoughtMessage,
+  thoughtTriggerKey = 1,
+  showThought = true,
+  thoughtDuration = 5000,
+  thoughtDelay = 1000,
+}) {
   if (!portrait.image) {
     return (
       <div
@@ -19,6 +29,15 @@ function PhoenixPortrait({ portrait, worldId }) {
         src={portrait.image}
         alt={portrait.alt}
       />
+      {showThought && (
+        <ThoughtBubble
+          world={worldId}
+          message={thoughtMessage}
+          duration={thoughtDuration}
+          delay={thoughtDelay}
+          triggerKey={thoughtTriggerKey}
+        />
+      )}
     </figure>
   )
 }
