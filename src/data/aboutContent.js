@@ -1,6 +1,9 @@
+import mythosProjectImage from '../assets/portraits/mythos/phoenix-mythos.png'
+import majesticArtistImage from '../assets/portraits/majestic/phoenix-majestic.png'
+import codingProjectImage from '../assets/portraits/coding/phoenix-coding.png'
+
 export const aboutHero = {
   eyebrow: 'About',
-  chapter: '00 / Intro',
   title: 'Maan Vimal',
   roles: 'Prompt Engineer · AI Workflow Designer · Generative AI Creator',
   intro:
@@ -42,7 +45,6 @@ export const aboutSections = {
     number: '05',
     title: 'Selected Work',
     heading: 'Projects that extend into their own worlds.',
-    mediaPlaceholder: 'Project media forthcoming',
   },
   experience: {
     number: '06',
@@ -124,6 +126,7 @@ export const selectedWork = [
     category: 'Creative Production',
     description: 'A developing creative world for cinematic storytelling and generative visual work.',
     destination: 'Explore in Mythos',
+    image: mythosProjectImage,
   },
   {
     id: 'majestic',
@@ -131,6 +134,7 @@ export const selectedWork = [
     category: 'Creative Direction',
     description: 'A developing visual project centred on pet portrait work and creative direction.',
     destination: 'Explore in Majestic',
+    image: majesticArtistImage,
   },
   {
     id: 'coding',
@@ -138,21 +142,84 @@ export const selectedWork = [
     category: 'Systems / Project',
     description: 'A developing project space for technical workflows and product thinking.',
     destination: 'Explore in Coding',
+    image: codingProjectImage,
   },
 ]
 
-export const experiencePlaceholders = [
-  ['Education', 'Verified education details will be added when source material is integrated.'],
-  ['Professional Experience', 'Verified professional experience details will be added when source material is integrated.'],
-  ['Project Experience', 'Selected project previews appear above; full case studies will live in their respective worlds.'],
+export const experience = [
+  {
+    category: 'Education',
+    heading: 'Education',
+    role: 'B.Tech — Computer Science Engineering',
+    organization: 'SRMCEM, Lucknow',
+    period: 'Expected Graduation: 2027',
+    details: [
+      'Academic Background: Class XII, City Montessori School (91%).',
+      'Undergraduate engineering study focusing on software development, AI pipelines, and computer science fundamentals.',
+    ],
+  },
+  {
+    category: 'Professional Experience',
+    heading: 'Professional Experience',
+    role: 'Founder & Prompt Engineer',
+    organization: 'Majestic Tails',
+    period: '2025–Present',
+    details: [
+      'Built an AI-powered digital pet portrait brand from concept to production.',
+      'Designed reusable prompt engineering workflows for image and video generation.',
+      'Produced 30+ AI-generated short-form videos.',
+      'Led creative direction, production workflow and brand identity.',
+    ],
+  },
+  {
+    category: 'Project Experience',
+    heading: 'Campus Share',
+    role: 'College Project · Resource & Listing Platform',
+    organization: 'React · Vite · Tailwind CSS · Firebase · React Router',
+    period: 'Web Application',
+    summary:
+      'A college project focused on building a practical platform for sharing campus resources and listings, developed using React, Vite, Tailwind CSS, Firebase, and React Router.',
+    details: [
+      'Engineered a responsive React SPA architecture with Vite for rapid development and clean bundle output.',
+      'Implemented secure user authentication and profile management utilizing Firebase Auth.',
+      'Architected real-time Firestore database collections for listing creation, categorization, and item queries.',
+      'Designed a clean, modern UI with Tailwind CSS focused on student user flows and mobile responsiveness.',
+    ],
+  },
+  {
+    category: 'Project Experience',
+    heading: 'Maan Vimal — Interactive Portfolio',
+    role: 'Living Creative System & Multi-World Architecture',
+    organization: 'React 19 · Vite · Three.js / R3F · GSAP · Web Audio API',
+    period: 'Project / Portfolio System',
+    summary:
+      'An interactive portfolio built as a living creative system, combining AI workflow design, creative production, cinematic worldbuilding, interactive web development, custom transitions, generative visual work, and world-specific sound and music systems.',
+    details: [
+      'The portfolio itself is intended to demonstrate the way I approach creative technology: not simply presenting finished work, but building the systems, interactions, visual language, and production pipelines behind it.',
+      'Custom useWorldTransition state engine coordinating asynchronous multi-phase transitions across 4 unique worlds without route reloads.',
+      'Integrated 3D spatial network visualization (Three.js/R3F), dynamic CSS token injection, and ambient soundscapes.',
+    ],
+  },
 ]
 
 export const aboutContact = {
   signature: 'Maan Vimal',
+  identity: 'Prompt Engineer · AI Workflow Designer · Generative AI Creator',
+  email: 'maanvimal5@gmail.com',
+  phone: '+91 7571846809',
   note:
-    'Professional resume access and contact details can be added here once verified links are available.',
+    'Available for AI workflow design, prompt engineering, generative production, and creative technology collaboration.',
   actions: [
-    { label: 'Resume link pending', type: 'resume' },
-    { label: 'Contact link pending', type: 'contact' },
+    {
+      label: 'View Resume',
+      type: 'resume',
+      href: null,
+      status: 'pending-destination',
+    },
+    {
+      label: 'Contact Me',
+      type: 'contact',
+      href: 'mailto:maanvimal5@gmail.com',
+    },
   ],
 }

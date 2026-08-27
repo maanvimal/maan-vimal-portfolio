@@ -70,6 +70,7 @@ function App() {
         />
       </header>
       <World
+        onWorldChange={handleWorldChange}
         thoughtMessage={thoughtMessage}
         thoughtTriggerKey={thoughtTriggerKey}
         world={currentWorldTheme}

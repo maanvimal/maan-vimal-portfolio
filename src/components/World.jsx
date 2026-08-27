@@ -6,7 +6,13 @@ import MythosWorldContent from './MythosWorldContent.jsx'
 import PhoenixPortrait from './PhoenixPortrait.jsx'
 import { getPortrait } from '../data/portraitConfig.js'
 
-function World({ world, worldElementRef, thoughtMessage, thoughtTriggerKey }) {
+function World({
+  world,
+  worldElementRef,
+  thoughtMessage,
+  thoughtTriggerKey,
+  onWorldChange,
+}) {
   const portrait = getPortrait(world.id)
 
   useLayoutEffect(() => {
@@ -22,6 +28,7 @@ function World({ world, worldElementRef, thoughtMessage, thoughtTriggerKey }) {
       <div className="world__environment" aria-hidden="true" />
       {world.id === 'about' ? (
         <AboutWorldContent
+          onWorldChange={onWorldChange}
           portrait={portrait}
           thoughtMessage={thoughtMessage}
           thoughtTriggerKey={thoughtTriggerKey}
@@ -34,12 +41,14 @@ function World({ world, worldElementRef, thoughtMessage, thoughtTriggerKey }) {
         />
       ) : world.id === 'mythos' ? (
         <MythosWorldContent
+          onWorldChange={onWorldChange}
           portrait={portrait}
           thoughtMessage={thoughtMessage}
           thoughtTriggerKey={thoughtTriggerKey}
         />
       ) : world.id === 'majestic' ? (
         <MajesticWorldContent
+          onWorldChange={onWorldChange}
           portrait={portrait}
           thoughtMessage={thoughtMessage}
           thoughtTriggerKey={thoughtTriggerKey}

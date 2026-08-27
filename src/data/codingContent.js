@@ -185,6 +185,11 @@ export const codingProjects = [
     badge: 'FEATURED PROJECT',
     type: 'Full-Stack Student Platform',
     status: 'Active Development',
+    statusIndicator: 'SYS_STATUS // ACTIVE DEVELOPMENT',
+    visual: {
+      src: '/assets/projects/campus-share-mark.svg',
+      alt: 'Campus Share logo mark',
+    },
     description:
       'A dedicated web platform designed to streamline resource exchange, academic collaboration, and peer sharing across campus communities through a unified, accessible interface.',
     highlights: [
@@ -201,7 +206,12 @@ export const codingProjects = [
     title: 'Portfolio Multi-World Engine',
     badge: 'SYSTEMS ARCHITECTURE',
     type: 'SPA Theme & Transition Engine',
-    status: 'In Production (This Portfolio)',
+    status: 'This Portfolio',
+    statusIndicator: 'SYS_STATUS (THIS PORTFOLIO)',
+    visual: {
+      src: '/assets/projects/phoenix-engine-emblem.svg',
+      alt: 'Portfolio Multi-World Engine Phoenix emblem',
+    },
     description:
       'A bespoke multi-environment portfolio orchestrator built with React 19 and GSAP, allowing seamless in-memory switching between four distinctly themed worlds without route reloads.',
     highlights: [
@@ -214,6 +224,89 @@ export const codingProjects = [
     mediaPlaceholder: 'Live interactive demonstration currently active',
   },
 ]
+
+export const campusShareDeepDive = {
+  title: 'Campus Share',
+  tag: 'CAMPUS SHARE',
+  lead:
+    'A full-stack student platform designed to make resource exchange, academic collaboration, and peer sharing easier through a unified web interface.',
+  whatIBuilt: {
+    title: 'What I Built',
+    paragraphs: [
+      'A responsive React application using Vite, Tailwind CSS, Firebase, Cloud Firestore, and React Router.',
+      'The system supports user authentication, listing creation, categorization, item discovery, and structured navigation through a clean student-focused interface.',
+    ],
+  },
+  engineeringFocus: {
+    title: 'Engineering Focus',
+    items: [
+      'React component architecture',
+      'Client-side routing',
+      'Firebase Authentication',
+      'Cloud Firestore data modelling',
+      'Responsive UI systems',
+      'Search and listing workflows',
+      'Reusable frontend components',
+      'Practical state and data flow',
+    ],
+  },
+  whyItMatters: {
+    title: 'Why It Matters',
+    paragraphs: [
+      'Campus Share was built as a practical engineering project rather than just a visual prototype.',
+      'The goal was to take a real user problem, define the required data and interface structure, connect the application to cloud services, and turn the result into a working production-style web application.',
+    ],
+  },
+}
+
+export const portfolioEngineDeepDive = {
+  title: 'Portfolio Multi-World Engine',
+  tag: 'PORTFOLIO MULTI-WORLD ENGINE',
+  lead:
+    'A bespoke interactive portfolio system built with React, Vite, GSAP, custom CSS architecture, WebGL/Three.js scenes, state-driven world transitions, dynamic audio systems, and modular content architecture.',
+  whatIBuilt: {
+    title: 'What I Built',
+    intro: 'The portfolio is structured as four independent visual worlds:',
+    worlds: ['ABOUT', 'CODING', 'MYTHOS', 'MAJESTIC'],
+    description:
+      'The worlds can be switched in-memory without traditional page reloads, with each environment carrying its own visual language, content, 3D scene, audio identity, character presentation, and transition system.',
+  },
+  engineeringSystems: {
+    title: 'Engineering Systems',
+    items: [
+      'React component architecture',
+      'State-driven world orchestration',
+      'GSAP transition timelines',
+      'Three.js / WebGL environments',
+      'Dynamic CSS theme tokens',
+      'Responsive layout systems',
+      'World-specific background music',
+      'World-specific transition sound design',
+      'Deterministic thought-message system',
+      'Centralized content architecture',
+      'Modular scene configuration',
+      'Reusable UI controls',
+      'Git-based production checkpoints',
+    ],
+  },
+  engineeringFocus: {
+    title: 'Engineering Focus',
+    paragraphs: [
+      'The project demonstrates how a creative interface can be treated as a real software system rather than a collection of static pages.',
+      'Visual design, interaction, animation, audio, content, and state management are separated into modular systems so individual parts can evolve without destabilizing the rest of the application.',
+    ],
+  },
+  whyItMatters: {
+    title: 'Why It Matters',
+    lead: 'This portfolio is itself a demonstration of the way I work:',
+    points: [
+      'designing systems',
+      'connecting tools',
+      'building reusable architecture',
+      'and turning creative concepts into working interactive software.',
+    ],
+  },
+}
 
 export const aiDevelopmentPillars = [
   {

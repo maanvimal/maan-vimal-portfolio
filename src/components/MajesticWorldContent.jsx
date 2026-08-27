@@ -6,7 +6,6 @@ import {
   artisticDisciplines,
   artisticProcessStages,
   commercialWorkSection,
-  galleryCollections,
   majesticClosing,
   majesticHero,
   majesticPhilosophy,
@@ -15,7 +14,7 @@ import {
   visualDirectionPillars,
 } from '../data/majesticContent.js'
 
-function MajesticWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
+function MajesticWorldContent({ onWorldChange, portrait, thoughtMessage, thoughtTriggerKey }) {
   const worldRef = useRef(null)
 
   useLayoutEffect(() => {
@@ -148,7 +147,7 @@ function MajesticWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           </div>
         </section>
 
-        {/* 02 — THE PHILOSOPHY */}
+        {/* 02 — THE PHILOSOPHY (LOCKED MASTERPIECE — UNTOUCHED) */}
         <section
           className="majestic-section majestic-philosophy"
           data-majestic-section
@@ -175,7 +174,7 @@ function MajesticWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           </div>
         </section>
 
-        {/* 03 — WHAT I CREATE */}
+        {/* 03 — ARTISTIC DISCIPLINES (Digital Pet Portrait Works) */}
         <section
           className="majestic-section majestic-create"
           data-majestic-section
@@ -191,20 +190,36 @@ function MajesticWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
             Bespoke portrait styles &amp; creative treatments.
           </h2>
 
-          <div className="majestic-create__grid">
+          <div className="majestic-portraits__list">
             {artisticDisciplines.map((item) => (
-              <article key={item.code} className="majestic-discipline-card">
-                <div className="majestic-discipline-card__header">
-                  <span className="majestic-discipline-card__code">/{item.code}</span>
-                  <h3>{item.title}</h3>
+              <article key={item.code} className="majestic-portrait-showcase">
+                <div className="majestic-portrait-showcase__visual">
+                  <div className="majestic-portrait-showcase__frame">
+                    <div className="majestic-portrait-showcase__reticle majestic-portrait-showcase__reticle--tl" />
+                    <div className="majestic-portrait-showcase__reticle majestic-portrait-showcase__reticle--br" />
+                    <img
+                      src={item.image.src}
+                      alt={item.image.alt}
+                      className="majestic-portrait-showcase__image"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
-                <p>{item.description}</p>
+
+                <div className="majestic-portrait-showcase__info">
+                  <div className="majestic-portrait-showcase__meta">
+                    <span className="majestic-portrait-showcase__code">/{item.code}</span>
+                    <span className="majestic-portrait-showcase__style">{item.style}</span>
+                  </div>
+                  <h3 className="majestic-portrait-showcase__title">{item.title}</h3>
+                  <p className="majestic-portrait-showcase__desc">{item.description}</p>
+                </div>
               </article>
             ))}
           </div>
         </section>
 
-        {/* 04 — THE PROCESS */}
+        {/* 04 — THE ARTISTIC PROCESS */}
         <section
           className="majestic-section majestic-process"
           data-majestic-section
@@ -236,7 +251,7 @@ function MajesticWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           </div>
         </section>
 
-        {/* 05 — MAJESTIC TAILS STUDIO */}
+        {/* 05 — THE STUDIO BRAND */}
         <section
           className="majestic-section majestic-tails"
           data-majestic-section
@@ -253,12 +268,14 @@ function MajesticWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
               <div className="majestic-tails__reticle majestic-tails__reticle--tl" />
               <div className="majestic-tails__reticle majestic-tails__reticle--br" />
               <div className="majestic-tails__screen">
-                <span className="majestic-tails__status-tag">
-                  STATUS // {majesticTailsBrand.status.toUpperCase()}
-                </span>
-                <span className="majestic-tails__media-note">
-                  {majesticTailsBrand.mediaPlaceholder}
-                </span>
+                <div className="majestic-tails__visual-wrap">
+                  <img
+                    src={majesticTailsBrand.visual.src}
+                    alt={majesticTailsBrand.visual.alt}
+                    className="majestic-tails__visual-img"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
 
@@ -286,55 +303,14 @@ function MajesticWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           </article>
         </section>
 
-        {/* 06 — PORTRAIT COLLECTION (Gallery) */}
-        <section
-          className="majestic-section majestic-gallery"
-          data-majestic-section
-          aria-labelledby="portrait-collection-title"
-        >
-          <header className="majestic-section__header">
-            <span className="majestic-section__index">06</span>
-            <span className="majestic-section__tag">PORTRAIT COLLECTION</span>
-            <span className="majestic-section__rule" aria-hidden="true" />
-          </header>
-
-          <h2 id="portrait-collection-title" className="majestic-section__heading">
-            Curated gallery collections.
-          </h2>
-
-          <div className="majestic-gallery__grid">
-            {galleryCollections.map((col) => (
-              <article key={col.id} className="majestic-gallery-card">
-                <div className="majestic-gallery-card__frame">
-                  <div className="majestic-gallery-card__reticle majestic-gallery-card__reticle--tl" />
-                  <div className="majestic-gallery-card__reticle majestic-gallery-card__reticle--br" />
-                  <div className="majestic-gallery-card__screen">
-                    <span className="majestic-gallery-card__code">{col.code}</span>
-                    <span className="majestic-gallery-card__note">{col.mediaNote}</span>
-                  </div>
-                </div>
-
-                <div className="majestic-gallery-card__body">
-                  <div className="majestic-gallery-card__style-row">
-                    <span className="majestic-gallery-card__style">{col.style}</span>
-                    <span className="majestic-gallery-card__aspect">{col.aspect}</span>
-                  </div>
-                  <h3 className="majestic-gallery-card__title">{col.title}</h3>
-                  <p className="majestic-gallery-card__desc">{col.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* 07 — VISUAL DIRECTION */}
+        {/* 06 — VISUAL DIRECTION */}
         <section
           className="majestic-section majestic-direction"
           data-majestic-section
           aria-labelledby="visual-direction-title"
         >
           <header className="majestic-section__header">
-            <span className="majestic-section__index">07</span>
+            <span className="majestic-section__index">06</span>
             <span className="majestic-section__tag">VISUAL DIRECTION</span>
             <span className="majestic-section__rule" aria-hidden="true" />
           </header>
@@ -356,14 +332,14 @@ function MajesticWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           </div>
         </section>
 
-        {/* 08 — CLIENT / COMMERCIAL WORK */}
+        {/* 07 — CLIENT / COMMERCIAL WORK */}
         <section
           className="majestic-section majestic-commercial"
           data-majestic-section
           aria-labelledby="commercial-work-title"
         >
           <header className="majestic-section__header">
-            <span className="majestic-section__index">08</span>
+            <span className="majestic-section__index">07</span>
             <span className="majestic-section__tag">COMMERCIAL COMMISSIONS</span>
             <span className="majestic-section__rule" aria-hidden="true" />
           </header>
@@ -388,14 +364,14 @@ function MajesticWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           </div>
         </section>
 
-        {/* 09 — CLOSING */}
+        {/* 08 — CLOSING & WORLD LINKS */}
         <section
           className="majestic-section majestic-closing"
           data-majestic-section
           aria-labelledby="majestic-closing-title"
         >
           <header className="majestic-section__header">
-            <span className="majestic-section__index">09</span>
+            <span className="majestic-section__index">08</span>
             <span className="majestic-section__tag">STUDIO SIGN-OFF</span>
             <span className="majestic-section__rule" aria-hidden="true" />
           </header>
@@ -413,7 +389,7 @@ function MajesticWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
                   key={link.label}
                   type="button"
                   className="majestic-closing__button"
-                  disabled
+                  onClick={() => onWorldChange?.(link.worldId)}
                 >
                   <span className="majestic-closing__button-dot">&#9670;</span>
                   <span>{link.label}</span>
@@ -421,14 +397,6 @@ function MajesticWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
               ))}
             </div>
           </div>
-
-          <footer className="majestic-world__colophon" aria-hidden="true">
-            <span>MAJESTIC_STUDIO // GALLERY OPEN</span>
-            <span>&#9670;</span>
-            <span>WORLD: MAJESTIC_V1</span>
-            <span>&#9670;</span>
-            <span>ARTIST: MAAN VIMAL</span>
-          </footer>
         </section>
       </div>
     </div>

@@ -4,7 +4,12 @@ import PhoenixPortrait from './PhoenixPortrait.jsx'
 import AboutScene from './about/AboutScene.jsx'
 import { aboutContent } from '../data/portfolioContent.js'
 
-function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
+function AboutWorldContent({
+  onWorldChange,
+  portrait,
+  thoughtMessage,
+  thoughtTriggerKey,
+}) {
   const worldRef = useRef(null)
 
   const {
@@ -87,9 +92,8 @@ function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
         />
         <div className="about-hero__content">
           <div className="about-hero__header" data-about-hero-item>
+            <span className="about-hero__status-dot" aria-hidden="true" />
             <span className="about-hero__label">{hero.eyebrow}</span>
-            <span className="about-hero__dot" aria-hidden="true" />
-            <span className="about-hero__chapter">{hero.chapter}</span>
           </div>
 
           <h1 id="about-title" className="about-hero__title" data-about-hero-item>
@@ -263,11 +267,28 @@ function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
                 key={project.name}
                 className="about-work__portal-card"
                 data-portal-world={project.id || ''}
+                role="button"
+                tabIndex={0}
+                aria-label={`${project.name} — ${project.destination}`}
+                onClick={() => onWorldChange?.(project.id)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    onWorldChange?.(project.id)
+                  }
+                }}
               >
                 <div className="about-work__frame" aria-hidden="true">
                   <span className="about-work__reticle about-work__reticle--tl" />
                   <span className="about-work__reticle about-work__reticle--br" />
-                  <span className="about-work__media-label">{sections.work.mediaPlaceholder}</span>
+                  {project.image && (
+                    <img
+                      src={project.image}
+                      alt=""
+                      className="about-work__image"
+                      loading="lazy"
+                    />
+                  )}
                 </div>
                 <div className="about-work__info">
                   <p className="about-work__category">{project.category}</p>
@@ -300,16 +321,60 @@ function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           </h2>
 
           <div className="about-experience__timeline">
-            {experience.map(([title, description], index) => (
-              <article key={title} className="about-experience__entry">
+            {experience.map((item, index) => (
+              <article
+                key={item.heading || item.category || index}
+                className="about-experience__entry"
+              >
                 <div className="about-experience__lead">
                   <span className="about-experience__index">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <h3>{title}</h3>
+                  <h3>{item.heading}</h3>
                 </div>
                 <div className="about-experience__body">
-                  <p>{description}</p>
+                  {item.role && (
+                    <div className="about-experience__role-header">
+                      <h4 className="about-experience__role-title">{item.role}</h4>
+                      <div className="about-experience__meta">
+                        {item.organization && (
+                          <span className="about-experience__org">{item.organization}</span>
+                        )}
+                        {item.organization && item.period && (
+                          <span className="about-experience__dot" aria-hidden="true">
+                            ·
+                          </span>
+                        )}
+                        {item.period && (
+                          <span className="about-experience__period">{item.period}</span>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  {item.summary && (
+                    <p className="about-experience__summary">{item.summary}</p>
+                  )}
+                  {item.details && item.details.length > 0 && (
+                    <ul className="about-experience__list">
+                      {item.details.map((detail, dIdx) => (
+                        <li key={dIdx}>{detail}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {item.projects && item.projects.length > 0 && (
+                    <div className="about-experience__projects">
+                      {item.projects.map((proj, pIdx) => (
+                        <div key={pIdx} className="about-experience__project-block">
+                          <h5 className="about-experience__project-title">{proj.name}</h5>
+                          <ul className="about-experience__list">
+                            {proj.highlights.map((h, hIdx) => (
+                              <li key={hIdx}>{h}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </article>
             ))}
@@ -333,20 +398,63 @@ function AboutWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
             <h2 id="contact-title" className="about-contact__signature">
               {contact.signature}
             </h2>
+            {contact.identity && (
+              <p className="about-contact__identity">{contact.identity}</p>
+            )}
+            {(contact.email || contact.phone) && (
+              <div className="about-contact__info">
+                {contact.email && (
+                  <a
+                    href={`mailto:${contact.email}`}
+                    className="about-contact__link"
+                  >
+                    {contact.email}
+                  </a>
+                )}
+                {contact.email && contact.phone && (
+                  <span className="about-contact__divider" aria-hidden="true">
+                    ·
+                  </span>
+                )}
+                {contact.phone && (
+                  <a
+                    href={`tel:${contact.phone.replace(/\s+/g, '')}`}
+                    className="about-contact__link"
+                  >
+                    {contact.phone}
+                  </a>
+                )}
+              </div>
+            )}
             <p className="about-contact__note">
               {contact.note}
             </p>
             <div className="about-contact__actions">
-              {contact.actions.map((action) => (
-                <button
-                  key={action.label}
-                  type="button"
-                  className="about-contact__button"
-                  disabled
-                >
-                  {action.label}
-                </button>
-              ))}
+              {contact.actions.map((action) => {
+                if (action.href) {
+                  return (
+                    <a
+                      key={action.label}
+                      href={action.href}
+                      className="about-contact__button about-contact__button--active"
+                      target={action.type === 'resume' ? '_blank' : undefined}
+                      rel={action.type === 'resume' ? 'noopener noreferrer' : undefined}
+                    >
+                      {action.label}
+                    </a>
+                  )
+                }
+                return (
+                  <button
+                    key={action.label}
+                    type="button"
+                    className="about-contact__button"
+                    title={action.status === 'pending-destination' ? 'Resume destination pending' : undefined}
+                  >
+                    {action.label}
+                  </button>
+                )
+              })}
             </div>
           </div>
         </section>

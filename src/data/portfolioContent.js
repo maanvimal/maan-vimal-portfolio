@@ -4,7 +4,7 @@ import {
   aboutProfile,
   aboutSections,
   capabilities as aboutCapabilities,
-  experiencePlaceholders as aboutExperiencePlaceholders,
+  experience as aboutExperience,
   processSteps as aboutProcessSteps,
   selectedWork as aboutSelectedWork,
   toolkitCategories as aboutToolkitCategories,
@@ -12,22 +12,24 @@ import {
 
 import {
   aiDevelopmentPillars,
+  campusShareDeepDive,
   capabilities as codingCapabilities,
-  codingContact,
   codingProfile,
   codingProjects,
   engineeringProcess,
+  portfolioEngineDeepDive,
   projectLifecycleStages,
   techStackCategories,
 } from './codingContent.js'
 
 import {
   cinematicProduction,
-  mediaWatchArchive,
+  cinematicWorksSection,
   mythosClosing,
   mythosHero,
   mythosProject,
   mythosUnveiledShowcase,
+  otherStyleWorks,
   productionPipelineStages,
   selectedEpisodes,
   storyEngineStages,
@@ -38,7 +40,6 @@ import {
   artisticDisciplines,
   artisticProcessStages,
   commercialWorkSection,
-  galleryCollections,
   majesticClosing,
   majesticHero,
   majesticPhilosophy,
@@ -80,13 +81,13 @@ export const aboutContent = {
   process: aboutProcessSteps,
   toolkit: aboutToolkitCategories,
   selectedWork: aboutSelectedWork,
-  experience: aboutExperiencePlaceholders,
+  experience: aboutExperience,
   contact: aboutContact,
 }
 
 export const codingContent = {
   hero: {
-    terminalId: 'CODING // 00_INIT',
+    terminalId: 'CODING',
     statusBadge: 'SYS_ACTIVE',
     name: codingProfile.name,
     roles: codingProfile.roles,
@@ -120,19 +121,25 @@ export const codingContent = {
       heading: 'Production applications and systems engineering.',
       highlightsLabel: 'ARCHITECTURE HIGHLIGHTS',
     },
-    aiDev: {
+    campusShare: {
       index: '06',
+      tag: 'CAMPUS SHARE',
+      heading: 'Campus Share',
+    },
+    portfolioEngine: {
+      index: '07',
+      tag: 'PORTFOLIO MULTI-WORLD ENGINE',
+      heading: 'Portfolio Multi-World Engine',
+    },
+    aiDev: {
+      index: '08',
       tag: 'AI × DEVELOPMENT',
       heading: 'The convergence of software engineering and artificial intelligence.',
     },
     architecture: {
-      index: '07',
+      index: '09',
       tag: 'SYSTEMS ARCHITECTURE',
       heading: 'End-to-end project lifecycle & data flow.',
-    },
-    contact: {
-      index: '08',
-      tag: 'SYSTEM EXIT',
     },
   },
   profile: codingProfile,
@@ -140,15 +147,10 @@ export const codingContent = {
   engineeringProcess,
   techStack: techStackCategories,
   projects: codingProjects,
+  campusShare: campusShareDeepDive,
+  portfolioEngine: portfolioEngineDeepDive,
   aiDevelopment: aiDevelopmentPillars,
   lifecycle: projectLifecycleStages,
-  contact: codingContact,
-  colophon: {
-    status: 'SYS_STATUS: ONLINE',
-    separator: '//',
-    world: 'WORLD: CODING_V1',
-    stack: 'STACK: REACT 19 + VITE 8 + GSAP',
-  },
 }
 
 export const mythosContent = {
@@ -185,14 +187,15 @@ export const mythosContent = {
       tag: 'PRODUCTION PIPELINE',
       heading: 'The end-to-end cinematic generation workflow.',
     },
-    episodes: {
+    cinematicWorks: {
       index: '07',
-      tag: 'SELECTED WORK',
-      heading: 'Episodic Universe & Mythology Archive',
+      tag: 'CINEMATIC WORKS',
+      heading: 'Stories that move beyond the frame.',
     },
-    media: {
+    otherWorks: {
       index: '08',
-      tag: 'CINEMATIC THEATER',
+      tag: 'OTHER STYLE WORKS',
+      heading: 'Image-based storytelling across myth, character, and cinematic atmosphere.',
     },
     closing: {
       index: '09',
@@ -205,15 +208,10 @@ export const mythosContent = {
   showcase: mythosUnveiledShowcase,
   visualLanguage: visualLanguagePillars,
   productionPipeline: productionPipelineStages,
+  otherWorks: otherStyleWorks,
   selectedEpisodes,
-  mediaArchive: mediaWatchArchive,
+  cinematicWorks: cinematicWorksSection,
   closing: mythosClosing,
-  colophon: {
-    chamber: 'MYTHOS_CHAMBER // ONLINE',
-    separator: '◆',
-    world: 'WORLD: MYTHOS_V1',
-    architect: 'ARCHITECT: MAAN VIMAL',
-  },
 }
 
 export const majesticContent = {
@@ -243,22 +241,17 @@ export const majesticContent = {
       tag: 'THE STUDIO BRAND',
       focusLabel: 'STUDIO ARCHITECTURE',
     },
-    gallery: {
-      index: '06',
-      tag: 'PORTRAIT COLLECTION',
-      heading: 'Curated gallery collections.',
-    },
     visualDirection: {
-      index: '07',
+      index: '06',
       tag: 'VISUAL DIRECTION',
       heading: 'Warmth, Luxury, and Character Expression.',
     },
     commercial: {
-      index: '08',
+      index: '07',
       tag: 'COMMERCIAL COMMISSIONS',
     },
     closing: {
-      index: '09',
+      index: '08',
       tag: 'STUDIO SIGN-OFF',
     },
   },
@@ -267,16 +260,9 @@ export const majesticContent = {
   artisticDisciplines,
   artisticProcess: artisticProcessStages,
   brand: majesticTailsBrand,
-  galleryCollections,
   visualDirection: visualDirectionPillars,
   commercialWork: commercialWorkSection,
   closing: majesticClosing,
-  colophon: {
-    studio: 'MAJESTIC_STUDIO // GALLERY OPEN',
-    separator: '◆',
-    world: 'WORLD: MAJESTIC_V1',
-    artist: 'ARTIST: MAAN VIMAL',
-  },
 }
 
 export const portfolioContent = {

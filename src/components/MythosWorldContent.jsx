@@ -4,18 +4,18 @@ import PhoenixPortrait from './PhoenixPortrait.jsx'
 import LivingBookScene from './mythos/LivingBookScene.jsx'
 import {
   cinematicProduction,
-  mediaWatchArchive,
+  cinematicWorksSection,
   mythosClosing,
   mythosHero,
   mythosProject,
   mythosUnveiledShowcase,
+  otherStyleWorks,
   productionPipelineStages,
-  selectedEpisodes,
   storyEngineStages,
   visualLanguagePillars,
 } from '../data/mythosContent.js'
 
-function MythosWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
+function MythosWorldContent({ onWorldChange, portrait, thoughtMessage, thoughtTriggerKey }) {
   const worldRef = useRef(null)
 
   useLayoutEffect(() => {
@@ -235,18 +235,50 @@ function MythosWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           </header>
 
           <article className="mythos-unveiled__showcase">
-            <div className="mythos-unveiled__frame">
+            <a
+              href={mythosUnveiledShowcase.channelUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mythos-unveiled__frame mythos-unveiled__frame--link"
+              aria-label="Open Mythos Unveiled YouTube channel (opens in a new tab)"
+            >
               <div className="mythos-unveiled__reticle mythos-unveiled__reticle--tl" />
               <div className="mythos-unveiled__reticle mythos-unveiled__reticle--br" />
               <div className="mythos-unveiled__screen">
                 <span className="mythos-unveiled__status-tag">
                   STATUS // {mythosUnveiledShowcase.status.toUpperCase()}
                 </span>
-                <span className="mythos-unveiled__media-note">
-                  {mythosUnveiledShowcase.mediaPlaceholder}
-                </span>
+                {mythosUnveiledShowcase.visual ? (
+                  <div className="mythos-unveiled__visual-wrap">
+                    <img
+                      src={mythosUnveiledShowcase.visual.src}
+                      alt={mythosUnveiledShowcase.visual.alt}
+                      className="mythos-unveiled__visual-img"
+                      loading="lazy"
+                    />
+                    <span className="mythos-unveiled__external-hint">
+                      <span>VIEW CHANNEL</span>
+                      <svg
+                        className="mythos-unveiled__external-icon"
+                        viewBox="0 0 12 12"
+                        width="10"
+                        height="10"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        aria-hidden="true"
+                      >
+                        <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" />
+                      </svg>
+                    </span>
+                  </div>
+                ) : (
+                  <span className="mythos-unveiled__media-note">
+                    {mythosUnveiledShowcase.mediaPlaceholder}
+                  </span>
+                )}
               </div>
-            </div>
+            </a>
 
             <div className="mythos-unveiled__details">
               <div className="mythos-unveiled__badge-row">
@@ -333,82 +365,100 @@ function MythosWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
           </div>
         </section>
 
-        {/* 07 — SELECTED EPISODE / WORK */}
+        {/* 07 — CINEMATIC WORKS (Zeus & Odysseus) */}
         <section
-          className="mythos-section mythos-episode"
+          className="mythos-section mythos-cinematic-works"
           data-mythos-section
-          aria-labelledby="selected-work-title"
+          aria-labelledby="cinematic-works-title"
         >
           <header className="mythos-section__header">
             <span className="mythos-section__index">07</span>
-            <span className="mythos-section__tag">SELECTED WORK</span>
+            <span className="mythos-section__tag">CINEMATIC WORKS</span>
             <span className="mythos-section__rule" aria-hidden="true" />
           </header>
 
-          <h2 id="selected-work-title" className="mythos-section__heading">
-            Episodic Universe &amp; Mythology Archive
+          <h2 id="cinematic-works-title" className="mythos-section__heading">
+            {cinematicWorksSection.heading}
           </h2>
 
-          <div className="mythos-episode__grid">
-            {selectedEpisodes.map((ep) => (
-              <article key={ep.id} className="mythos-episode-card">
-                <div className="mythos-episode-card__frame">
-                  <div className="mythos-episode-card__reticle mythos-episode-card__reticle--tl" />
-                  <div className="mythos-episode-card__reticle mythos-episode-card__reticle--br" />
-                  <div className="mythos-episode-card__screen">
-                    <span className="mythos-episode-card__code">{ep.code}</span>
-                    <span className="mythos-episode-card__note">{ep.mediaNote}</span>
-                  </div>
+          <div className="mythos-cinematic__grid">
+            {cinematicWorksSection.works.map((work) => (
+              <article key={work.id} className="mythos-cinematic-card">
+                <div className="mythos-cinematic-card__video-slot">
+                  <div className="mythos-cinematic-card__reticle mythos-cinematic-card__reticle--tl" />
+                  <div className="mythos-cinematic-card__reticle mythos-cinematic-card__reticle--br" />
+                  <img
+                    src={work.image.src}
+                    alt={work.image.alt}
+                    className="mythos-cinematic-card__poster"
+                    loading="lazy"
+                  />
                 </div>
 
-                <div className="mythos-episode-card__body">
-                  <div className="mythos-episode-card__status-row">
-                    <span className="mythos-episode-card__status">{ep.status}</span>
-                    <span className="mythos-episode-card__aspect">{ep.aspect}</span>
-                  </div>
-                  <h3 className="mythos-episode-card__title">{ep.title}</h3>
-                  <p className="mythos-episode-card__premise">{ep.premise}</p>
+                <div className="mythos-cinematic-card__body">
+                  <h3 className="mythos-cinematic-card__title">{work.title}</h3>
+                  <p className="mythos-cinematic-card__desc">{work.description}</p>
                 </div>
               </article>
             ))}
           </div>
         </section>
 
-        {/* 08 — MEDIA / WATCH */}
+        {/* 08 — OTHER STYLE WORKS (Merlin & Windego) */}
         <section
-          className="mythos-section mythos-media"
+          className="mythos-section mythos-other-works"
           data-mythos-section
-          aria-labelledby="cinematic-theater-title"
+          aria-labelledby="other-works-title"
         >
           <header className="mythos-section__header">
             <span className="mythos-section__index">08</span>
-            <span className="mythos-section__tag">CINEMATIC THEATER</span>
+            <span className="mythos-section__tag">OTHER STYLE WORKS</span>
             <span className="mythos-section__rule" aria-hidden="true" />
           </header>
 
-          <div className="mythos-media__theater">
-            <div className="mythos-media__master-frame">
-              <div className="mythos-media__reticle mythos-media__reticle--tl" />
-              <div className="mythos-media__reticle mythos-media__reticle--br" />
-              <div className="mythos-media__screen">
-                <span className="mythos-media__tag">{mediaWatchArchive.statusTag}</span>
-                <h3 className="mythos-media__title">{mediaWatchArchive.title}</h3>
-                <p className="mythos-media__note">{mediaWatchArchive.note}</p>
-              </div>
-            </div>
+          <h2 id="other-works-title" className="mythos-section__heading">
+            Image-based storytelling across myth, character, and cinematic atmosphere.
+          </h2>
 
-            <div className="mythos-media__slots-grid">
-              {mediaWatchArchive.mediaSlots.map((slot, index) => (
-                <div key={index} className="mythos-media-slot">
-                  <span className="mythos-media-slot__status">[{slot.status}]</span>
-                  <span className="mythos-media-slot__label">{slot.label}</span>
+          <div className="mythos-episode__grid">
+            {otherStyleWorks.map((work) => (
+              <article key={work.id} className="mythos-episode-card">
+                <a
+                  href={work.videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mythos-episode-card__frame mythos-episode-card__frame--link"
+                  aria-label={`Watch ${work.title} on YouTube (opens in a new tab)`}
+                >
+                  <div className="mythos-episode-card__reticle mythos-episode-card__reticle--tl" />
+                  <div className="mythos-episode-card__reticle mythos-episode-card__reticle--br" />
+                  <img
+                    src={work.image.src}
+                    alt={work.image.alt}
+                    className="mythos-episode-card__image"
+                    loading="lazy"
+                  />
+                </a>
+
+                <div className="mythos-episode-card__body">
+                  <h3 className="mythos-episode-card__title">
+                    <a
+                      href={work.videoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mythos-episode-card__title-link"
+                    >
+                      {work.title}
+                    </a>
+                  </h3>
+                  <p className="mythos-episode-card__premise">{work.description}</p>
                 </div>
-              ))}
-            </div>
+              </article>
+            ))}
           </div>
         </section>
 
-        {/* 09 — CLOSING */}
+        {/* 09 — RETURN */}
         <section
           className="mythos-section mythos-closing"
           data-mythos-section
@@ -433,7 +483,7 @@ function MythosWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
                   key={link.label}
                   type="button"
                   className="mythos-closing__button"
-                  disabled
+                  onClick={() => onWorldChange?.(link.worldId)}
                 >
                   <span className="mythos-closing__button-symbol">&#9670;</span>
                   <span>{link.label}</span>
@@ -441,14 +491,6 @@ function MythosWorldContent({ portrait, thoughtMessage, thoughtTriggerKey }) {
               ))}
             </div>
           </div>
-
-          <footer className="mythos-world__colophon" aria-hidden="true">
-            <span>MYTHOS_CHAMBER // ONLINE</span>
-            <span>&#9670;</span>
-            <span>WORLD: MYTHOS_V1</span>
-            <span>&#9670;</span>
-            <span>ARCHITECT: MAAN VIMAL</span>
-          </footer>
         </section>
       </div>
     </div>

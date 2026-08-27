@@ -1,5 +1,5 @@
 export const mythosHero = {
-  realmId: 'MYTHOS // 01_CHAMBER',
+  realmId: 'MYTHOS',
   eyebrow: 'Cinematic Mythology Universe',
   title: 'MYTHOS UNVEILED',
   subtitle: 'Cinematic mythology, built as a generative production universe.',
@@ -90,6 +90,12 @@ export const mythosUnveiledShowcase = {
   badge: 'PRODUCTION UNIVERSE',
   type: 'Cinematic Mythology Series',
   status: 'In Active Production',
+  channelUrl: 'https://youtube.com/@mythosunveiled-og?si=NPKER-0tJLK2-FL',
+  channelLabel: 'Open Mythos Unveiled YouTube Channel',
+  visual: {
+    src: '/assets/projects/mythos-unveiled-emblem.png',
+    alt: 'Mythos Unveiled cinematic portal emblem',
+  },
   summary:
     'A central universe repository housing cinematic keyframes, shot breakdowns, and technical case studies from the Mythos Unveiled chronicles.',
   features: [
@@ -134,39 +140,64 @@ export const productionPipelineStages = [
   { step: '08', phase: 'FINAL CINEMATIC', detail: 'Master export & archive publication' },
 ]
 
-export const selectedEpisodes = [
+export const cinematicWorksSection = {
+  heading: 'Stories that move beyond the frame.',
+  description:
+    'Cinematic mythology structured through visual authority and grand scale, exploring legendary pantheons and epic journeys.',
+  works: [
+    {
+      id: 'zeus',
+      title: 'The Golden Thunder',
+      character: 'Zeus',
+      description:
+        'A cinematic exploration of Zeus as a figure of divine authority, power, and storm-born presence, presented through a modern generative mythology production pipeline.',
+      image: {
+        src: '/assets/projects/mythos-zeus.jpg',
+        alt: 'Zeus The Sky King cinematic artwork',
+      },
+    },
+    {
+      id: 'odysseus',
+      title: 'The Hero Bound by Glory',
+      character: 'Odysseus',
+      description:
+        'A cinematic exploration of Odysseus as a legendary voyager, shaped by ambition, endurance, cunning, and the long journey between glory and home.',
+      image: {
+        src: '/assets/projects/mythos-odysseus.jpg',
+        alt: 'The Odysseus Saga cinematic artwork',
+      },
+    },
+  ],
+}
+
+export const otherStyleWorks = [
   {
-    id: 'chronicle-01',
-    code: 'CHRONICLE // I',
-    title: 'The Dawn of Legends',
-    premise:
-      'An exploration of primordial creation myths, ancestral fire, and the awakening of mythic pantheons across ancient cultures.',
-    status: 'In Production',
-    mediaNote: 'Keyframe stills & scene breakdowns in preparation',
-    aspect: '16:9 Cinematic',
+    id: 'merlin',
+    title: "The Devil's Son",
+    character: 'Merlin',
+    videoUrl: 'https://youtu.be/nQvOKp7r1R0',
+    description:
+      "An atmospheric study delving into the sorcerer's infernal genesis, contrasting fiery demonic embers with quiet character intimacy and mythic woodland atmosphere.",
+    image: {
+      src: '/assets/projects/mythos-cinematic-merlin.jpg',
+      alt: "Merlin: The Devil's Son cinematic artwork",
+    },
   },
   {
-    id: 'chronicle-02',
-    code: 'CHRONICLE // II',
-    title: 'The Forge & The Flame',
-    premise:
-      'The myth of divine blacksmiths, sacred metallurgy, and the crafting of legendary artifacts that shaped the ancient cosmos.',
-    status: 'In Pre-Production',
-    mediaNote: 'Visual research & concept bible active',
-    aspect: '16:9 Cinematic',
+    id: 'wendigo',
+    title: 'The Cannibal Curse',
+    character: 'Windego',
+    videoUrl: 'https://youtu.be/RAG01H9ApeE',
+    description:
+      'A chilling motion sequence capturing the ancient winter terror through haunting silhouette pacing, sweeping blizzard mists, and eerie amber-lit eyes piercing the desolate snow.',
+    image: {
+      src: '/assets/projects/mythos-cinematic-wendigo.jpg',
+      alt: 'The Wendigo: Cannibal Curse cinematic artwork',
+    },
   },
 ]
 
-export const mediaWatchArchive = {
-  title: 'Cinematic Archive & Video Theater',
-  note: 'Master reel viewport reserved for high-definition streaming & interactive scene breakdowns.',
-  statusTag: 'ARCHIVE // MASTER_REEL_PENDING',
-  mediaSlots: [
-    { label: 'Master Cinematic Trailer', status: 'Reserved 16:9 Viewport' },
-    { label: 'Keyframe Exhibition A', status: 'Archive Still 01' },
-    { label: 'Keyframe Exhibition B', status: 'Archive Still 02' },
-  ],
-}
+export const selectedEpisodes = cinematicWorksSection.works
 
 export const mythosClosing = {
   statement: 'Stories Built with Systems.',
