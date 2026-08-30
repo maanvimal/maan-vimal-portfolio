@@ -1,13 +1,60 @@
+import { useEffect, useRef, useState } from 'react'
 import { globalContent } from '../data/portfolioContent.js'
 
 function WorldControls({
   isMusicEnabled,
   isTransitionsEnabled,
+  isWhyHireMeUnlocked = false,
+  isWhyHireMeAwakening = false,
   onToggleMusic,
   onToggleTransitions,
   onReplayThought,
+  onOpenWhyHireMe,
 }) {
   const { controls } = globalContent
+  const [showLockedHint, setShowLockedHint] = useState(false)
+  const [isHintFadingOut, setIsHintFadingOut] = useState(false)
+  const fadeTimeoutRef = useRef(null)
+  const hideTimeoutRef = useRef(null)
+
+  // Cleanup timers on unmount
+  useEffect(() => {
+    return () => {
+      if (fadeTimeoutRef.current) clearTimeout(fadeTimeoutRef.current)
+      if (hideTimeoutRef.current) clearTimeout(hideTimeoutRef.current)
+    }
+  }, [])
+
+  const handleWhyHireMeClick = () => {
+    if (isWhyHireMeUnlocked) {
+      setShowLockedHint(false)
+      setIsHintFadingOut(false)
+      if (fadeTimeoutRef.current) clearTimeout(fadeTimeoutRef.current)
+      if (hideTimeoutRef.current) clearTimeout(hideTimeoutRef.current)
+      if (onOpenWhyHireMe) {
+        onOpenWhyHireMe()
+      }
+      return
+    }
+
+    // Locked state: show / restart 5-second visibility timer
+    if (fadeTimeoutRef.current) clearTimeout(fadeTimeoutRef.current)
+    if (hideTimeoutRef.current) clearTimeout(hideTimeoutRef.current)
+
+    setIsHintFadingOut(false)
+    setShowLockedHint(true)
+
+    // Begin subtle fade-out at 4.6s
+    fadeTimeoutRef.current = setTimeout(() => {
+      setIsHintFadingOut(true)
+    }, 4600)
+
+    // Cleanly remove at 5.0s
+    hideTimeoutRef.current = setTimeout(() => {
+      setShowLockedHint(false)
+      setIsHintFadingOut(false)
+    }, 5000)
+  }
 
   return (
     <div className="world-controls" aria-label={controls.ariaLabel}>
@@ -120,6 +167,45 @@ function WorldControls({
           <path d="M16 10h.01" />
         </svg>
       </button>
+
+      <div className="world-control-wrap">
+        <button
+          type="button"
+          className={`world-control-btn world-control-btn--why-hire-me ${
+            isWhyHireMeUnlocked ? 'is-active' : 'is-locked'
+          } ${isWhyHireMeAwakening ? 'is-awakening' : ''}`}
+          aria-label={
+            isWhyHireMeUnlocked
+              ? controls.whyHireMeUnlockedAria
+              : controls.whyHireMeLockedAria
+          }
+          aria-pressed={isWhyHireMeUnlocked}
+          aria-disabled={!isWhyHireMeUnlocked}
+          onClick={handleWhyHireMeClick}
+        >
+          <span className="why-hire-me-glyph" aria-hidden="true">
+            ?
+          </span>
+          {isWhyHireMeAwakening && (
+            <span className="why-hire-me-rays" aria-hidden="true" />
+          )}
+        </button>
+
+        {showLockedHint && !isWhyHireMeUnlocked && (
+          <div
+            className={`why-hire-me-hint-popup ${isHintFadingOut ? 'is-fading-out' : ''}`}
+            role="status"
+            aria-live="polite"
+          >
+            <span className="why-hire-me-hint-line why-hire-me-hint-line--primary">
+              to unlock
+            </span>
+            <span className="why-hire-me-hint-line why-hire-me-hint-line--secondary">
+              visit all worlds atleast once
+            </span>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

@@ -211,10 +211,9 @@ export const aboutContact = {
     'Available for AI workflow design, prompt engineering, generative production, and creative technology collaboration.',
   actions: [
     {
-      label: 'View Resume',
+      label: 'View Resume →',
       type: 'resume',
-      href: null,
-      status: 'pending-destination',
+      href: '/resume/Maan-Vimal-Resume.pdf',
     },
     {
       label: 'Contact Me',

@@ -70,6 +70,21 @@ export const globalContent = {
     transitionsOnAria: 'Disable transitions',
     transitionsOffAria: 'Enable transitions',
     thoughtReplayAria: 'Replay Phoenix thought',
+    whyHireMeLockedAria: 'Why Hire Me (Locked — explore all worlds to unlock)',
+    whyHireMeUnlockedAria: 'Open Why Hire Me',
+  },
+  whyHireMe: {
+    title: 'WHY HIRE ME',
+    eyebrow: 'CINEMATIC PRESENTATION',
+    subtitle: 'The Vision · The Craft · The Story',
+    closeAria: 'Close Why Hire Me',
+    playAria: 'Play video',
+    pauseAria: 'Pause video',
+    replayAria: 'Replay video',
+    muteAria: 'Mute audio',
+    unmuteAria: 'Unmute audio',
+    fullscreenAria: 'Toggle fullscreen',
+    videoAria: 'Why Hire Me presentation video',
   },
 }
 
