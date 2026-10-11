@@ -4,9 +4,9 @@ export const worlds = [
   {
     id: 'about',
     name: 'About',
-    identity: 'Prompt Engineer · AI Workflow Designer · Generative AI Creator',
+    identity: 'AI Creative Producer · Creative Director · Visual Storyteller',
     mood: 'Personal, elegant, rich metallic gold',
-    description: 'A starting point for the story behind Phoenix.',
+    description: 'Ideas, worlds and systems — brought to life.',
     colors: {
       background: '#080808',
       text: '#F5F4F0',

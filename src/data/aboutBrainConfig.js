@@ -290,6 +290,67 @@ export const BRAIN_SECTION_STATES = {
       intensity: 1.2,
     },
   },
+  // New Campaign & Teaser Sections
+  'midnight-ryu': {
+    camera: { position: [-0.05, 0.05, 4.5], lookAt: [0.15, 0.05, 0] },
+    brain: {
+      position: [0.75, 0.1, -0.45],
+      scale: 1.12,
+      rotY: 0.32,
+      rotX: 0.10,
+      intensity: 1.35,
+    },
+  },
+  pendant: {
+    camera: { position: [0.1, -0.05, 4.45], lookAt: [0.05, -0.05, 0] },
+    brain: {
+      position: [-0.7, -0.05, -0.4],
+      scale: 1.15,
+      rotY: -0.28,
+      rotX: 0.12,
+      intensity: 1.4,
+    },
+  },
+  'mythos-teaser': {
+    camera: { position: [-0.12, -0.1, 4.55], lookAt: [0.1, -0.1, 0] },
+    brain: {
+      position: [0.85, -0.1, -0.5],
+      scale: 1.08,
+      rotY: 0.22,
+      rotX: 0.08,
+      intensity: 1.25,
+    },
+  },
+  'majestic-teaser': {
+    camera: { position: [0.15, 0.0, 4.6], lookAt: [0.0, 0.0, 0] },
+    brain: {
+      position: [-0.65, 0.05, -0.45],
+      scale: 1.06,
+      rotY: -0.25,
+      rotX: 0.07,
+      intensity: 1.2,
+    },
+  },
+  'coding-teaser': {
+    camera: { position: [0.0, 0.1, 4.5], lookAt: [0.2, 0.05, 0] },
+    brain: {
+      position: [0.7, 0.15, -0.5],
+      scale: 1.1,
+      rotY: 0.3,
+      rotX: 0.11,
+      intensity: 1.3,
+    },
+  },
+  practice: {
+    camera: { position: [-0.15, -0.15, 4.5], lookAt: [0.05, -0.15, 0] },
+    brain: {
+      position: [-0.65, -0.15, -0.4],
+      scale: 1.08,
+      rotY: -0.22,
+      rotX: 0.06,
+      intensity: 1.25,
+    },
+  },
   work: {
     camera: { position: [0.0, 0.15, 4.4], lookAt: [0.0, 0.1, 0] },
     brain: {

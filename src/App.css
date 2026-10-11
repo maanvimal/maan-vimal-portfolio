@@ -770,378 +770,1390 @@
 }
 
 /* ==========================================================================
-   01 — Profile (Editorial Asymmetric Statement)
+   01 — HERO QUICK NAVIGATION
    ========================================================================== */
 
-.about-profile__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.95fr);
-  gap: clamp(2.5rem, 8vw, 8rem);
-  align-items: start;
+.about-hero__heading {
+  margin: 1.1rem 0 0;
+  color: #e5c16a;
+  font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 20px rgba(214, 168, 79, 0.28);
 }
 
-.about-profile__headline {
+.about-hero__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.8rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(214, 168, 79, 0.22);
+}
+
+.about-hero__nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.95rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #e5c16a;
+  background: rgba(14, 12, 10, 0.65);
+  border: 1px solid rgba(214, 168, 79, 0.32);
+  border-radius: 9999px;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.about-hero__nav-link:hover {
+  color: #fff;
+  border-color: #e5c16a;
+  background: rgba(214, 168, 79, 0.18);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   02 & 03 — FEATURED CAMPAIGNS (MIDNIGHT-RYU & PENDANT)
+   ========================================================================== */
+
+.about-campaign {
+  position: relative;
+}
+
+.about-campaign__header-block {
+  margin-bottom: 2.8rem;
+}
+
+.about-campaign__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.2rem;
+}
+
+.about-campaign__subtitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #e5c16a;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(214, 168, 79, 0.3);
+}
+
+.about-campaign__title {
   margin: 0;
   color: var(--theme-text);
-  font-size: clamp(2.4rem, 4.2vw, 4.2rem);
-  line-height: 1.04;
+  font-size: clamp(2.4rem, 4.8vw, 4.5rem);
+  line-height: 1;
   letter-spacing: -0.04em;
   font-weight: 700;
 }
 
-.about-profile__narrative {
-  padding-left: clamp(0rem, 2.5vw, 2.5rem);
-  border-left: 1px solid rgba(214, 168, 79, 0.28);
-}
-
-.about-profile__narrative p {
-  margin: 0;
+.about-campaign__description {
+  margin: 0 0 1.6rem;
   color: var(--theme-text-muted);
-  font-size: 1.15rem;
-  line-height: 1.75;
+  font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+  line-height: 1.7;
+  max-width: 52rem;
 }
 
-/* ==========================================================================
-   02 — What I Do (Editorial Capability Rows, No Boxed Cards)
-   ========================================================================== */
-
-.about-capabilities__layout {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 4.5rem;
-}
-
-.about-capability-item {
-  padding: 2.2rem 0;
-  border-bottom: 1px solid rgba(214, 168, 79, 0.2);
-  transition: border-bottom-color 0.3s ease, background 0.3s ease;
-}
-
-.about-capability-item:hover {
-  border-bottom-color: rgba(229, 193, 106, 0.65);
-  background: linear-gradient(90deg, rgba(214, 168, 79, 0.04) 0%, transparent 80%);
-}
-
-.about-capability-item__lead {
+.about-campaign__focus-tags {
   display: flex;
-  align-items: baseline;
-  gap: 1.25rem;
-  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
 }
 
-.about-capability-item__index {
-  color: #e5c16a;
-  font-size: 0.8rem;
+.about-campaign__focus-label {
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  font-variant-numeric: tabular-nums;
-  flex-shrink: 0;
+  letter-spacing: 0.18em;
+  color: #e5c16a;
+  margin-right: 0.4rem;
 }
 
-.about-capability-item h3 {
-  margin: 0;
-  color: var(--theme-text);
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
-.about-capability-item p {
-  margin: 0;
-  padding-left: 2.45rem;
-  color: var(--theme-text-muted);
-  font-size: 0.94rem;
-  line-height: 1.65;
-}
-
-/* ==========================================================================
-   03 — How I Work (Architectural Sequence & Progression Rail)
-   ========================================================================== */
-
-.about-process__container {
-  position: relative;
-  margin-top: 2rem;
-}
-
-.about-process__rail {
-  position: absolute;
-  top: 1.35rem;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(229, 193, 106, 0.75) 0%, rgba(214, 168, 79, 0.38) 75%, rgba(214, 168, 79, 0.1) 100%);
-  box-shadow: 0 0 10px rgba(214, 168, 79, 0.25);
-  z-index: 0;
-}
-
-.about-process__sequence {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 1.5rem;
+.about-campaign__tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   list-style: none;
-  margin: 0;
   padding: 0;
-  position: relative;
-  z-index: 1;
+  margin: 0;
 }
 
-.about-process__step {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.about-process__badge {
-  width: 2.7rem;
-  height: 2.7rem;
-  border: 1px solid var(--theme-accent);
-  background: #080808;
-  display: grid;
-  place-items: center;
-  margin-bottom: 2rem;
-  box-shadow: 0 0 18px rgba(214, 168, 79, 0.22), inset 0 0 12px rgba(214, 168, 79, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.about-process__badge:hover {
-  transform: translateY(-2px);
-  border-color: #e5c16a;
-  box-shadow: 0 0 28px rgba(229, 193, 106, 0.45), inset 0 0 16px rgba(214, 168, 79, 0.15);
-}
-
-.about-process__num {
-  color: #e5c16a;
-  font-size: 0.78rem;
-  font-weight: 700;
+.about-campaign__tag {
+  font-size: 0.72rem;
+  font-weight: 500;
   letter-spacing: 0.08em;
-}
-
-.about-process__details h3 {
-  margin: 0 0 0.8rem;
   color: var(--theme-text);
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-
-.about-process__details p {
-  margin: 0;
-  color: var(--theme-text-muted);
-  font-size: 0.88rem;
-  line-height: 1.6;
-}
-
-/* ==========================================================================
-   04 — Toolkit (Editorial Taxonomy Wall)
-   ========================================================================== */
-
-.about-toolkit__matrix {
-  border-top: 1px solid rgba(214, 168, 79, 0.24);
-}
-
-.about-toolkit__row {
-  display: grid;
-  grid-template-columns: minmax(14rem, 20rem) 1fr;
-  padding: 2.2rem 0;
-  border-bottom: 1px solid rgba(214, 168, 79, 0.18);
-  align-items: baseline;
-  gap: 2rem;
-  transition: background 0.3s ease;
-}
-
-.about-toolkit__row:hover {
-  background: linear-gradient(90deg, rgba(214, 168, 79, 0.04) 0%, transparent 60%);
-}
-
-.about-toolkit__category {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-}
-
-.about-toolkit__row-num {
-  color: #e5c16a;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
-
-.about-toolkit__category h3 {
-  margin: 0;
-  color: var(--theme-text);
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.about-toolkit__items p {
-  margin: 0;
-  color: var(--theme-text-muted);
-  font-size: 1.05rem;
-  line-height: 1.6;
-  letter-spacing: 0.02em;
-}
-
-/* ==========================================================================
-   05 — Selected Work (Editorial Project Previews & Subtle Portal Frames)
-   ========================================================================== */
-
-.about-work__exhibition {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2.2rem;
-}
-
-.about-work__portal-card {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding-bottom: 1.5rem;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  text-align: left;
-  font: inherit;
-  outline: none;
-}
-
-.about-work__portal-card:focus-visible {
-  outline: 2px solid #e5c16a;
-  outline-offset: 6px;
+  background: rgba(14, 12, 10, 0.85);
+  border: 1px solid rgba(214, 168, 79, 0.24);
+  padding: 0.35rem 0.75rem;
   border-radius: 4px;
 }
 
-.about-work__portal-card:hover {
-  transform: translateY(-3px);
+/* Media Stages */
+.about-campaign__media-stage--dual {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(1.8rem, 3.2vw, 3rem);
+  margin: 2rem 0 3.5rem;
 }
 
-.about-work__frame {
-  aspect-ratio: 16 / 10;
-  width: 100%;
+.about-campaign__media-col--landscape {
+  flex: 1.6;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-campaign__media-col--portrait {
+  flex: 1;
+  min-width: 0;
+  max-width: 27rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Editorial Campaign Story Block (Left Column under Landscape Film) */
+.about-campaign__story-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.8rem 2rem;
+  margin-top: 1.6rem;
+  background: rgba(12, 10, 8, 0.72);
+  border: 1px solid rgba(214, 168, 79, 0.24);
+  border-left: 2px solid #e5c16a;
+  backdrop-filter: blur(14px);
   position: relative;
-  display: grid;
-  place-items: center;
-  background: #0d0d0f;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 24px rgba(214, 168, 79, 0.05);
+}
+
+.about-campaign__story-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #e5c16a;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(214, 168, 79, 0.35);
+}
+
+.about-campaign__story-headline {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--theme-text);
+  line-height: 1.2;
+}
+
+.about-campaign__story-copy {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.about-campaign__story-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(214, 168, 79, 0.16);
+}
+
+.about-campaign__story-sublabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #e5c16a;
+  text-transform: uppercase;
+}
+
+.about-campaign__story-direction-text {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.62;
+}
+
+.about-campaign__story-closing {
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(214, 168, 79, 0.22);
+  margin-top: 0.25rem;
+}
+
+.about-campaign__story-closing-line {
+  margin: 0;
+  color: #e5c16a;
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 14px rgba(214, 168, 79, 0.25);
+}
+
+.about-campaign__media-stage--single {
+  max-width: 68rem;
+  margin: 2.5rem auto 4rem;
+}
+
+.about-campaign__media-stage--pendant {
+  max-width: 62rem;
+  margin: 2.5rem auto 3.5rem;
+  padding: 0.85rem;
+  background: radial-gradient(circle at 50% 50%, rgba(26, 21, 16, 0.45) 0%, rgba(5, 6, 7, 0.95) 100%);
   border: 1px solid rgba(214, 168, 79, 0.22);
-  margin-bottom: 1.6rem;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7);
+}
+
+.about-campaign--pendant .campaign-video-card__frame {
+  aspect-ratio: 16 / 9;
+  border-color: rgba(214, 168, 79, 0.35);
+}
+
+/* Video Card System */
+.campaign-video-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-campaign__media-col--portrait .campaign-video-card {
+  height: 100%;
+}
+
+.campaign-video-card__frame {
+  position: relative;
+  width: 100%;
+  background: #050607;
+  border: 1px solid rgba(214, 168, 79, 0.28);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 24px rgba(214, 168, 79, 0.08);
   overflow: hidden;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.about-work__image {
+.campaign-video-card:hover .campaign-video-card__frame {
+  border-color: rgba(229, 193, 106, 0.6);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 32px rgba(214, 168, 79, 0.16);
+}
+
+.campaign-video-card--landscape .campaign-video-card__frame {
+  aspect-ratio: 16 / 9;
+}
+
+.campaign-video-card--portrait .campaign-video-card__frame {
+  aspect-ratio: 9 / 16;
+}
+
+.campaign-video-player {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #000;
+  object-fit: cover;
+  outline: none;
+}
+
+.campaign-reticle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: rgba(229, 193, 106, 0.75);
+  pointer-events: none;
+  z-index: 5;
+}
+.campaign-reticle--tl { top: 10px; left: 10px; border-top: 1px solid; border-left: 1px solid; }
+.campaign-reticle--tr { top: 10px; right: 10px; border-top: 1px solid; border-right: 1px solid; }
+.campaign-reticle--bl { bottom: 10px; left: 10px; border-bottom: 1px solid; border-left: 1px solid; }
+.campaign-reticle--br { bottom: 10px; right: 10px; border-bottom: 1px solid; border-right: 1px solid; }
+
+/* Graceful Video Placeholder Slate */
+.campaign-video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  background: radial-gradient(circle at 50% 45%, rgba(26, 21, 14, 0.95) 0%, rgba(5, 6, 7, 0.98) 85%);
+  position: relative;
+}
+
+.campaign-video-placeholder__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(214, 168, 79, 0.12);
+  border: 1px solid rgba(214, 168, 79, 0.4);
+  color: #e5c16a;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 0 20px rgba(214, 168, 79, 0.2);
+}
+
+.campaign-video-placeholder__badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #e5c16a;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.campaign-video-placeholder__title {
+  margin: 0 0 0.6rem;
+  color: var(--theme-text);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.campaign-video-placeholder__note {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.78rem;
+  opacity: 0.8;
+}
+
+.campaign-video-placeholder__note code {
+  color: #e5c16a;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.campaign-video-card__meta {
+  padding-top: 1.1rem;
+}
+
+.campaign-video-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.campaign-video-card__badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #e5c16a;
+  background: rgba(214, 168, 79, 0.12);
+  border: 1px solid rgba(214, 168, 79, 0.32);
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.campaign-video-card__title {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.campaign-video-card__desc {
+  margin: 0.5rem 0 0;
+  color: var(--theme-text-muted);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+/* Luxury 5-Still Contact Sheet Gallery */
+.about-campaign__gallery-block {
+  margin: 3.5rem 0 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(214, 168, 79, 0.2);
+}
+
+.about-campaign__gallery-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.about-campaign__gallery-heading {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #e5c16a;
+  text-transform: uppercase;
+}
+
+.about-campaign__gallery-meta {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--theme-text-muted);
+  text-transform: uppercase;
+}
+
+.about-campaign__gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.campaign-still-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.campaign-still-card__trigger {
+  all: unset;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+
+.campaign-still-card__trigger:focus-visible .campaign-still-card__frame {
+  outline: 2px solid #e5c16a;
+  outline-offset: 3px;
+}
+
+.campaign-still-card--interactive .campaign-still-card__frame {
+  cursor: pointer;
+}
+
+.campaign-still-card__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #07080a;
+  border: 1px solid rgba(214, 168, 79, 0.24);
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.campaign-still-card__frame--portrait {
+  aspect-ratio: 2 / 3;
+}
+
+.campaign-still-card:hover .campaign-still-card__frame {
+  border-color: #e5c16a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(214, 168, 79, 0.2);
+}
+
+.campaign-still-card__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 25%;
-  opacity: 0.84;
-  filter: contrast(1.04) brightness(0.92);
-  transition: opacity 0.35s ease, transform 0.45s ease;
+  display: block;
+  filter: contrast(1.02) brightness(0.96);
+  opacity: 0;
+  transition: opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease;
 }
 
-.about-work__portal-card[data-portal-world="coding"] .about-work__image {
-  object-position: center calc(25% - 40px);
-}
-
-.about-work__portal-card:hover .about-work__image {
+.campaign-still-card__image.is-loaded {
   opacity: 1;
+}
+
+.campaign-still-card:hover .campaign-still-card__image {
   transform: scale(1.04);
+  filter: contrast(1.06) brightness(1);
 }
 
-.about-work__reticle {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-color: var(--theme-accent);
-  pointer-events: none;
-  z-index: 2;
+.campaign-still-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(16, 14, 11, 0.9) 0%, rgba(6, 7, 8, 0.95) 100%);
+  position: relative;
 }
 
-.about-work__reticle--tl {
-  top: 6px;
-  left: 6px;
-  border-top: 1px solid;
-  border-left: 1px solid;
-}
-
-.about-work__reticle--br {
-  bottom: 6px;
-  right: 6px;
-  border-bottom: 1px solid;
-  border-right: 1px solid;
-}
-
-.about-work__portal-card[data-portal-world="mythos"]:hover .about-work__frame {
-  border-color: rgba(169, 107, 53, 0.55);
-  box-shadow: 0 0 24px rgba(169, 107, 53, 0.15);
-}
-
-.about-work__portal-card[data-portal-world="majestic"]:hover .about-work__frame {
-  border-color: rgba(214, 181, 109, 0.55);
-  box-shadow: 0 0 24px rgba(214, 181, 109, 0.15);
-}
-
-.about-work__portal-card[data-portal-world="coding"]:hover .about-work__frame {
-  border-color: rgba(57, 255, 114, 0.45);
-  box-shadow: 0 0 24px rgba(57, 255, 114, 0.12);
-}
-
-.about-work__media-label {
-  color: var(--theme-text-muted);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0.75;
-}
-
-.about-work__category {
-  margin: 0;
+.campaign-still-placeholder__code {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   color: #e5c16a;
-  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.campaign-still-placeholder__lens {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px dashed rgba(214, 168, 79, 0.45);
+  margin-bottom: 0.5rem;
+  display: grid;
+  place-items: center;
+}
+
+.campaign-still-placeholder__crosshair {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #e5c16a;
+}
+
+.campaign-still-placeholder__title {
+  font-size: 0.72rem;
+  color: var(--theme-text-muted);
+  line-height: 1.3;
+}
+
+.campaign-still-card__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.campaign-still-card__code {
+  font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.12em;
+  color: #e5c16a;
   text-transform: uppercase;
 }
 
-.about-work__name {
-  margin: 0.6rem 0 0;
+.campaign-still-card__title {
+  font-size: 0.82rem;
   color: var(--theme-text);
-  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.campaign-still-card__text {
+  font-size: 0.74rem;
+  color: var(--theme-text-muted);
+  line-height: 1.45;
+  margin-top: 0.1rem;
+}
+
+.about-campaign__gallery-grid--portrait {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.about-campaign__footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(214, 168, 79, 0.2);
+}
+
+.about-campaign__closing-line {
+  margin: 0;
+  color: #e5c16a;
+  font-size: 1.05rem;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 16px rgba(214, 168, 79, 0.2);
+}
+
+/* ==========================================================================
+   JAGRIT: THE THIRD EYE OF MAHADEV CAMPAIGN
+   ========================================================================== */
+
+.about-campaign--jagrit {
+  position: relative;
+}
+
+.about-campaign__header-block--jagrit {
+  margin-bottom: 2.5rem;
+}
+
+.about-jagrit__eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #e5c16a;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 0 12px rgba(214, 168, 79, 0.3);
+}
+
+.about-jagrit__title {
+  margin: 0;
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.about-jagrit__subtitle {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+.about-jagrit__tagline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1.2rem;
+  padding: 0.45rem 1.25rem;
+  background: rgba(18, 16, 14, 0.78);
+  border: 1px solid rgba(214, 168, 79, 0.32);
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.about-jagrit__tagline-devanagari {
+  font-size: 1.05rem;
   font-weight: 600;
+  color: #f0c36b;
+  letter-spacing: 0.04em;
+}
+
+.about-jagrit__tagline-divider {
+  color: rgba(214, 168, 79, 0.5);
+}
+
+.about-jagrit__tagline-en {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--theme-text-muted);
+  text-transform: uppercase;
+}
+
+.about-campaign__media-stage--jagrit {
+  max-width: 64rem;
+  margin: 2.5rem auto 3.5rem;
+  padding: 0.85rem;
+  background: radial-gradient(circle at 50% 50%, rgba(30, 24, 18, 0.45) 0%, rgba(5, 6, 7, 0.95) 100%);
+  border: 1px solid rgba(214, 168, 79, 0.25);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75);
+}
+
+.about-campaign__media-stage--jagrit .campaign-video-card__frame {
+  aspect-ratio: 16 / 9;
+  border-color: rgba(214, 168, 79, 0.35);
+}
+
+.about-jagrit__story-container {
+  max-width: 64rem;
+  margin: 0 auto 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.about-jagrit__story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.about-jagrit__section-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #e5c16a;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.85rem;
+}
+
+.about-jagrit__story-paragraph {
+  margin: 0 0 1.25rem;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--theme-text-muted);
+}
+
+.about-jagrit__story-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.about-jagrit__direction-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.about-jagrit__direction-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--theme-text);
+  line-height: 1.5;
+}
+
+.about-jagrit__bullet {
+  color: #e5c16a;
+  font-size: 0.72rem;
+  flex-shrink: 0;
+}
+
+.about-jagrit__pillars-block {
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(214, 168, 79, 0.2);
+}
+
+.about-jagrit__pillars-header {
+  margin-bottom: 1.8rem;
+}
+
+.about-jagrit__pillars-title {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  color: var(--theme-text);
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
-.about-work__description {
-  margin: 0.8rem 0 0;
-  color: var(--theme-text-muted);
-  font-size: 0.92rem;
-  line-height: 1.6;
+.about-jagrit__pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
 }
 
-.about-work__destination {
-  display: inline-flex;
-  align-items: center;
+.about-jagrit__pillar-card {
+  background: rgba(12, 11, 10, 0.75);
+  border: 1px solid rgba(214, 168, 79, 0.2);
+  border-top: 2px solid #e5c16a;
+  padding: 1.6rem 1.3rem;
+  display: flex;
+  flex-direction: column;
   gap: 0.4rem;
-  margin-top: 1.6rem;
-  color: var(--theme-text);
-  font-size: 0.82rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-jagrit__pillar-card:hover {
+  border-color: #e5c16a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(214, 168, 79, 0.15);
+}
+
+.about-jagrit__pillar-num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #e5c16a;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+}
+
+.about-jagrit__pillar-name {
+  margin: 0;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.08em;
+  color: var(--theme-text);
   text-transform: uppercase;
 }
 
-.about-work__arrow {
+.about-jagrit__pillar-desc {
+  margin: 0.25rem 0 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--theme-text-muted);
+}
+
+.about-jagrit__gallery-block {
+  margin: 3.5rem 0 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(214, 168, 79, 0.2);
+}
+
+.about-jagrit__footer {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.about-jagrit__closing-line {
   color: #e5c16a;
+  font-size: 1.08rem;
+  font-weight: 500;
+  font-style: italic;
+  text-shadow: 0 0 16px rgba(214, 168, 79, 0.3);
+}
+
+/* ==========================================================================
+   CAMPAIGN IMAGE LIGHTBOX OVERLAY
+   ========================================================================== */
+
+.campaign-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+  animation: campaignLightboxFadeIn 0.25s ease-out forwards;
+}
+
+@keyframes campaignLightboxFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.campaign-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 6, 0.92);
+  backdrop-filter: blur(16px);
+  z-index: 0;
+}
+
+.campaign-lightbox__close-btn {
+  position: absolute;
+  top: 1.75rem;
+  right: 2rem;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.15rem;
+  background: rgba(14, 12, 10, 0.88);
+  border: 1px solid rgba(214, 168, 79, 0.38);
+  border-radius: 9999px;
+  color: #e5c16a;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.campaign-lightbox__close-btn:hover {
+  color: #fff;
+  border-color: #e5c16a;
+  background: rgba(214, 168, 79, 0.25);
+  transform: translateY(-1px);
+}
+
+.campaign-lightbox__close-icon {
+  display: grid;
+  place-items: center;
+}
+
+.campaign-lightbox__content {
+  position: relative;
+  z-index: 1;
+  max-width: 85vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.campaign-lightbox__frame {
+  position: relative;
+  max-width: 85vw;
+  max-height: calc(85vh - 4.5rem);
+  background: #000;
+  border: 1px solid rgba(214, 168, 79, 0.38);
+  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.88), 0 0 32px rgba(214, 168, 79, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.campaign-lightbox__image {
+  max-width: 85vw;
+  max-height: calc(85vh - 5rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.campaign-lightbox__meta {
+  text-align: center;
+  max-width: 44rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0 1rem;
+}
+
+.campaign-lightbox__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.campaign-lightbox__code {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #e5c16a;
+  text-transform: uppercase;
+}
+
+.campaign-lightbox__title {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.campaign-lightbox__caption {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   04 & 05 — TEASER SECTIONS (MYTHOS UNVEILED & MAJESTIC TAILS)
+   ========================================================================== */
+
+.about-teaser__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+  background: rgba(10, 9, 8, 0.75);
+  border: 1px solid rgba(214, 168, 79, 0.26);
+  padding: clamp(2rem, 4vw, 3.5rem);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 24px rgba(214, 168, 79, 0.08);
+}
+
+.about-teaser__visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #000;
+  border: 1px solid rgba(214, 168, 79, 0.32);
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8);
+}
+
+.about-teaser__artwork {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.9) contrast(1.05);
+  transition: transform 0.4s ease;
+}
+
+.about-teaser__card:hover .about-teaser__artwork {
+  transform: scale(1.04);
+}
+
+.about-teaser__emblem-wrap {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(214, 168, 79, 0.5);
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+}
+
+.about-teaser__emblem {
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+}
+
+.about-teaser__sub {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #e5c16a;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.about-teaser__heading {
+  margin: 0 0 1.2rem;
+  color: var(--theme-text);
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.about-teaser__quote {
+  margin: 0 0 1.5rem;
+  color: var(--theme-text-muted);
+  font-size: 1.02rem;
+  line-height: 1.68;
+  border-left: 2px solid var(--theme-accent);
+  padding-left: 1.1rem;
+  font-style: italic;
+}
+
+.about-teaser__highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.about-teaser__highlights li {
+  position: relative;
+  padding-left: 1.25rem;
+  color: var(--theme-text);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.about-teaser__highlights li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: -1px;
+  color: #e5c16a;
+  font-size: 0.72rem;
+}
+
+.about-teaser__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.95rem 1.8rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--theme-background);
+  background: var(--theme-accent);
+  border: 1px solid var(--theme-accent);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 0 18px rgba(214, 168, 79, 0.35);
+}
+
+.about-teaser__cta-btn:hover {
+  transform: translateY(-2px);
+  background: #f0c36b;
+  box-shadow: 0 0 28px rgba(214, 168, 79, 0.55);
+}
+
+.about-teaser__arrow {
+  font-size: 1.1rem;
   transition: transform 0.2s ease;
 }
 
-.about-work__portal-card:hover .about-work__arrow {
+.about-teaser__cta-btn:hover .about-teaser__arrow {
   transform: translateX(4px);
 }
 
 /* ==========================================================================
-   06 — Education / Experience (Editorial Timeline Registry)
+   06 — CODING & TECHNICAL PROJECTS
+   ========================================================================== */
+
+.about-coding-teaser__lead-block {
+  max-width: 48rem;
+  margin-bottom: 2.5rem;
+}
+
+.about-coding-teaser__sub {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #e5c16a;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.about-coding-teaser__heading {
+  margin: 0 0 1rem;
+  color: var(--theme-text);
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.about-coding-teaser__lead {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.68;
+}
+
+.about-coding-teaser__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.about-coding-card {
+  background: rgba(8, 10, 9, 0.85);
+  border: 1px solid rgba(57, 255, 114, 0.24);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.about-coding-card:hover {
+  border-color: rgba(57, 255, 114, 0.5);
+  transform: translateY(-2px);
+}
+
+.about-coding-card__head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.about-coding-card__mark {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+.about-coding-card__type {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: #39ff72;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+}
+
+.about-coding-card__name {
+  margin: 0.2rem 0 0;
+  color: var(--theme-text);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.about-coding-card__desc {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.about-coding-card__stack {
+  margin-top: auto;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(57, 255, 114, 0.16);
+  font-size: 0.75rem;
+  color: #39ff72;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  letter-spacing: 0.04em;
+}
+
+.about-coding-teaser__cta-block {
+  display: flex;
+}
+
+.about-teaser__cta-btn--coding {
+  color: #050706;
+  background: #39ff72;
+  border-color: #39ff72;
+  box-shadow: 0 0 18px rgba(57, 255, 114, 0.35);
+}
+
+.about-teaser__cta-btn--coding:hover {
+  background: #65ff93;
+  box-shadow: 0 0 28px rgba(57, 255, 114, 0.55);
+}
+
+/* ==========================================================================
+   07 — RETAINED PRACTICE, CAPABILITIES & PROCESS
+   ========================================================================== */
+
+.about-practice__lead-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+.about-practice__headline {
+  margin: 0 0 1.2rem;
+  color: var(--theme-text);
+  font-size: clamp(2.2rem, 3.8vw, 3.5rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.about-practice__narrative {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+.about-practice__subhead {
+  margin: 0 0 1.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #e5c16a;
+  text-transform: uppercase;
+}
+
+.about-practice__sequence-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+}
+
+.about-practice__seq-item {
+  display: flex;
+  gap: 1.2rem;
+  align-items: baseline;
+}
+
+.about-practice__seq-num {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #e5c16a;
+  font-variant-numeric: tabular-nums;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid rgba(214, 168, 79, 0.35);
+  background: #080808;
+}
+
+.about-practice__seq-body strong {
+  display: block;
+  color: var(--theme-text);
+  font-size: 0.92rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
+}
+
+.about-practice__seq-body p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.about-practice__capabilities {
+  margin-bottom: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(214, 168, 79, 0.2);
+}
+
+.about-practice__capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.about-capability-tile {
+  background: rgba(12, 11, 9, 0.75);
+  border: 1px solid rgba(214, 168, 79, 0.2);
+  padding: 1.6rem;
+  transition: border-color 0.25s ease;
+}
+
+.about-capability-tile:hover {
+  border-color: #e5c16a;
+}
+
+.about-capability-tile__head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-capability-tile__code {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #e5c16a;
+}
+
+.about-capability-tile h4 {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.about-capability-tile p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.about-practice__toolkit {
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(214, 168, 79, 0.2);
+}
+
+.about-practice__toolkit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.about-toolkit-col__name {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #e5c16a;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.about-toolkit-col__tools {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   08 — EDUCATION / EXPERIENCE
    ========================================================================== */
 
 .about-experience__timeline {
@@ -1177,25 +2189,6 @@
   font-weight: 600;
 }
 
-.about-experience__body p {
-  margin: 0;
-  color: var(--theme-text-muted);
-  font-size: 1rem;
-  line-height: 1.65;
-}
-
-.about-experience__role-header {
-  margin-bottom: 0.6rem;
-}
-
-.about-experience__role-title {
-  margin: 0 0 0.35rem;
-  color: var(--theme-text);
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-
 .about-experience__meta {
   display: flex;
   align-items: center;
@@ -1204,6 +2197,7 @@
   font-size: 0.92rem;
   font-weight: 500;
   letter-spacing: 0.02em;
+  margin-bottom: 0.75rem;
 }
 
 .about-experience__org {
@@ -1219,17 +2213,10 @@
   color: #e5c16a;
 }
 
-.about-experience__summary {
-  margin: 0 0 0.8rem !important;
-  color: var(--theme-text-muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
 .about-experience__list {
   list-style: none;
   padding: 0;
-  margin: 0.75rem 0 0;
+  margin: 0.5rem 0 0;
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
@@ -1252,28 +2239,8 @@
   font-size: 0.75rem;
 }
 
-.about-experience__projects {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  margin-top: 1rem;
-}
-
-.about-experience__project-block {
-  padding-top: 1rem;
-  border-top: 1px dashed rgba(214, 168, 79, 0.18);
-}
-
-.about-experience__project-title {
-  margin: 0 0 0.4rem;
-  color: var(--theme-text);
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
 /* ==========================================================================
-   07 — Resume / Contact (Executive Conclusion)
+   09 — RESUME / CONTACT
    ========================================================================== */
 
 .about-contact__signoff {
@@ -4660,49 +5627,69 @@
     margin-bottom: 2.5rem;
   }
 
-  .about-profile__grid {
+  .about-campaign__media-stage--dual {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  .about-campaign__media-col--portrait {
+    max-width: 100%;
+    align-self: center;
+    width: min(100%, 26rem);
+  }
+
+  .about-campaign__gallery-grid,
+  .about-campaign__gallery-grid--portrait {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .about-jagrit__story-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .about-profile__narrative {
-    padding-left: 0;
-    border-left: 0;
-    border-top: 1px solid rgba(214, 168, 79, 0.24);
-    padding-top: 1.5rem;
+  .about-jagrit__pillars-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
   }
 
-  .about-capabilities__layout {
+  .campaign-lightbox {
+    padding: 1rem;
+  }
+
+  .campaign-lightbox__close-btn {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.45rem 0.95rem;
+  }
+
+  .about-teaser__card {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 2rem;
+    padding: 1.75rem;
   }
 
-  .about-process__rail {
-    display: none;
-  }
-
-  .about-process__sequence {
+  .about-coding-teaser__grid {
     grid-template-columns: 1fr;
-    gap: 2.2rem;
-    border-left: 1px solid rgba(214, 168, 79, 0.35);
-    padding-left: 1.75rem;
-    margin-left: 1rem;
+    gap: 1.5rem;
   }
 
-  .about-process__badge {
-    margin-bottom: 0.85rem;
-    margin-left: -3.15rem;
-  }
-
-  .about-toolkit__row {
+  .about-practice__lead-grid {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
-    padding: 1.6rem 0;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
   }
 
-  .about-work__exhibition {
+  .about-practice__capabilities-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 1rem;
+  }
+
+  .about-practice__toolkit-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .about-experience__entry {
@@ -4713,6 +5700,16 @@
 
   .about-contact__signature {
     font-size: clamp(2.6rem, 10vw, 3.8rem);
+  }
+
+  .about-contact__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .about-contact__btn {
+    text-align: center;
+    justify-content: center;
   }
 
   .coding-hero {
@@ -5771,6 +6768,13 @@
   }
 }
 
+@media (max-width: 480px) {
+  .about-campaign__gallery-grid,
+  .about-campaign__gallery-grid--portrait {
+    grid-template-columns: 1fr;
+  }
 
-
-
+  .about-jagrit__pillars-grid {
+    grid-template-columns: 1fr;
+  }
+}

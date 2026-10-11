@@ -1,13 +1,13 @@
 import {
   aboutContact,
+  aboutExperience,
   aboutHero,
-  aboutProfile,
-  aboutSections,
-  capabilities as aboutCapabilities,
-  experience as aboutExperience,
-  processSteps as aboutProcessSteps,
-  selectedWork as aboutSelectedWork,
-  toolkitCategories as aboutToolkitCategories,
+  aboutPractice,
+  codingTeaser,
+  majesticTeaser,
+  midnightRyuCampaign,
+  mythosTeaser,
+  pendantCampaign,
 } from './aboutContent.js'
 
 import {
@@ -90,12 +90,12 @@ export const globalContent = {
 
 export const aboutContent = {
   hero: aboutHero,
-  profile: aboutProfile,
-  sections: aboutSections,
-  capabilities: aboutCapabilities,
-  process: aboutProcessSteps,
-  toolkit: aboutToolkitCategories,
-  selectedWork: aboutSelectedWork,
+  midnightRyu: midnightRyuCampaign,
+  pendant: pendantCampaign,
+  mythosTeaser,
+  majesticTeaser,
+  codingTeaser,
+  practice: aboutPractice,
   experience: aboutExperience,
   contact: aboutContact,
 }
