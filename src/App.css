@@ -722,6 +722,15 @@
   padding: 0 clamp(2rem, 8vw, 9rem) 10rem;
 }
 
+.about-world__sections::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 60% at 50% 15%, rgba(8, 8, 8, 0.45) 0%, rgba(8, 8, 8, 0.72) 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .about-section {
   width: min(100%, 78rem);
   margin: 0 auto;
@@ -1173,16 +1182,16 @@
 
 .about-campaign__gallery-header {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
   flex-wrap: wrap;
   gap: 0.8rem;
 }
 
 .about-campaign__gallery-heading {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   color: #e5c16a;
@@ -1194,6 +1203,77 @@
   letter-spacing: 0.12em;
   color: var(--theme-text-muted);
   text-transform: uppercase;
+}
+
+/* Midnight-Ryu: Balanced 3-column / 2-column centered responsive layout */
+.about-ryu__gallery-block .about-campaign__gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(1.4rem, 2.2vw, 2rem);
+  align-items: stretch;
+}
+
+.about-ryu__gallery-block .about-campaign__gallery-grid > .campaign-still-card:nth-child(1),
+.about-ryu__gallery-block .about-campaign__gallery-grid > .campaign-still-card:nth-child(2),
+.about-ryu__gallery-block .about-campaign__gallery-grid > .campaign-still-card:nth-child(3) {
+  grid-column: span 2;
+}
+
+.about-ryu__gallery-block .about-campaign__gallery-grid > .campaign-still-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.about-ryu__gallery-block .about-campaign__gallery-grid > .campaign-still-card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+.about-ryu__gallery-block .campaign-still-card {
+  height: 100%;
+  padding: 1.1rem 1.1rem 1.35rem;
+  background: rgba(14, 16, 20, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-top: 2px solid #cbd5e1;
+  border-radius: 4px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 20px rgba(203, 213, 225, 0.04);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-ryu__gallery-block .campaign-still-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(203, 213, 225, 0.5);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.7), 0 0 28px rgba(203, 213, 225, 0.12);
+}
+
+.about-ryu__gallery-block .campaign-still-card__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-top: 0.85rem;
+  flex-grow: 1;
+}
+
+.about-ryu__gallery-block .campaign-still-card__code {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #cbd5e1;
+  text-transform: uppercase;
+}
+
+.about-ryu__gallery-block .campaign-still-card__title {
+  font-size: 0.94rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--theme-text);
+  line-height: 1.32;
+}
+
+.about-ryu__gallery-block .campaign-still-card__text {
+  margin: 0.25rem 0 0;
+  font-size: 0.83rem;
+  line-height: 1.6;
+  color: var(--theme-text-muted);
 }
 
 .about-campaign__gallery-grid {
@@ -1449,7 +1529,7 @@
 }
 
 .about-jagrit__story-container {
-  max-width: 64rem;
+  max-width: 68rem;
   margin: 0 auto 3.5rem;
   display: flex;
   flex-direction: column;
@@ -1458,26 +1538,46 @@
 
 .about-jagrit__story-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: start;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(1.8rem, 3.2vw, 2.8rem);
+  align-items: stretch;
+}
+
+.about-jagrit__story-content {
+  background: rgba(18, 12, 12, 0.74);
+  border: 1px solid rgba(235, 87, 87, 0.22);
+  border-left: 2px solid #eb5757;
+  border-radius: 4px;
+  padding: clamp(1.8rem, 2.8vw, 2.4rem);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 24px rgba(235, 87, 87, 0.05);
+}
+
+.about-jagrit__story-aside {
+  background: rgba(18, 12, 12, 0.74);
+  border: 1px solid rgba(235, 87, 87, 0.22);
+  border-top: 2px solid #eb5757;
+  border-radius: 4px;
+  padding: clamp(1.8rem, 2.8vw, 2.4rem);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 24px rgba(235, 87, 87, 0.05);
 }
 
 .about-jagrit__section-tag {
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: #e5c16a;
+  color: #eb5757;
   text-transform: uppercase;
   display: block;
-  margin-bottom: 0.85rem;
+  margin-bottom: 1rem;
 }
 
 .about-jagrit__story-paragraph {
   margin: 0 0 1.25rem;
-  font-size: 1.02rem;
+  font-size: 0.98rem;
   line-height: 1.75;
-  color: var(--theme-text-muted);
+  color: #cbd5e1;
 }
 
 .about-jagrit__story-paragraph:last-child {
@@ -1490,20 +1590,20 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.8rem;
 }
 
 .about-jagrit__direction-item {
   display: flex;
   align-items: baseline;
-  gap: 0.6rem;
-  font-size: 0.88rem;
-  color: var(--theme-text);
-  line-height: 1.5;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: #f1f5f9;
+  line-height: 1.55;
 }
 
 .about-jagrit__bullet {
-  color: #e5c16a;
+  color: #eb5757;
   font-size: 0.72rem;
   flex-shrink: 0;
 }
@@ -1841,6 +1941,23 @@
   color: #eb5757;
 }
 
+.about-campaign--jagrit .campaign-still-card {
+  padding: 0.75rem 0.75rem 1.1rem;
+  background: rgba(18, 12, 12, 0.72);
+  border: 1px solid rgba(235, 87, 87, 0.22);
+  border-top: 2px solid #eb5757;
+  border-radius: 4px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 16px rgba(235, 87, 87, 0.04);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-campaign--jagrit .campaign-still-card:hover {
+  border-color: #eb5757;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 24px rgba(235, 87, 87, 0.18);
+}
+
 .about-campaign--jagrit .campaign-still-card__code {
   color: #eb5757;
 }
@@ -1875,106 +1992,108 @@
   text-shadow: 0 0 16px rgba(235, 87, 87, 0.35);
 }
 
-/* 4. MYTHOS UNVEILED — BRONZE / ANTIQUE BROWN ACCENT (#c87a3e) */
+/* 4. MYTHOS UNVEILED — AGED BRONZE / DARK ANTIQUE BROWN ACCENT (#a87d48) */
 .about-teaser--mythos .about-section__number {
-  color: #c87a3e;
-  text-shadow: 0 0 12px rgba(200, 122, 62, 0.45);
+  color: #a87d48;
+  text-shadow: 0 0 12px rgba(168, 125, 72, 0.35);
 }
 
 .about-teaser--mythos .about-section__rule {
-  background: linear-gradient(90deg, rgba(200, 122, 62, 0.6) 0%, rgba(200, 122, 62, 0.28) 40%, rgba(200, 122, 62, 0.06) 80%, transparent 100%);
-  box-shadow: 0 0 8px rgba(200, 122, 62, 0.2);
+  background: linear-gradient(90deg, rgba(168, 125, 72, 0.6) 0%, rgba(168, 125, 72, 0.28) 40%, rgba(168, 125, 72, 0.06) 80%, transparent 100%);
+  box-shadow: 0 0 8px rgba(168, 125, 72, 0.18);
 }
 
 .about-teaser--mythos .about-teaser__card {
-  border-color: rgba(200, 122, 62, 0.28);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 24px rgba(200, 122, 62, 0.08);
+  background: rgba(18, 14, 11, 0.78);
+  border-color: rgba(168, 125, 72, 0.26);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 24px rgba(168, 125, 72, 0.06);
 }
 
 .about-teaser--mythos .about-teaser__visual {
-  border-color: rgba(200, 122, 62, 0.35);
+  border-color: rgba(168, 125, 72, 0.32);
 }
 
 .about-teaser--mythos .about-teaser__emblem-wrap {
-  border-color: rgba(200, 122, 62, 0.55);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 12px rgba(200, 122, 62, 0.18);
+  border-color: rgba(168, 125, 72, 0.48);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 12px rgba(168, 125, 72, 0.14);
 }
 
 .about-teaser--mythos .about-teaser__sub {
-  color: #c87a3e;
-  text-shadow: 0 0 12px rgba(200, 122, 62, 0.35);
+  color: #a87d48;
+  text-shadow: 0 0 12px rgba(168, 125, 72, 0.28);
 }
 
 .about-teaser--mythos .about-teaser__quote {
-  border-left-color: #c87a3e;
+  border-left-color: #8e663a;
 }
 
 .about-teaser--mythos .about-teaser__highlights li::before {
-  color: #c87a3e;
+  color: #a87d48;
 }
 
 .about-teaser__cta-btn--mythos {
-  color: #0b0907;
-  background: #c87a3e;
-  border-color: #c87a3e;
-  box-shadow: 0 0 18px rgba(200, 122, 62, 0.35);
+  color: #0d0a07;
+  background: #9e7340;
+  border-color: #9e7340;
+  box-shadow: 0 0 18px rgba(158, 115, 64, 0.3);
 }
 
 .about-teaser__cta-btn--mythos:hover {
-  background: #d88b4f;
-  border-color: #d88b4f;
-  box-shadow: 0 0 28px rgba(200, 122, 62, 0.55);
+  background: #b5834f;
+  border-color: #b5834f;
+  box-shadow: 0 0 24px rgba(181, 131, 79, 0.42);
 }
 
-/* 5. MAJESTIC TAILS STUDIO — GOLD / CHAMPAGNE ACCENT (#e2c275) */
+/* 5. MAJESTIC TAILS STUDIO — CHAMPAGNE GOLD / MUTED BRASS ACCENTS (#e8d5a3) */
 .about-teaser--majestic .about-section__number {
-  color: #e2c275;
-  text-shadow: 0 0 12px rgba(226, 194, 117, 0.45);
+  color: #e8d5a3;
+  text-shadow: 0 0 12px rgba(232, 213, 163, 0.35);
 }
 
 .about-teaser--majestic .about-section__rule {
-  background: linear-gradient(90deg, rgba(226, 194, 117, 0.6) 0%, rgba(226, 194, 117, 0.28) 40%, rgba(226, 194, 117, 0.06) 80%, transparent 100%);
-  box-shadow: 0 0 8px rgba(226, 194, 117, 0.2);
+  background: linear-gradient(90deg, rgba(232, 213, 163, 0.55) 0%, rgba(184, 161, 108, 0.25) 40%, rgba(184, 161, 108, 0.05) 80%, transparent 100%);
+  box-shadow: 0 0 8px rgba(232, 213, 163, 0.15);
 }
 
 .about-teaser--majestic .about-teaser__card {
-  border-color: rgba(226, 194, 117, 0.28);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 24px rgba(226, 194, 117, 0.08);
+  background: rgba(18, 18, 20, 0.78);
+  border-color: rgba(184, 161, 108, 0.25);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 24px rgba(232, 213, 163, 0.06);
 }
 
 .about-teaser--majestic .about-teaser__visual {
-  border-color: rgba(226, 194, 117, 0.35);
+  border-color: rgba(184, 161, 108, 0.3);
 }
 
 .about-teaser--majestic .about-teaser__emblem-wrap {
-  border-color: rgba(226, 194, 117, 0.55);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 12px rgba(226, 194, 117, 0.18);
+  border-color: rgba(232, 213, 163, 0.45);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 12px rgba(232, 213, 163, 0.12);
 }
 
 .about-teaser--majestic .about-teaser__sub {
-  color: #e2c275;
-  text-shadow: 0 0 12px rgba(226, 194, 117, 0.35);
+  color: #e8d5a3;
+  text-shadow: 0 0 12px rgba(232, 213, 163, 0.25);
 }
 
 .about-teaser--majestic .about-teaser__quote {
-  border-left-color: #e2c275;
+  border-left-color: #b8a16c;
 }
 
 .about-teaser--majestic .about-teaser__highlights li::before {
-  color: #e2c275;
+  color: #e8d5a3;
 }
 
 .about-teaser__cta-btn--majestic {
-  color: #0c0b08;
-  background: #e2c275;
-  border-color: #e2c275;
-  box-shadow: 0 0 18px rgba(226, 194, 117, 0.35);
+  color: #121214;
+  background: #e8d5a3;
+  border-color: #e8d5a3;
+  box-shadow: 0 0 18px rgba(232, 213, 163, 0.3);
 }
 
 .about-teaser__cta-btn--majestic:hover {
-  background: #edd28e;
-  border-color: #edd28e;
-  box-shadow: 0 0 28px rgba(226, 194, 117, 0.55);
+  background: #f2e2be;
+  border-color: #f2e2be;
+  box-shadow: 0 0 24px rgba(232, 213, 163, 0.45);
 }
 
 /* ==========================================================================
@@ -2782,6 +2901,7 @@
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  opacity: 0.88;
 }
 
 .about-scene-container canvas {
@@ -5972,6 +6092,22 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.1rem;
   }
+
+  .about-ryu__gallery-block .about-campaign__gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .about-ryu__gallery-block .about-campaign__gallery-grid > .campaign-still-card:nth-child(n) {
+    grid-column: auto;
+  }
+
+  .about-ryu__gallery-block .about-campaign__gallery-grid > .campaign-still-card:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: 32rem;
+    justify-self: center;
+    width: 100%;
+  }
 }
 
 @media (max-width: 760px) {
@@ -6038,6 +6174,16 @@
   .about-campaign__gallery-grid--portrait {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
+  }
+
+  .about-ryu__gallery-block .about-campaign__gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+
+  .about-ryu__gallery-block .about-campaign__gallery-grid > .campaign-still-card:nth-child(5) {
+    grid-column: auto;
+    max-width: 100%;
   }
 
   .about-jagrit__story-grid {

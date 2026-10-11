@@ -1,13 +1,14 @@
-import { useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { BRAIN_STRANDS, BRAIN_THEME } from '../../data/aboutBrainConfig.js'
 
 function BrainRibbons({ sceneStateRef }) {
   const groupRef = useRef(null)
+  const currentIntensity = useRef(1.0)
 
-  // Precompute smooth CatmullRom curves and tube geometries once
-  const ribbonMeshes = useMemo(() => {
+  // Precompute smooth CatmullRom curves, tube geometries, and standard materials once
+  const ribbonData = useMemo(() => {
     return BRAIN_STRANDS.map((strand) => {
       const vPoints = strand.points.map(([x, y, z]) => new THREE.Vector3(x, y, z))
       const curve = new THREE.CatmullRomCurve3(vPoints, false, 'centripetal', 0.5)
@@ -15,34 +16,69 @@ function BrainRibbons({ sceneStateRef }) {
 
       let color = BRAIN_THEME.primaryGold
       let emissive = '#33240a'
-      let emissiveIntensity = 0.15
+      let baseEmissiveIntensity = 0.15
 
       if (strand.colorType === 'bright') {
         color = BRAIN_THEME.brightGold
         emissive = BRAIN_THEME.primaryGold
-        emissiveIntensity = 0.35
+        baseEmissiveIntensity = 0.35
       } else if (strand.colorType === 'luminous') {
         color = BRAIN_THEME.luminousGold
         emissive = BRAIN_THEME.warmAmber
-        emissiveIntensity = 0.25
+        baseEmissiveIntensity = 0.25
       } else if (strand.colorType === 'warm') {
         color = BRAIN_THEME.warmAmber
         emissive = '#281a04'
-        emissiveIntensity = 0.1
+        baseEmissiveIntensity = 0.1
       }
+
+      const material = new THREE.MeshStandardMaterial({
+        color,
+        emissive,
+        emissiveIntensity: baseEmissiveIntensity,
+        roughness: 0.24,
+        metalness: 0.86,
+        envMapIntensity: 1.0,
+        transparent: true,
+        opacity: 0.88,
+      })
 
       return {
         geometry,
-        color,
-        emissive,
-        emissiveIntensity,
+        material,
+        baseEmissiveIntensity,
       }
     })
   }, [])
 
-  useFrame((state) => {
+  // Clean up WebGL resources on unmount
+  useEffect(() => {
+    return () => {
+      ribbonData.forEach(({ geometry, material }) => {
+        geometry.dispose()
+        material.dispose()
+      })
+    }
+  }, [ribbonData])
+
+  useFrame((state, delta) => {
     if (!groupRef.current || !sceneStateRef?.current) return
-    const { reducedMotion } = sceneStateRef.current
+    const { reducedMotion, targetState } = sceneStateRef.current
+
+    // Smooth section-driven intensity damping
+    const targetIntensity = targetState?.brain?.intensity ?? 1.0
+    currentIntensity.current = THREE.MathUtils.lerp(
+      currentIntensity.current,
+      targetIntensity,
+      Math.min(delta * 2.8, 0.1)
+    )
+
+    const intensityFactor = currentIntensity.current
+    ribbonData.forEach(({ material, baseEmissiveIntensity }) => {
+      material.emissiveIntensity = baseEmissiveIntensity * intensityFactor
+      material.opacity = 0.48 + 0.4 * intensityFactor
+    })
+
     if (reducedMotion) return
 
     const t = state.clock.elapsedTime
@@ -58,17 +94,12 @@ function BrainRibbons({ sceneStateRef }) {
 
   return (
     <group ref={groupRef}>
-      {ribbonMeshes.map((meshData, idx) => (
-        <mesh key={`ribbon-${idx}`} geometry={meshData.geometry}>
-          <meshStandardMaterial
-            color={meshData.color}
-            emissive={meshData.emissive}
-            emissiveIntensity={meshData.emissiveIntensity}
-            roughness={0.22}
-            metalness={0.88}
-            envMapIntensity={1.2}
-          />
-        </mesh>
+      {ribbonData.map((item, idx) => (
+        <mesh
+          key={`ribbon-${idx}`}
+          geometry={item.geometry}
+          material={item.material}
+        />
       ))}
     </group>
   )

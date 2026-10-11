@@ -29,9 +29,10 @@ function BrainEnergy({ sceneStateRef }) {
 
     const t = state.clock.elapsedTime
 
-    // 1. Warm internal cognitive point light breathing
+    // 1. Warm internal cognitive point light breathing, scaled by section intensity
     if (innerLightRef.current) {
-      const baseIntensity = reducedMotion ? 1.4 : 1.4 + Math.sin(t * 1.6) * 0.35
+      const targetIntensity = sceneStateRef.current?.targetState?.brain?.intensity ?? 1.0
+      const baseIntensity = (reducedMotion ? 1.4 : 1.4 + Math.sin(t * 1.6) * 0.35) * targetIntensity
       innerLightRef.current.intensity = baseIntensity
     }
 
