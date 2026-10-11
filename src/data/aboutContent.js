@@ -80,33 +80,48 @@ export const midnightRyuCampaign = {
     stills: [
       {
         src: '/assets/projects/midnight-ryu/01_The_Throne_of_Midnight.png',
-        title: 'The Throne of Midnight',
-        caption: 'The Throne of Midnight',
         code: 'SHOT 01',
+        title: 'THE THRONE OF MIDNIGHT',
+        caption:
+          "The campaign's opening statement: a world ruled by darkness, scale and quiet power.",
+        description:
+          "The campaign's opening statement: a world ruled by darkness, scale and quiet power.",
       },
       {
         src: '/assets/projects/midnight-ryu/02_The_Dragons_Reflection.png',
-        title: "The Dragon's Reflection",
-        caption: "The Dragon's Reflection",
         code: 'SHOT 02',
+        title: "THE DRAGON'S REFLECTION",
+        caption:
+          'Moonlit water reveals another side of the dragon, where stillness meets restrained menace.',
+        description:
+          'Moonlit water reveals another side of the dragon, where stillness meets restrained menace.',
       },
       {
         src: '/assets/projects/midnight-ryu/03_Essence_of_the_Night.png',
-        title: 'Essence of the Night',
-        caption: 'Essence of the Night',
         code: 'SHOT 03',
+        title: 'ESSENCE OF THE NIGHT',
+        caption:
+          "The dragon's presence becomes an atmosphere of deep blue, shadow and transformation.",
+        description:
+          "The dragon's presence becomes an atmosphere of deep blue, shadow and transformation.",
       },
       {
         src: '/assets/projects/midnight-ryu/04_Crafted_in_Darkness.png',
-        title: 'Crafted in Darkness',
-        caption: 'Crafted in Darkness',
         code: 'SHOT 04',
+        title: 'CRAFTED IN DARKNESS',
+        caption:
+          "Material, silhouette and controlled highlights express the precision behind the fragrance's identity.",
+        description:
+          "Material, silhouette and controlled highlights express the precision behind the fragrance's identity.",
       },
       {
         src: '/assets/projects/midnight-ryu/05_Not_a_Time_a_Presence.png',
-        title: 'Not a Time, a Presence',
-        caption: 'Not a Time, a Presence',
         code: 'SHOT 05',
+        title: 'NOT A TIME, A PRESENCE',
+        caption:
+          'The final product statement: a fragrance presented as an enduring presence rather than a passing moment.',
+        description:
+          'The final product statement: a fragrance presented as an enduring presence rather than a passing moment.',
       },
     ],
   },

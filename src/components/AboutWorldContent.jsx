@@ -252,10 +252,10 @@ function AboutWorldContent({
           </div>
 
           {/* Luxury 5-Still Contact Sheet Gallery */}
-          <div className="about-campaign__gallery-block">
+          <div className="about-campaign__gallery-block about-ryu__gallery-block">
             <div className="about-campaign__gallery-header">
-              <h3 className="about-campaign__gallery-heading">CAMPAIGN CONTACT SHEET — 5 KEYFRAMES</h3>
-              <span className="about-campaign__gallery-meta">CINEMATIC KEYFRAMES · 4K GENERATIVE MASTER</span>
+              <h3 className="about-campaign__gallery-heading">MIDNIGHT-RYU — CAMPAIGN SHOTS</h3>
+              <span className="about-campaign__gallery-meta">VISUAL STORYTELLING · LUXURY FRAGRANCE · FIVE KEY FRAMES</span>
             </div>
             <div className="about-campaign__gallery-grid">
               {midnightRyu.media.stills.map((still, idx) => (
@@ -264,6 +264,7 @@ function AboutWorldContent({
                   src={still.src}
                   title={still.title}
                   caption={still.caption}
+                  description={still.description}
                   code={still.code}
                   index={idx}
                   aspect="16:9"

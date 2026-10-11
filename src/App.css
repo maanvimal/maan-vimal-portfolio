@@ -1332,10 +1332,11 @@
 }
 
 .campaign-still-card__text {
+  margin: 0;
+  margin-top: 0.25rem;
   font-size: 0.74rem;
   color: var(--theme-text-muted);
   line-height: 1.45;
-  margin-top: 0.1rem;
 }
 
 .about-campaign__gallery-grid--portrait {
@@ -1588,6 +1589,392 @@
   font-weight: 500;
   font-style: italic;
   text-shadow: 0 0 16px rgba(214, 168, 79, 0.3);
+}
+
+/* ==========================================================================
+   CAMPAIGN & SECTION THEME ACCENTS (ABOUT WORLD ONLY)
+   Consistent editorial design language across the five project sections in About:
+   1. Coding / Systems & Engineering (Green)
+   2. Midnight-Ryu (Silver/Grey)
+   3. JAGRIT / Pendant Campaign (Red/Ember)
+   4. Mythos Unveiled (Bronze/Brown)
+   5. Majestic Tails Studio (Gold/Champagne)
+   ========================================================================== */
+
+/* 1. CODING TEASER — GREEN ACCENT (#39ff72) */
+.about-coding-teaser .about-section__number {
+  color: #39ff72;
+  text-shadow: 0 0 12px rgba(57, 255, 114, 0.4);
+}
+
+.about-coding-teaser .about-section__rule {
+  background: linear-gradient(90deg, rgba(57, 255, 114, 0.6) 0%, rgba(57, 255, 114, 0.28) 40%, rgba(57, 255, 114, 0.06) 80%, transparent 100%);
+  box-shadow: 0 0 8px rgba(57, 255, 114, 0.2);
+}
+
+/* 2. MIDNIGHT-RYU — SILVER / COOL GREY ACCENT (#cbd5e1 / #94a3b8) */
+.about-campaign--ryu .about-section__number {
+  color: #cbd5e1;
+  text-shadow: 0 0 12px rgba(203, 213, 225, 0.45);
+}
+
+.about-campaign--ryu .about-section__rule {
+  background: linear-gradient(90deg, rgba(203, 213, 225, 0.6) 0%, rgba(203, 213, 225, 0.28) 40%, rgba(203, 213, 225, 0.06) 80%, transparent 100%);
+  box-shadow: 0 0 8px rgba(203, 213, 225, 0.2);
+}
+
+.about-campaign--ryu .about-campaign__subtitle {
+  color: #cbd5e1;
+  text-shadow: 0 0 12px rgba(203, 213, 225, 0.35);
+}
+
+.about-campaign--ryu .about-campaign__story-block {
+  border-color: rgba(148, 163, 184, 0.22);
+  border-left-color: #cbd5e1;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 24px rgba(203, 213, 225, 0.06);
+}
+
+.about-campaign--ryu .about-campaign__story-eyebrow {
+  color: #cbd5e1;
+  text-shadow: 0 0 12px rgba(203, 213, 225, 0.35);
+}
+
+.about-campaign--ryu .about-campaign__story-sublabel {
+  color: #cbd5e1;
+}
+
+.about-campaign--ryu .about-campaign__story-section {
+  border-top-color: rgba(148, 163, 184, 0.16);
+}
+
+.about-campaign--ryu .about-campaign__tag {
+  border-color: rgba(148, 163, 184, 0.25);
+  background: rgba(15, 18, 22, 0.85);
+  color: #cbd5e1;
+}
+
+.about-campaign--ryu .about-campaign__story-closing {
+  border-top-color: rgba(148, 163, 184, 0.22);
+}
+
+.about-campaign--ryu .about-campaign__story-closing-line {
+  color: #cbd5e1;
+  text-shadow: 0 0 14px rgba(203, 213, 225, 0.25);
+}
+
+.about-campaign--ryu .campaign-video-card__frame {
+  border-color: rgba(148, 163, 184, 0.26);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 24px rgba(203, 213, 225, 0.06);
+}
+
+.about-campaign--ryu .campaign-video-card:hover .campaign-video-card__frame {
+  border-color: rgba(203, 213, 225, 0.6);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 32px rgba(203, 213, 225, 0.18);
+}
+
+.about-campaign--ryu .campaign-reticle {
+  border-color: rgba(203, 213, 225, 0.75);
+}
+
+.about-campaign--ryu .campaign-video-card__badge {
+  color: #cbd5e1;
+  background: rgba(148, 163, 184, 0.12);
+  border-color: rgba(148, 163, 184, 0.32);
+}
+
+.about-campaign--ryu .campaign-video-placeholder__icon {
+  color: #cbd5e1;
+  border-color: rgba(148, 163, 184, 0.4);
+  background: rgba(148, 163, 184, 0.12);
+  box-shadow: 0 0 20px rgba(203, 213, 225, 0.2);
+}
+
+.about-campaign--ryu .campaign-video-placeholder__badge {
+  color: #cbd5e1;
+}
+
+.about-campaign--ryu .campaign-video-placeholder__note code {
+  color: #cbd5e1;
+}
+
+.about-campaign--ryu .about-campaign__gallery-block {
+  border-top-color: rgba(148, 163, 184, 0.2);
+}
+
+.about-campaign--ryu .about-campaign__gallery-heading {
+  color: #cbd5e1;
+}
+
+.about-campaign--ryu .campaign-still-card__code {
+  color: #cbd5e1;
+}
+
+.about-campaign--ryu .campaign-still-card__frame {
+  border-color: rgba(148, 163, 184, 0.26);
+}
+
+.about-campaign--ryu .campaign-still-card:hover .campaign-still-card__frame {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(203, 213, 225, 0.22);
+}
+
+.about-campaign--ryu .campaign-still-card__trigger:focus-visible .campaign-still-card__frame {
+  outline-color: #cbd5e1;
+}
+
+.about-campaign--ryu .campaign-still-placeholder__code {
+  color: #cbd5e1;
+}
+
+.about-campaign--ryu .campaign-still-placeholder__lens {
+  border-color: rgba(148, 163, 184, 0.45);
+}
+
+.about-campaign--ryu .campaign-still-placeholder__crosshair {
+  background: #cbd5e1;
+}
+
+/* 3. JAGRIT PENDANT — RED / EMBER ACCENT (#eb5757 / #ff6b6b) */
+.about-campaign--jagrit .about-section__number {
+  color: #eb5757;
+  text-shadow: 0 0 12px rgba(235, 87, 87, 0.45);
+}
+
+.about-campaign--jagrit .about-section__rule {
+  background: linear-gradient(90deg, rgba(235, 87, 87, 0.6) 0%, rgba(235, 87, 87, 0.28) 40%, rgba(235, 87, 87, 0.06) 80%, transparent 100%);
+  box-shadow: 0 0 8px rgba(235, 87, 87, 0.2);
+}
+
+.about-jagrit__eyebrow {
+  color: #eb5757;
+  text-shadow: 0 0 12px rgba(235, 87, 87, 0.35);
+}
+
+.about-jagrit__tagline-badge {
+  border-color: rgba(235, 87, 87, 0.35);
+  background: rgba(18, 10, 10, 0.82);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(235, 87, 87, 0.12);
+}
+
+.about-jagrit__tagline-devanagari {
+  color: #ff6b6b;
+  text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+}
+
+.about-jagrit__tagline-divider {
+  color: rgba(235, 87, 87, 0.5);
+}
+
+.about-campaign__media-stage--jagrit {
+  border-color: rgba(235, 87, 87, 0.25);
+  background: radial-gradient(circle at 50% 50%, rgba(32, 14, 14, 0.48) 0%, rgba(5, 6, 7, 0.96) 100%);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75), 0 0 24px rgba(235, 87, 87, 0.08);
+}
+
+.about-campaign__media-stage--jagrit .campaign-video-card__frame {
+  border-color: rgba(235, 87, 87, 0.35);
+}
+
+.about-campaign--jagrit .campaign-video-card:hover .campaign-video-card__frame {
+  border-color: rgba(235, 87, 87, 0.65);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 32px rgba(235, 87, 87, 0.2);
+}
+
+.about-campaign--jagrit .campaign-reticle {
+  border-color: rgba(235, 87, 87, 0.75);
+}
+
+.about-campaign--jagrit .campaign-video-card__badge {
+  color: #ff6b6b;
+  background: rgba(235, 87, 87, 0.12);
+  border-color: rgba(235, 87, 87, 0.35);
+}
+
+.about-campaign--jagrit .campaign-video-placeholder__icon {
+  color: #eb5757;
+  border-color: rgba(235, 87, 87, 0.4);
+  background: rgba(235, 87, 87, 0.12);
+  box-shadow: 0 0 20px rgba(235, 87, 87, 0.25);
+}
+
+.about-campaign--jagrit .campaign-video-placeholder__badge {
+  color: #eb5757;
+}
+
+.about-campaign--jagrit .campaign-video-placeholder__note code {
+  color: #ff6b6b;
+}
+
+.about-jagrit__section-tag {
+  color: #eb5757;
+  text-shadow: 0 0 10px rgba(235, 87, 87, 0.35);
+}
+
+.about-jagrit__bullet {
+  color: #eb5757;
+}
+
+.about-jagrit__pillars-block {
+  border-top-color: rgba(235, 87, 87, 0.2);
+}
+
+.about-jagrit__pillar-card {
+  border-color: rgba(235, 87, 87, 0.2);
+  border-top-color: #eb5757;
+  background: rgba(14, 10, 10, 0.75);
+}
+
+.about-jagrit__pillar-card:hover {
+  border-color: #eb5757;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(235, 87, 87, 0.22);
+}
+
+.about-jagrit__pillar-num {
+  color: #eb5757;
+}
+
+.about-jagrit__gallery-block {
+  border-top-color: rgba(235, 87, 87, 0.2);
+}
+
+.about-campaign--jagrit .about-campaign__gallery-heading {
+  color: #eb5757;
+}
+
+.about-campaign--jagrit .campaign-still-card__code {
+  color: #eb5757;
+}
+
+.about-campaign--jagrit .campaign-still-card__frame {
+  border-color: rgba(235, 87, 87, 0.25);
+}
+
+.about-campaign--jagrit .campaign-still-card:hover .campaign-still-card__frame {
+  border-color: #eb5757;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(235, 87, 87, 0.25);
+}
+
+.about-campaign--jagrit .campaign-still-card__trigger:focus-visible .campaign-still-card__frame {
+  outline-color: #eb5757;
+}
+
+.about-campaign--jagrit .campaign-still-placeholder__code {
+  color: #eb5757;
+}
+
+.about-campaign--jagrit .campaign-still-placeholder__lens {
+  border-color: rgba(235, 87, 87, 0.45);
+}
+
+.about-campaign--jagrit .campaign-still-placeholder__crosshair {
+  background: #eb5757;
+}
+
+.about-jagrit__closing-line {
+  color: #ff6b6b;
+  text-shadow: 0 0 16px rgba(235, 87, 87, 0.35);
+}
+
+/* 4. MYTHOS UNVEILED — BRONZE / ANTIQUE BROWN ACCENT (#c87a3e) */
+.about-teaser--mythos .about-section__number {
+  color: #c87a3e;
+  text-shadow: 0 0 12px rgba(200, 122, 62, 0.45);
+}
+
+.about-teaser--mythos .about-section__rule {
+  background: linear-gradient(90deg, rgba(200, 122, 62, 0.6) 0%, rgba(200, 122, 62, 0.28) 40%, rgba(200, 122, 62, 0.06) 80%, transparent 100%);
+  box-shadow: 0 0 8px rgba(200, 122, 62, 0.2);
+}
+
+.about-teaser--mythos .about-teaser__card {
+  border-color: rgba(200, 122, 62, 0.28);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 24px rgba(200, 122, 62, 0.08);
+}
+
+.about-teaser--mythos .about-teaser__visual {
+  border-color: rgba(200, 122, 62, 0.35);
+}
+
+.about-teaser--mythos .about-teaser__emblem-wrap {
+  border-color: rgba(200, 122, 62, 0.55);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 12px rgba(200, 122, 62, 0.18);
+}
+
+.about-teaser--mythos .about-teaser__sub {
+  color: #c87a3e;
+  text-shadow: 0 0 12px rgba(200, 122, 62, 0.35);
+}
+
+.about-teaser--mythos .about-teaser__quote {
+  border-left-color: #c87a3e;
+}
+
+.about-teaser--mythos .about-teaser__highlights li::before {
+  color: #c87a3e;
+}
+
+.about-teaser__cta-btn--mythos {
+  color: #0b0907;
+  background: #c87a3e;
+  border-color: #c87a3e;
+  box-shadow: 0 0 18px rgba(200, 122, 62, 0.35);
+}
+
+.about-teaser__cta-btn--mythos:hover {
+  background: #d88b4f;
+  border-color: #d88b4f;
+  box-shadow: 0 0 28px rgba(200, 122, 62, 0.55);
+}
+
+/* 5. MAJESTIC TAILS STUDIO — GOLD / CHAMPAGNE ACCENT (#e2c275) */
+.about-teaser--majestic .about-section__number {
+  color: #e2c275;
+  text-shadow: 0 0 12px rgba(226, 194, 117, 0.45);
+}
+
+.about-teaser--majestic .about-section__rule {
+  background: linear-gradient(90deg, rgba(226, 194, 117, 0.6) 0%, rgba(226, 194, 117, 0.28) 40%, rgba(226, 194, 117, 0.06) 80%, transparent 100%);
+  box-shadow: 0 0 8px rgba(226, 194, 117, 0.2);
+}
+
+.about-teaser--majestic .about-teaser__card {
+  border-color: rgba(226, 194, 117, 0.28);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 24px rgba(226, 194, 117, 0.08);
+}
+
+.about-teaser--majestic .about-teaser__visual {
+  border-color: rgba(226, 194, 117, 0.35);
+}
+
+.about-teaser--majestic .about-teaser__emblem-wrap {
+  border-color: rgba(226, 194, 117, 0.55);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 12px rgba(226, 194, 117, 0.18);
+}
+
+.about-teaser--majestic .about-teaser__sub {
+  color: #e2c275;
+  text-shadow: 0 0 12px rgba(226, 194, 117, 0.35);
+}
+
+.about-teaser--majestic .about-teaser__quote {
+  border-left-color: #e2c275;
+}
+
+.about-teaser--majestic .about-teaser__highlights li::before {
+  color: #e2c275;
+}
+
+.about-teaser__cta-btn--majestic {
+  color: #0c0b08;
+  background: #e2c275;
+  border-color: #e2c275;
+  box-shadow: 0 0 18px rgba(226, 194, 117, 0.35);
+}
+
+.about-teaser__cta-btn--majestic:hover {
+  background: #edd28e;
+  border-color: #edd28e;
+  box-shadow: 0 0 28px rgba(226, 194, 117, 0.55);
 }
 
 /* ==========================================================================
@@ -1891,7 +2278,7 @@
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: #e5c16a;
+  color: #39ff72;
   text-transform: uppercase;
   display: block;
   margin-bottom: 0.5rem;
@@ -5577,6 +5964,14 @@
   font-size: 0.74rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+@media (max-width: 1080px) {
+  .about-campaign__gallery-grid,
+  .about-campaign__gallery-grid--portrait {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.1rem;
+  }
 }
 
 @media (max-width: 760px) {

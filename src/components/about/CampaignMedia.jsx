@@ -65,13 +65,23 @@ export function CampaignVideo({ src, title, aspect = '16:9', badge, description 
  * Luxury campaign contact sheet still frame with graceful pending state and zero flash of broken icon.
  * Supports interactive enlargement via onSelect callback.
  */
-export function CampaignStill({ src, title, caption, code, index, onSelect, aspect = '16:9' }) {
+export function CampaignStill({
+  src,
+  title,
+  caption,
+  description,
+  code,
+  index,
+  onSelect,
+  aspect = '16:9',
+}) {
   const [status, setStatus] = useState('loading') // 'loading' | 'loaded' | 'error'
   const isInteractive = Boolean(onSelect) && status !== 'error'
+  const displayText = description || (caption && caption !== title ? caption : '')
 
   const handleSelect = (e) => {
     if (isInteractive) {
-      onSelect({ src, title, caption, code, index }, e.currentTarget)
+      onSelect({ src, title, caption: displayText, code, index }, e.currentTarget)
     }
   }
 
@@ -96,7 +106,7 @@ export function CampaignStill({ src, title, caption, code, index, onSelect, aspe
             <img
               className={`campaign-still-card__image ${status === 'loaded' ? 'is-loaded' : 'is-loading'}`}
               src={src}
-              alt={caption || title}
+              alt={displayText || title}
               loading="lazy"
               onLoad={() => setStatus('loaded')}
               onError={() => setStatus('error')}
@@ -118,8 +128,8 @@ export function CampaignStill({ src, title, caption, code, index, onSelect, aspe
       <figcaption className="campaign-still-card__caption">
         <span className="campaign-still-card__code">{code}</span>
         <span className="campaign-still-card__title">{title}</span>
-        {caption && caption !== title && (
-          <span className="campaign-still-card__text">{caption}</span>
+        {displayText && (
+          <p className="campaign-still-card__text">{displayText}</p>
         )}
       </figcaption>
     </figure>
